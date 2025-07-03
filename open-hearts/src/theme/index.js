@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import { Lusitana } from "next/font/google";
 
 const poppins = Poppins({
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
