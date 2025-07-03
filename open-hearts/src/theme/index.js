@@ -24,13 +24,13 @@ const theme = createTheme({
             main: '#FF934F', // orange
             goldenYellow: '#F3B61F' // yellow
         },
-        typography: {
-            fontFamily: poppins.style.fontFamily, //poppins for everything
+    },
+    typography: {
+        fontFamily: poppins.style.fontFamily, //poppins for everything
 
-            h1: {
-                fontFamily: lusitana.style.fontFamily, //lusitana only for h1
-            },
-        }
+        h1: {
+            fontFamily: lusitana.style.fontFamily, //lusitana only for h1
+        },
     }
 })
 

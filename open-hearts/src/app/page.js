@@ -1,10 +1,16 @@
-import Image from "next/image";
+'use client';
+
+import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 export default function Home() {
+  const theme = useTheme();
+
   return (
     <div>
-      <h1>Open Hearts</h1>
-      <p>This is the home page.</p>
+      <Typography variant="h1" gutterBottom sx={{ color: theme.palette.primary.main }}>
+        OPEN HEARTS
+      </Typography>
     </div>
   );
 }
