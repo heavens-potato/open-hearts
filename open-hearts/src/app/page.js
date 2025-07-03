@@ -81,7 +81,7 @@ export default function Home() {
             textAlign: "right",
           }}
         >
-          Tagline tagline tagline tagline
+          Spot the Scam. Save a Heart.
         </Typography>
       </Box>
 
