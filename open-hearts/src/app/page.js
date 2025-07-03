@@ -29,6 +29,7 @@ export default function Home() {
       />
 
       {/* Heart, Title, and Tagline */}
+
       <Box
         component="img"
         src="/assets/Heart.svg"
@@ -36,7 +37,7 @@ export default function Home() {
         sx={{
           position: "absolute",
           top: "37%",
-          left: "10%",
+          left: "15%",
           transform: "translateY(-50%)",
           height: "264px",
           width: "296px",
@@ -46,20 +47,30 @@ export default function Home() {
         }}
       />
 
-      <Box sx={{ zIndex: 1, textAlign: "right", width: "989px" }}>
-        <Typography
-          variant="h1"
+      <Box sx={{ zIndex: 1, textAlign: "right", width: "989px", top: "20%" }}>
+        <Box
           sx={{
-            backgroundImage: `linear-gradient(to right, ${theme.palette.primary.crimsonRed}, #E75F09)`, // orange - NOT IN THEME??
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            display: "inline-block",
-            fontSize: "114px",
-            textAlign: "right",
+            display: "inline-block", 
+            backgroundColor: 'white', 
+            padding: '1px 1px',
           }}
         >
-          OPEN HEARTS
-        </Typography>
+          <Typography
+            variant="h1"
+            sx={{
+              backgroundImage: `linear-gradient(to right, ${theme.palette.primary.crimsonRed}, ${theme.palette.secondary.main})`,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              display: "inline-block",
+              fontSize: "114px",
+              textAlign: "right",
+              backgroundColor: 'white',
+              padding: '4px 8px',
+            }}
+          >
+            OPEN HEARTS
+          </Typography>
+        </Box>
 
         <Typography
           sx={{
@@ -88,7 +99,7 @@ export default function Home() {
         <Button
           fullWidth
           sx={{
-            backgroundColor: "#8E2851", // mauve pink - NOT IN THEME??
+            backgroundColor: `${theme.palette.primary.mauvePink}`,
             color: "white",
             fontFamily: theme.typography.fontFamily,
             fontWeight: 700,
@@ -98,7 +109,7 @@ export default function Home() {
             borderRadius: "77px",
             textTransform: "none",
             "&:hover": {
-              backgroundColor: darken("#8E2851", 0.3), // mauve pink - NOT IN THEME??
+              backgroundColor: darken(`${theme.palette.primary.mauvePink}`, 0.3), // mauve pink 
             },
           }}
         >
