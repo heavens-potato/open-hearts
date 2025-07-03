@@ -1,12 +1,12 @@
-import './globals.css';
-import ThemeRegistry from '../components/ThemeRegistry';
+import "./globals.css";
+import ThemeRegistry from "../components/ThemeRegistry";
 
-import { Poppins } from 'next/font/google';
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
-    weight: ['300', '400', '500', '700'],
-    subsets: ['latin'],
-    display: 'swap',
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -18,9 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <ThemeRegistry options={{ key: 'mui' }}>
-          {children}
-        </ThemeRegistry>
+        <ThemeRegistry options={{ key: "mui" }}>{children}</ThemeRegistry>
       </body>
     </html>
   );
