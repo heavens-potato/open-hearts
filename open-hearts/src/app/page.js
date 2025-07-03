@@ -16,7 +16,7 @@ export default function Home() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        gap: 5,
+        gap: 11,
       }}
     >
       {/* Top Line */}
@@ -28,16 +28,25 @@ export default function Home() {
         }}
       />
 
-      {/* Title and Tagline */}
+      {/* Heart, Title, and Tagline */}
       <Box
+        component="img"
+        src="/assets/Heart.svg"
+        alt="Heart"
         sx={{
-          width: "989px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-end",
-          gap: 1,
+          position: "absolute",
+          top: "37%",
+          left: "10%",
+          transform: "translateY(-50%)",
+          height: "264px",
+          width: "296px",
+          objectFit: "contain",
+          zIndex: 0,
+          pointerEvents: "none",
         }}
-      >
+      />
+
+      <Box sx={{ zIndex: 1, textAlign: "right", width: "989px" }}>
         <Typography
           variant="h1"
           sx={{
