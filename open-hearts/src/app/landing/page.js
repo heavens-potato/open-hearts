@@ -3,8 +3,8 @@
 import { useTheme } from '@mui/material/styles';
 import { Typography, Divider } from '@mui/material';
 import Image from 'next/image';
-import Logo from "../../components/images/logo.png";
-import landingGraphic from "../../components/images/landing-graphic.png"
+import Logo from "../../components/images/logo.svg";
+import landingGraphic from "../../components/images/landing-graphic.svg"
 import ScrollableCards from "../../components/scrollableCards.js";
 import { motion } from "framer-motion";
 export default function landing() {
@@ -22,7 +22,7 @@ export default function landing() {
             </motion.div>
 
             <Image src={landingGraphic} alt="landing page graphic" className="w-full block pb-0 mb-0" />
-            <section className="relative z-10 flex-grow w-full flex flex-col items-center px-8 text-center bg-linear-to-b from-[#CA2C53] to-[#FCB24D] -mt-px">
+            <section className="relative z-10 flex-grow w-full flex flex-col items-center px-8 text-center bg-linear-to-b from-[#C51D54] to-[#FCB24D] -mt-px">
                 <div className="flex flex-col gap-8 md:gap-16 justify-center items-center z-5 w-[90%] md:w-[70%]" >
                     <div className="flex flex-col gap-4 md:gap-8">
                         <motion.div

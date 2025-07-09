@@ -3,8 +3,8 @@
 import { useTheme, darken } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import landingImage from "../components/images/landing-image.png";
-import logoResponsive from "../components/images/logo-responsive.png";
+import landingImage from "../components/images/landing-image.svg";
+import logoResponsive from "../components/images/logo-responsive.svg";
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from "framer-motion";
