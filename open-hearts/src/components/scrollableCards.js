@@ -1,10 +1,39 @@
 "use client";
 
-import React from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, Typography, Box } from '@mui/material';
 import Link from 'next/link';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useTheme, darken } from "@mui/material/styles";
 
 export default function scrollableCards() {
+    const theme = useTheme();
+
+    const scrollContainerRef = useRef(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(false);
+
+    const updateScrollState = useCallback(() => {
+        const container = scrollContainerRef.current;
+        if (container) {
+            setCanScrollLeft(container.scrollLeft > 0);
+            setCanScrollRight(container.scrollLeft < (container.scrollWidth - container.clientWidth - 1));
+        }
+    }, []);
+
+    const handleArrowClick = useCallback((direction) => {
+        const container = scrollContainerRef.current;
+        if (container) {
+            const scrollAmount = container.clientWidth * 0.8;
+
+            container.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth',
+            });
+        }
+    }, []);
+
     const cardsData = [
         {
             title: "Learn",
@@ -19,7 +48,7 @@ export default function scrollableCards() {
         {
             title: "Play",
             description: "Test your skills!",
-            link: "/play",
+            link: "/minigame",
         },
         {
             title: "Resources",
@@ -29,43 +58,98 @@ export default function scrollableCards() {
     ]
 
     return (
-        <section className="w-full h-full">
-            <div className="flex overflow-x-auto snap-x snap-mandatory py-4 gap-6 md:gap-8 lg:gap-10 justify-start md:justify-center items-stretch pb-6 scrollbar-hide">
+        <section className="relative w-full h-full flex flex-row px-6 md:px-8">
+            <ChevronLeftIcon
+                sx={{
+                    position: 'absolute',
+                    left: '0',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    fontSize: '4rem',
+                    color: '#44001A',
+                    backgroundColor: 'white',
+                    borderRadius: '50%',
+                    zIndex: '5',
+                    cursor: 'pointer'
+                }}
+                onClick={() => handleArrowClick('left')}
+                disabled={!canScrollLeft}
+            />
+            <div ref={scrollContainerRef}
+                className="flex overflow-x-scroll snap-x snap-mandatory py-4 gap-6 md:gap-8 lg:gap-10 
+                pb-6 items-stretch"
+            >
                 {cardsData.map((card, index) => (
                     <div key={card.title} className="flex-shrink-0 snap-center w-[80%] md:w-80">
                         <Link href={card.link} passHref >
                             <Card
-                                component="a" // Render Card as an <a> tag
                                 sx={{
+                                    backgroundColor: theme.palette.primary.main,
+                                    color: 'white',
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    justifyContent: 'space-between', // Push content to top/bottom, if needed
-                                    height: '100%', // Make card fill its flex-shrink-0 wrapper height
+                                    justifyContent: 'space-between',
+                                    height: '100%',
                                     cursor: 'pointer',
-                                    p: 2, // Internal padding for card content
-                                    boxShadow: 3, // MUI shadow
-                                    borderRadius: '12px', // Rounded corners
+                                    boxShadow: 3,
+                                    borderRadius: '12px',
                                     '&:hover': {
-                                        boxShadow: 6, // Hover effect
-                                        transform: 'translateY(-4px)', // Slight lift effect
+                                        boxShadow: 6,
+                                        transform: 'translateY(-4px)',
                                         transition: 'transform 0.2s ease-in-out',
                                     },
+                                    height: '25rem',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
                                 }}
                             >
-                                <CardContent sx={{ flexGrow: 1, p: 2 }}> {/* flexGrow for content to push bottom elements */}
-                                    <Typography variant="h6" component="div" align="center" sx={{ fontWeight: 'bold', mb: 1 }}>
+                                <CardContent sx={{
+                                    flexGrow: 1,
+                                    p: 2,
+                                    height: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+
+                                }}>
+                                    <Typography variant="h4" component="div" align="center" sx={{
+                                        fontWeight: 'bold',
+                                        mb: 1,
+                                        backgroundColor: theme.palette.primary.main,
+                                        color: 'white',
+                                    }}>
                                         {card.title}
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary" align="center">
+                                    <Typography variant="h5" color="text.secondary" align="center" sx={{
+                                        backgroundColor: theme.palette.primary.main,
+                                        color: 'white',
+                                    }}>
                                         {card.description}
                                     </Typography>
                                 </CardContent>
-                                {/* Potentially add CardActions or other elements here */}
                             </Card>
                         </Link>
                     </div>
                 ))}
             </div>
+            <ChevronRightIcon
+                sx={{
+                    position: 'absolute',
+                    right: '0',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    fontSize: '4rem',
+                    color: '#44001A',
+                    backgroundColor: 'white',
+                    borderRadius: '50%',
+                    zIndex: '5',
+                    cursor: 'pointer'
+                }}
+                onClick={() => handleArrowClick('right')}
+                disabled={!canScrollRight}
+            />
         </section>
     )
 }
