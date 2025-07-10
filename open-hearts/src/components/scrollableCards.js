@@ -82,7 +82,7 @@ export default function scrollableCards() {
             />
             <div ref={scrollContainerRef}
                 className="flex overflow-x-scroll snap-x snap-mandatory py-4 gap-6 md:gap-8 lg:gap-10 
-                pb-6 items-stretch"
+                pb-6 items-stretch scrollbar-hidden"
             >
                 {cardsData.map((card, index) => (
                     <div key={card.title} className="flex-shrink-0 snap-center w-[80%] md:w-80">
