@@ -1,6 +1,12 @@
+"use client";
+
+import Header from "../../components/header.js"
+
 export default function minigame() {
-    
+
     return (
-        <h1>Hello!</h1>
+        <div>
+            <Header />
+        </div>
     )
 }
