@@ -57,8 +57,8 @@ export default function landing() {
                                         xs: theme.typography.h6.fontSize,
                                         sm: theme.typography.h6.fontSize,
                                         md: theme.typography.h6.fontSize,
-                                        lg: theme.typography.h4.fontSize,
-                                        xl: theme.typography.h4.fontSize
+                                        lg: theme.typography.h5.fontSize,
+                                        xl: theme.typography.h5.fontSize
                                     },
                                     color: 'white',
                                 }}
@@ -92,22 +92,29 @@ export default function landing() {
                         <Typography
                             sx={{
                                 fontSize: {
-                                        xs: theme.typography.h4.fontSize,
-                                        sm: theme.typography.h4.fontSize,
-                                        md: theme.typography.h4.fontSize,
-                                        lg: theme.typography.h3.fontSize,
-                                        xl: theme.typography.h3.fontSize
-                                    },
+                                    xs: theme.typography.h4.fontSize,
+                                    sm: theme.typography.h4.fontSize,
+                                    md: theme.typography.h4.fontSize,
+                                    lg: theme.typography.h3.fontSize,
+                                    xl: theme.typography.h3.fontSize
+                                },
                                 color: 'white',
                                 fontWeight: 'bold',
                             }}
                         >
                             EXPLORE
                         </Typography>
-                        
+
                     </motion.div>
 
-                    <ScrollableCards />
+                    <motion.div
+                        className="w-full"
+                         initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.9 }}
+                    >
+                        <ScrollableCards />
+                    </motion.div>
                 </div>
             </section>
         </div>
