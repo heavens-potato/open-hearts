@@ -18,7 +18,7 @@ export default function landing() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 2.0, ease: 'easeInOut', type: 'spring', damping: 10 }}
             >
-                <Image src={Logo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="w-[90%] md:w-[55%]" />
+                <Image src={Logo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="w-[90%] md:w-[45%]" />
             </motion.div>
 
             <Image src={landingGraphic} alt="landing page graphic" className="w-full block pb-0 mb-0" />

@@ -115,7 +115,7 @@ export default function header() {
                     <Link href="/landing" className="w-full">
                         <Image src={Logo}
                             alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart."
-                            className="h-28 w-auto object-fill" />
+                            className="h-28 w-auto object-fill cursor-pointer" />
                     </Link>
                     <div className="w-full h-full flex flex-row gap-12 justify-end items-center">
                         <Typography
