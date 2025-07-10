@@ -25,7 +25,7 @@ export default function scrollableCards() {
     const handleArrowClick = useCallback((direction) => {
         const container = scrollContainerRef.current;
         if (container) {
-            const scrollAmount = container.clientWidth * 0.8;
+            const scrollAmount = container.clientWidth * 0.5;
 
             container.scrollBy({
                 left: direction === 'left' ? -scrollAmount : scrollAmount,
@@ -55,6 +55,11 @@ export default function scrollableCards() {
             description: "Where to get help.",
             link: "/resources",
         },
+        {
+            title: "About & Sources",
+            description: "Learn about our team and mission.",
+            link: "/about",
+        }
     ]
 
     return (

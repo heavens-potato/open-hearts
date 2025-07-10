@@ -1,10 +1,13 @@
 "use client";
 
+import Header from "../../components/header.js"
+
 export default function learn() {
+    
 
     return (
         <div>
-            <h1>Learn!</h1>
+            <Header />
         </div>
     )
 }
