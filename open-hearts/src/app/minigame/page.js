@@ -8,7 +8,7 @@ export default function minigame() {
     useEffect(() =>{
         const fetchData = async () => {
             try{
-                const response = await fetch("http://localhost:8000/api")
+                const response = await fetch("http://localhost:8080/api")
                 const result = await response.text()
                 console.log(result)
             } catch (error) {
