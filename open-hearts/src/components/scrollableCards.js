@@ -63,7 +63,7 @@ export default function scrollableCards() {
     ]
 
     return (
-        <section className="relative w-full h-full flex flex-row px-6 md:px-8">
+        <section className="relative w-full h-full flex flex-row px-6 md:px-8 scrollbar-hide">
             <ChevronLeftIcon
                 sx={{
                     position: 'absolute',
@@ -82,7 +82,7 @@ export default function scrollableCards() {
             />
             <div ref={scrollContainerRef}
                 className="flex overflow-x-scroll snap-x snap-mandatory py-4 gap-6 md:gap-8 lg:gap-10 
-                pb-6 items-stretch scrollbar-hidden"
+                pb-6 items-stretch scrollbar-hide"
             >
                 {cardsData.map((card, index) => (
                     <div key={card.title} className="flex-shrink-0 snap-center w-[80%] md:w-80">
@@ -117,7 +117,7 @@ export default function scrollableCards() {
                                     justifyContent: 'center',
                                     flexDirection: 'column',
                                     alignItems: 'center',
-
+                                    
                                 }}>
                                     <Typography variant="h4" component="div" align="center" sx={{
                                         fontWeight: 'bold',

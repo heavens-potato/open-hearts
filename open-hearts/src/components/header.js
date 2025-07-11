@@ -30,7 +30,9 @@ export default function header() {
             {isMobile ? (
                 <div className="relative w-full h-screen">
                     <div className="h-24 flex flex-row px-8 items-center justify-between gap-4">
-                        <Image src={Logo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="h-24 w-auto" />
+                        <Link href="/landing" className="w-full">
+                            <Image src={Logo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="h-24 w-auto" />
+                        </Link>
                         <MenuIcon
                             sx={{
                                 fontSize: '1.7rem'
