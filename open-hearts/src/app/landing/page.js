@@ -16,7 +16,7 @@ export default function landing() {
             <motion.div className="w-full h-full flex flex-col items-center"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 2.0, ease: 'easeInOut', type: 'spring', damping: 10 }}
+                transition={{ duration: 2.0, ease: 'easeInOut', type: 'spring', damping: 14 }}
             >
                 <Image src={Logo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="w-[90%] md:w-[45%]" />
             </motion.div>
@@ -28,7 +28,7 @@ export default function landing() {
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ duration: 0.3, delay: 0.5 }}
+                            transition={{ duration: 1.0, delay: 0.5 }}
                         >
                             <Typography
                                 sx={{
@@ -49,7 +49,7 @@ export default function landing() {
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ duration: 0.3, delay: 0.6 }}
+                            transition={{ duration: 1.0, delay: 0.6 }}
                         >
                             <Typography
                                 sx={{
@@ -71,7 +71,7 @@ export default function landing() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3, delay: 0.7 }}
+                        transition={{ duration: 1.0, delay: 0.7 }}
                         className="w-full"
                     >
                         <Divider sx={{
@@ -86,7 +86,7 @@ export default function landing() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3, delay: 0.8 }}
+                        transition={{ duration: 1.0, delay: 0.8 }}
                         className="w-full"
                     >
                         <Typography
@@ -111,7 +111,7 @@ export default function landing() {
                         className="w-full"
                          initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3, delay: 0.9 }}
+                        transition={{ duration: 1.0, delay: 0.9 }}
                     >
                         <ScrollableCards />
                     </motion.div>

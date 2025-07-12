@@ -8,7 +8,7 @@ import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Typography } from '@mui/material';
-import Logo from "../components/images/logo.svg";
+import HeaderLogo from "../components/images/header-logo.svg";
 import { motion } from "framer-motion";
 
 export default function header() {
@@ -30,8 +30,8 @@ export default function header() {
             {isMobile ? (
                 <div className="relative w-full h-screen">
                     <div className="h-24 flex flex-row px-8 items-center justify-between gap-4">
-                        <Link href="/landing" className="w-full">
-                            <Image src={Logo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="h-24 w-auto" />
+                        <Link href="/landing">
+                            <Image src={HeaderLogo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="h-8 w-auto" />
                         </Link>
                         <MenuIcon
                             sx={{
@@ -113,11 +113,11 @@ export default function header() {
                     )}
                 </div>
             ) : (
-                <div className="w-full h-28 flex flex-row px-24">
+                <div className="w-full h-20 flex flex-row px-24 items-center">
                     <Link href="/landing" className="w-full">
-                        <Image src={Logo}
+                        <Image src={HeaderLogo}
                             alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart."
-                            className="h-28 w-auto object-fill cursor-pointer" />
+                            className="h-10 w-auto object-fill cursor-pointer" />
                     </Link>
                     <div className="w-full h-full flex flex-row gap-12 justify-end items-center">
                         <Typography
