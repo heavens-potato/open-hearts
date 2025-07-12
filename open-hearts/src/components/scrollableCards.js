@@ -63,7 +63,7 @@ export default function scrollableCards() {
     ]
 
     return (
-        <section className="relative w-full h-full flex flex-row px-4 md:px-8 scrollbar-hide">
+        <section className="relative w-full h-full flex flex-row px-6 md:px-8 scrollbar-hide">
             <ChevronLeftIcon
                 sx={{
                     position: 'absolute',
