@@ -14,9 +14,9 @@ export default function landing() {
         <div className="w-full min-h-screen flex flex-col items-center gap-0">
 
             <motion.div className="w-full h-full flex flex-col items-center"
-                initial={{ opacity: 0, y: 100 }}
+                initial={{ opacity: 0, y: 200 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 2.0, ease: 'easeInOut', type: 'spring', damping: 14 }}
+                transition={{ duration: 2.0, ease: 'easeInOut', type: 'spring', damping: 20 }}
             >
                 <Image src={Logo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="w-[90%] md:w-[45%]" />
             </motion.div>
