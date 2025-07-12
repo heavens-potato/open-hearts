@@ -42,7 +42,7 @@ export default function header() {
                     </div>
                     {showResponsiveNav && (
                         <motion.div
-                            className="fixed right-0 top-0 h-full w-2/3 md:w-1/2 bg-white drop-shadow-md"
+                            className="fixed right-0 top-0 h-full w-2/3 md:w-1/2 bg-white drop-shadow-xl"
                             initial={{ x: 100 }}
                             animate={{ x: 0 }}
                             transition={{ duration: 0.3, ease: "easeOut" }}

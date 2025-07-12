@@ -63,7 +63,7 @@ export default function scrollableCards() {
     ]
 
     return (
-        <section className="relative w-full h-full flex flex-row px-6 md:px-8 scrollbar-hide">
+        <section className="relative w-full h-full flex flex-row px-4 md:px-8 scrollbar-hide">
             <ChevronLeftIcon
                 sx={{
                     position: 'absolute',
@@ -117,19 +117,33 @@ export default function scrollableCards() {
                                     justifyContent: 'center',
                                     flexDirection: 'column',
                                     alignItems: 'center',
-                                    
+
                                 }}>
-                                    <Typography variant="h4" component="div" align="center" sx={{
+                                    <Typography component="div" align="center" sx={{
                                         fontWeight: 'bold',
                                         mb: 1,
                                         backgroundColor: theme.palette.primary.main,
                                         color: 'white',
+                                        fontSize: {
+                                            xs: theme.typography.h5.fontSize,
+                                            sm: theme.typography.h5.fontSize,
+                                            md: theme.typography.h5.fontSize,
+                                            lg: theme.typography.h4.fontSize,
+                                            xl: theme.typography.h4.fontSize,
+                                        },
                                     }}>
                                         {card.title}
                                     </Typography>
                                     <Typography variant="h5" color="text.secondary" align="center" sx={{
                                         backgroundColor: theme.palette.primary.main,
                                         color: 'white',
+                                        fontSize: {
+                                            xs: theme.typography.h6.fontSize,
+                                            sm: theme.typography.h6.fontSize,
+                                            md: theme.typography.h6.fontSize,
+                                            lg: theme.typography.h5.fontSize,
+                                            xl: theme.typography.h5.fontSize,
+                                        },
                                     }}>
                                         {card.description}
                                     </Typography>
