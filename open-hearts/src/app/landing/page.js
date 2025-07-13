@@ -43,7 +43,7 @@ export default function landing() {
                                     fontWeight: 'bold',
                                 }}
                             >
-                                OVERVIEWsssss
+                                OVERVIEW
                             </Typography>
                         </motion.div>
                         <motion.div

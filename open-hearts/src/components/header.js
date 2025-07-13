@@ -28,7 +28,7 @@ export default function header() {
     return (
         <header>
             {isMobile ? (
-                <div className="relative w-full h-screen">
+                <div className="relative w-screen">
                     <div className="h-24 flex flex-row px-8 items-center justify-between gap-4">
                         <Link href="/landing">
                             <Image src={HeaderLogo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="h-8 w-auto" />
@@ -113,7 +113,7 @@ export default function header() {
                     )}
                 </div>
             ) : (
-                <div className="w-full h-20 flex flex-row px-24 items-center">
+                <div className="w-screen h-20 flex flex-row px-24 items-center">
                     <Link href="/landing" className="w-full">
                         <Image src={HeaderLogo}
                             alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart."
