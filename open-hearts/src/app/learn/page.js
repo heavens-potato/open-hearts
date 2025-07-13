@@ -5,6 +5,7 @@ import Header from "../../components/header.js";
 import { Typography } from "@mui/material";
 import Image from "next/image";
 import learnGraphic from "../../components/images/learn-component.svg";
+import handHeartGraphic from "../../components/images/hand-heart.svg";
 
 export default function learn() {
   const theme = useTheme();
@@ -14,8 +15,8 @@ export default function learn() {
       <Header />
 
       {/* Gradient Section */}
-      <section className="w-full flex flex-col text-left bg-linear-to-b from-[#B51745] to-[#D82E5F] pt-24">
-        <div className="pb-9 md:pb-16 flex flex-col items-left gap-6 md:gap-8 w-[90%] md:w-[70%] mx-auto">
+      <section className="w-full flex flex-col text-left px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 bg-linear-to-b from-[#B51745] to-[#D82E5F] pt-13 md:pt-20">
+        <div className="pb-13 md:pb-20 flex flex-col items-left gap-6 md:gap-8 mx-auto">
           <Typography
             sx={{
               fontSize: {
@@ -69,6 +70,51 @@ export default function learn() {
           priority
         />
       </div>
+
+      {/* Why Care Section */}
+      <section className="w-full flex flex-col text-left pt-13 md:pt-23 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32">
+        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-6 pb-9 md:pb-16 md:gap-8 mx-auto">
+          <div>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: theme.typography.h4.fontSize,
+                  sm: theme.typography.h4.fontSize,
+                  md: theme.typography.h4.fontSize,
+                  lg: theme.typography.h3.fontSize,
+                  xl: theme.typography.h3.fontSize,
+                },
+                color: "black",
+                fontWeight: "bold",
+              }}
+            >
+              Why should you care?
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: theme.typography.h6.fontSize,
+                  sm: theme.typography.h6.fontSize,
+                  md: theme.typography.h6.fontSize,
+                  lg: theme.typography.h5.fontSize,
+                  xl: theme.typography.h5.fontSize,
+                },
+                color: "black",
+              }}
+            >
+              Romance fraud isn't just about financial loss. It's a devastating
+              crime with far-reaching impacts on individuals worldwide.
+            </Typography>
+          </div>
+          <div className="flex justify-center md:justify-enditems-center">
+            <Image
+              src={handHeartGraphic}
+              alt="hand heart graphic"
+              className="w-[160px] md:w-[200px] lg:w-[240px] h-auto"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
