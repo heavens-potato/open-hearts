@@ -25,7 +25,7 @@ export default function learn() {
         {
             title: "The Staggering Financial Toll",
             content:
-                <div>
+                <div className="w-full h-full gap-8">
                     <Typography
                         component="div"
                         sx={{
@@ -45,11 +45,11 @@ export default function learn() {
                     <Typography
                         sx={{
                             fontSize: {
-                                xs: theme.typography.h3.fontSize,
+                                xs: theme.typography.h4.fontSize,
                                 sm: theme.typography.h2.fontSize,
                                 md: theme.typography.h1.fontSize,
-                                lg: theme.typography.h1.fontSize,
-                                xl: theme.typography.h1.fontSize,
+                                lg: '8rem',
+                                xl: '10rem',
                             },
                             background: `linear-gradient(90deg, ${theme.palette.primary.crimsonRed}, ${theme.palette.secondary.main})`,
                             WebkitBackgroundClip: 'text',
