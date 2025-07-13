@@ -56,7 +56,7 @@ export default function scrollableCards() {
             link: "/resources",
         },
         {
-            title: "About Open Hearts",
+            title: "About",
             description: "Learn about our team and mission.",
             link: "/about",
         }

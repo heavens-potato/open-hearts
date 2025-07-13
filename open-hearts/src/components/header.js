@@ -106,7 +106,7 @@ export default function header() {
                                     component={Link}
                                     href="/about"
                                 >
-                                    About Open Hearts
+                                    About
                                 </Typography>
                             </div>
                         </motion.div>
@@ -168,7 +168,7 @@ export default function header() {
                             component={Link}
                             href="/about"
                         >
-                            About Open Hearts
+                            About
                         </Typography>
                     </div>
                 </div>
