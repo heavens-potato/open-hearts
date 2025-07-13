@@ -25,9 +25,8 @@ export default function learn() {
         {
             title: "The Staggering Financial Toll",
             content:
-                <div className="w-full h-full gap-8">
+                <div className="w-full h-full gap-12">
                     <Typography
-                        component="div"
                         sx={{
                             fontSize: {
                                 xs: theme.typography.h6.fontSize,
@@ -99,7 +98,7 @@ export default function learn() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0 }}
+                        transition={{ duration: 1.0, delay: 0.1 }}
                     >
                         <Typography
                             sx={{
@@ -121,7 +120,7 @@ export default function learn() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.1 }}
+                        transition={{ duration: 1.0, delay: 0.2 }}
                     >
                         <Typography
                             sx={{
@@ -174,7 +173,7 @@ export default function learn() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.2 }}
+                        transition={{ duration: 1.0, delay: 0.3 }}
                     >
                         <Typography
                             sx={{
@@ -211,7 +210,7 @@ export default function learn() {
                         className="flex justify-center md:justify-enditems-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.3 }}
+                        transition={{ duration: 1.0, delay: 0.4 }}
                     >
                         <Image
                             src={handHeartGraphic}
@@ -227,7 +226,7 @@ export default function learn() {
                 className="w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-12 py-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1.0, delay: 0.4 }}
+                transition={{ duration: 1.0, delay: 0.5 }}
             >
                 {items.map((item, index) => (
                     <div key={index} className="border-b-4 py-4 border-[#7D1538]" style={{ borderTop: index === 0 ? '4px solid #7D1538' : 'none' }} >

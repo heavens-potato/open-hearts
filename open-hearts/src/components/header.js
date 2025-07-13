@@ -28,7 +28,12 @@ export default function header() {
     return (
         <header>
             {isMobile ? (
-                <div className="relative w-screen">
+                <motion.div
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="relative w-screen"
+                >
                     <div className="h-24 flex flex-row px-8 items-center justify-between gap-4">
                         <Link href="/landing">
                             <Image src={HeaderLogo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="h-8 w-auto" />
@@ -45,7 +50,7 @@ export default function header() {
                             className="fixed right-0 top-0 h-full w-2/3 md:w-1/2 bg-white drop-shadow-xl"
                             initial={{ x: 100 }}
                             animate={{ x: 0 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
                         >
                             <div className="w-full flex justify-end p-4">
                                 <CloseIcon
@@ -111,9 +116,14 @@ export default function header() {
                             </div>
                         </motion.div>
                     )}
-                </div>
+                </motion.div>
             ) : (
-                <div className="w-screen h-20 flex flex-row px-24 items-center">
+                <motion.div
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-screen h-20 flex flex-row px-24 items-center"
+                >
                     <Link href="/landing" className="w-full">
                         <Image src={HeaderLogo}
                             alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart."
@@ -171,7 +181,7 @@ export default function header() {
                             About
                         </Typography>
                     </div>
-                </div>
+                </motion.div>
             )}
         </header>
     )
