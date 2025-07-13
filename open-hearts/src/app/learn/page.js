@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useTheme } from "@mui/material/styles";
 import Header from "../../components/header.js";
 import { Typography } from "@mui/material";
@@ -20,18 +20,74 @@ export default function learn() {
     };
 
     // Accordion items data - will change later
-    const items = [
+    
+    const items = useMemo(() => [
         {
-            title: " The Staggering Financial Toll",
+            title: "The Staggering Financial Toll",
             content:
-                "In 2024 alone, global losses to romance fraud amounted to nearly $4,000,000,000",
+                <div>
+                    <Typography
+                        component="div"
+                        sx={{
+                            fontSize: {
+                                xs: theme.typography.h6.fontSize,
+                                sm: theme.typography.h6.fontSize,
+                                md: theme.typography.h6.fontSize,
+                                lg: theme.typography.h5.fontSize,
+                                xl: theme.typography.h5.fontSize,
+                            },
+                            color: "black",
+
+                        }}
+                    >
+                        In 2024 alone, global losses to romance fraud amounted to nearly
+                    </Typography>
+                    <Typography
+                        sx={{
+                            fontSize: {
+                                xs: theme.typography.h3.fontSize,
+                                sm: theme.typography.h2.fontSize,
+                                md: theme.typography.h1.fontSize,
+                                lg: theme.typography.h1.fontSize,
+                                xl: theme.typography.h1.fontSize,
+                            },
+                            background: `linear-gradient(90deg, ${theme.palette.primary.crimsonRed}, ${theme.palette.secondary.main})`,
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text',
+                            color: 'transparent',
+                            display: "flex",
+                            justifyContent: "center",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                        }}
+                    >
+                        $4,000,000,000
+                    </Typography>
+                    <Typography
+                        sx={{
+                            fontSize: {
+                                xs: theme.typography.h6.fontSize,
+                                sm: theme.typography.h6.fontSize,
+                                md: theme.typography.h6.fontSize,
+                                lg: theme.typography.h5.fontSize,
+                                xl: theme.typography.h5.fontSize,
+                            },
+                            color: "black",
+                            display: "flex",
+                            justifyContent: "end",
+                        }}
+                    >
+                        (Nasdaq, 2024)
+                    </Typography>
+                </div>
         },
         {
             title: "Beyond the Statistics: The Emotional Toll",
             content:
                 "While the financial numbers are shocking, the damage extends far beyond money.",
         },
-    ];
+    ]);
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center gap-0">
@@ -209,20 +265,9 @@ export default function learn() {
                                 transition={{ duration: 1.0 }}
                                 className="mt-3 text-black"
                             >
-                                <Typography
-                                    sx={{
-                                        fontSize: {
-                                            xs: theme.typography.h6.fontSize,
-                                            sm: theme.typography.h6.fontSize,
-                                            md: theme.typography.h6.fontSize,
-                                            lg: theme.typography.h5.fontSize,
-                                            xl: theme.typography.h5.fontSize,
-                                        },
-                                        color: "black",
-                                    }}
-                                >
+                                <div>
                                     {item.content}
-                                </Typography>
+                                </div>
                             </motion.div>
                         )}
                     </div>
