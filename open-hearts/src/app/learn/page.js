@@ -140,9 +140,9 @@ export default function learn() {
         </section>
 
         {/* Accordion Section */}
-        <section className="w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-12">
+        <section className="w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-12 py-4">
             {items.map((item, index) => (
-                <div key={index} className="border-b-4 py-4" style={{ borderColor: "#7D1538" }} >
+                <div key={index} className="border-b-4 py-4 border-[#7D1538]" style={{ borderTop: index === 0 ? '4px solid #7D1538' : 'none'}} >
 
                     {/* Rows */}
                     <button
