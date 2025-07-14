@@ -122,7 +122,7 @@ export default function header() {
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="w-screen h-20 flex flex-row px-24 items-center"
+                    className="w-screen h-20 flex flex-row px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 items-center"
                 >
                     <Link href="/landing" className="w-full">
                         <Image src={HeaderLogo}
