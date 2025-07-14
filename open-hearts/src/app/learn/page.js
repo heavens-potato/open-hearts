@@ -7,14 +7,14 @@ import Header from "../../components/header.js";
 import { Typography } from "@mui/material";
 import Image from "next/image";
 import learnGraphic from "../../components/images/learn-component.svg";
-import handHeartGraphic from "../../components/images/hand-heart.svg";
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import America from "../../components/images/america.svg";
 import { motion } from "framer-motion";
 
 export default function learn() {
     const theme = useTheme();
 
-    const [openIndex, setOpenIndex] = useState(0);
+    const [openIndex, setOpenIndex] = useState(null);
 
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -239,10 +239,18 @@ export default function learn() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1.0, delay: 0.4 }}
                     >
-                        <Image
-                            src={handHeartGraphic}
-                            alt="hand heart graphic"
-                            className="w-[160px] md:w-[200px] lg:w-[240px] h-auto"
+                        <VolunteerActivismIcon 
+                            sx={{
+                                width: {
+                                    xs: '160px',
+                                    sm: '160px',
+                                    md: '160px',
+                                    lg: '200px',
+                                    xl: '240px',
+                                },
+                                height: 'auto',
+                                color: theme.palette.primary.main
+                            }}
                         />
                     </motion.div>
                 </div>
