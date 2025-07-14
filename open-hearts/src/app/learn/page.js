@@ -19,7 +19,7 @@ import { useMediaQuery } from '@mui/system';
 export default function learn() {
     const theme = useTheme();
 
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(0);
 
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -119,15 +119,43 @@ export default function learn() {
                         <div className="w-full h-full mt-6 md:mt-12">
                             <Image src={MapCurveTop} alt="curved graphic piece on top of map section" />
                             <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D]">
-                                <Image src={WorldMap} alt="white world map graphic" />
+                                <Typography
+                                    sx={{
+                                        fontSize: {
+                                            sm: theme.typography.h5.fontSize,
+                                            md: theme.typography.h5.fontSize,
+                                            lg: theme.typography.h4.fontSize,
+                                            xl: theme.typography.h4.fontSize,
+                                        },
+                                        color: "white",
+                                        justifyContent: "center",
+                                        textAlign: "center",
+                                        fontWeight: "bold",
+                                        paddingTop: {
+                                            sm: "12px",
+                                            md: "24px",
+                                            lg: "24px",
+                                            xl: "24px",
+                                        },
+                                        paddingBottom: {
+                                            sm: "12px",
+                                            md: "24px",
+                                            lg: "24px",
+                                            xl: "24px",
+                                        }
+                                    }}
+                                >
+                                    Explore the cost worldwide. In 2020 alone:
+                                </Typography>
 
+                                <Image src={WorldMap} alt="white world map graphic" />
                                 <AddCircleIcon
                                     sx={{
                                         fontSize: '3rem',
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '12%',
+                                        top: '24%',
                                         left: '12%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%'
@@ -139,7 +167,7 @@ export default function learn() {
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '15%',
+                                        top: '27%',
                                         left: {
                                             sm: '40%',
                                             md: '42%',
@@ -156,7 +184,7 @@ export default function learn() {
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '37%',
+                                        top: '47%',
                                         left: '80%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%'
@@ -168,7 +196,7 @@ export default function learn() {
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '72%',
+                                        top: '74%',
                                         left: '85%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%'
