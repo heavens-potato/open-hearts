@@ -5,22 +5,23 @@ import { useEffect, useState } from "react";
 
 export default function minigame() {
     const [data, setData] = useState(null);
-    useEffect(() =>{
+    // useEffect(() =>{
         const fetchData = async () => {
             try{
                 const response = await fetch("http://localhost:8080/api/hello")
-                const result = await response.text()
-                console.log(result)
+                const result = await response.text();
+                console.log(result);
             } catch (error) {
-                console.error("Error Fetching data:", error)
+                console.error("Error Fetching data:", error);
             }
-        }
-        fetchData()
-    })
+        };
+        // fetchData()
+    // })
 
     return (
         <div>
             <Header />
+            <button style={{cursor: 'pointer'}} onClick={fetchData}>Test!</button>
         </div>
     )
 }
