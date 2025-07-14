@@ -7,9 +7,14 @@ import Header from "../../components/header.js";
 import { Typography } from "@mui/material";
 import Image from "next/image";
 import learnGraphic from "../../components/images/learn-component.svg";
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import America from "../../components/images/america.svg";
+import WorldMap from "../../components/images/world-map.svg";
+import MapCurveTop from "../../components/images/map-curve-top.svg";
+import MapCurveBottom from "../../components/images/map-curve-bottom.svg";
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { motion } from "framer-motion";
+import { useMediaQuery } from '@mui/system';
 
 export default function learn() {
     const theme = useTheme();
@@ -20,13 +25,13 @@ export default function learn() {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    // Accordion items data - will change later
-    
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
     const items = useMemo(() => [
         {
             title: "The Staggering Financial Toll",
             content:
-                <div className="w-full h-full gap-12 py-12">
+                <div className="w-full h-full gap-6 md:gap-12 py-6 md:py-12">
                     <Typography
                         sx={{
                             fontSize: {
@@ -81,31 +86,100 @@ export default function learn() {
                         (Nasdaq, 2024)
                     </Typography>
                     <div className="w-full h-full flex flex-col md:flex-row pt-12 gap-12 items-center">
-                        <Image src={America} alt="orange graphic of American map" className="w-full md:w-[50%] h-auto object-fit"/>
+                        <Image src={America} alt="orange graphic of American map" className="w-full md:w-[50%] h-auto object-fit" />
                         <Typography
-                        sx={{
-                            fontSize: {
-                                xs: theme.typography.h6.fontSize,
-                                sm: theme.typography.h6.fontSize,
-                                md: theme.typography.h6.fontSize,
-                                lg: theme.typography.h5.fontSize,
-                                xl: theme.typography.h5.fontSize,
-                            },
-                            color: "black",
-                            justifyContent: "center",
-                            width: {
-                                xs: '100%',
-                                sm: '100%',
-                                md: '100%',
-                                lg: '50%',
-                                xl: '50%'
-                            },
-                        }}
-                    >
-                        In the United States, romance fraud cost a total of <span className="font-bold">$1.14 billion</span> in 2023, with over <span className="font-bold">60,000 cases</span> reported to the Federal Trade Commission alone. 
-                        Median losses exceeded $2,000 per person, <span className="font-bold">the highest out of any form of imposter scam</span> (Fair, 2024). Losses nearly doubled between 2022 and 2023 (Knight, 2025).
-                    </Typography>
+                            sx={{
+                                fontSize: {
+                                    xs: theme.typography.h6.fontSize,
+                                    sm: theme.typography.h6.fontSize,
+                                    md: theme.typography.h6.fontSize,
+                                    lg: theme.typography.h5.fontSize,
+                                    xl: theme.typography.h5.fontSize,
+                                },
+                                color: "black",
+                                justifyContent: "center",
+                                width: {
+                                    xs: '100%',
+                                    sm: '100%',
+                                    md: '100%',
+                                    lg: '50%',
+                                    xl: '50%'
+                                },
+                            }}
+                        >
+                            In the United States, romance fraud cost a total of <span className="font-bold">$1.14 billion</span> in 2023, with over <span className="font-bold">60,000 cases</span> reported to the Federal Trade Commission alone.
+                            Median losses exceeded $2,000 per person, <span className="font-bold">the highest out of any form of imposter scam</span> (Fair, 2024). Losses nearly doubled between 2022 and 2023 (Knight, 2025).
+                        </Typography>
                     </div>
+                    {isMobile ? (
+                        <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D] mt-6 md:mt-12">
+                            <h1>Mobile Placeholder TBA</h1>
+                        </div>
+                    ) : (
+                        <div className="w-full h-full mt-6 md:mt-12">
+                            <Image src={MapCurveTop} alt="curved graphic piece on top of map section" />
+                            <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D]">
+                                <Image src={WorldMap} alt="white world map graphic" />
+
+                                <AddCircleIcon
+                                    sx={{
+                                        fontSize: '3rem',
+                                        color: theme.palette.secondary.goldenYellow,
+                                        position: 'absolute',
+                                        cursor: 'pointer',
+                                        top: '12%',
+                                        left: '12%',
+                                        backgroundColor: 'white',
+                                        borderRadius: '50%'
+                                    }}
+                                />
+                                <AddCircleIcon
+                                    sx={{
+                                        fontSize: '3rem',
+                                        color: theme.palette.secondary.goldenYellow,
+                                        position: 'absolute',
+                                        cursor: 'pointer',
+                                        top: '15%',
+                                        left: {
+                                            sm: '40%',
+                                            md: '42%',
+                                            lg: '42%',
+                                            xl: '42%'
+                                        },
+                                        backgroundColor: 'white',
+                                        borderRadius: '50%'
+                                    }}
+                                />
+                                <AddCircleIcon
+                                    sx={{
+                                        fontSize: '3rem',
+                                        color: theme.palette.secondary.goldenYellow,
+                                        position: 'absolute',
+                                        cursor: 'pointer',
+                                        top: '37%',
+                                        left: '80%',
+                                        backgroundColor: 'white',
+                                        borderRadius: '50%'
+                                    }}
+                                />
+                                <AddCircleIcon
+                                    sx={{
+                                        fontSize: '3rem',
+                                        color: theme.palette.secondary.goldenYellow,
+                                        position: 'absolute',
+                                        cursor: 'pointer',
+                                        top: '72%',
+                                        left: '85%',
+                                        backgroundColor: 'white',
+                                        borderRadius: '50%'
+                                    }}
+                                />
+                            </div>
+                            <Image src={MapCurveBottom} alt="curved graphic piece at bottom of map section" />
+                        </div>
+
+
+                    )}
                 </div>
         },
         {
@@ -239,7 +313,7 @@ export default function learn() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1.0, delay: 0.4 }}
                     >
-                        <VolunteerActivismIcon 
+                        <VolunteerActivismIcon
                             sx={{
                                 width: {
                                     xs: '160px',
