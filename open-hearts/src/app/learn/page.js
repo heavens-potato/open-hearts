@@ -163,16 +163,16 @@ export default function learn() {
                         >
                             Romance fraud is a confidence scheme in which a perpetrator deceives
                             someone into{" "}
-                            <span className="font-black underline">
+                            <span className="font-bold underline">
                                 believing they are in a romantic relationship
                             </span>
                             , with the goal of{" "}
-                            <span className="font-black underline">
+                            <span className="font-bold underline">
                                 exploiting them for personal gain
                             </span>{" "}
                             (Cross & Holt, 2023). It's a{" "}
-                            <span className="font-black underline">calculated deception</span>{" "}
-                            that preys on emotions and connection to extract resources such as
+                            <span className="font-bold underline">calculated deception</span>{" "}
+                            that preys on <span className="font-bold underline">emotions and connection</span> to extract resources such as
                             money, credit card information, personal documents, and more.
                         </Typography>
                     </motion.div>
