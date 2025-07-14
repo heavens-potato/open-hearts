@@ -8,12 +8,13 @@ import { Typography } from "@mui/material";
 import Image from "next/image";
 import learnGraphic from "../../components/images/learn-component.svg";
 import handHeartGraphic from "../../components/images/hand-heart.svg";
+import America from "../../components/images/america.svg";
 import { motion } from "framer-motion";
 
 export default function learn() {
     const theme = useTheme();
 
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(0);
 
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -25,7 +26,7 @@ export default function learn() {
         {
             title: "The Staggering Financial Toll",
             content:
-                <div className="w-full h-full gap-12">
+                <div className="w-full h-full gap-12 py-12">
                     <Typography
                         sx={{
                             fontSize: {
@@ -79,6 +80,32 @@ export default function learn() {
                     >
                         (Nasdaq, 2024)
                     </Typography>
+                    <div className="w-full h-full flex flex-col md:flex-row pt-12 gap-12 items-center">
+                        <Image src={America} alt="orange graphic of American map" className="w-full md:w-[50%] h-auto object-fit"/>
+                        <Typography
+                        sx={{
+                            fontSize: {
+                                xs: theme.typography.h6.fontSize,
+                                sm: theme.typography.h6.fontSize,
+                                md: theme.typography.h6.fontSize,
+                                lg: theme.typography.h5.fontSize,
+                                xl: theme.typography.h5.fontSize,
+                            },
+                            color: "black",
+                            justifyContent: "center",
+                            width: {
+                                xs: '100%',
+                                sm: '100%',
+                                md: '100%',
+                                lg: '50%',
+                                xl: '50%'
+                            },
+                        }}
+                    >
+                        In the United States, romance fraud cost a total of <span className="font-bold">$1.14 billion</span> in 2023, with over <span className="font-bold">60,000 cases</span> reported to the Federal Trade Commission alone. 
+                        Median losses exceeded $2,000 per person, <span className="font-bold">the highest out of any form of imposter scam</span> (Fair, 2024). Losses nearly doubled between 2022 and 2023 (Knight, 2025).
+                    </Typography>
+                    </div>
                 </div>
         },
         {
