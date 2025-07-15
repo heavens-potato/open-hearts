@@ -15,6 +15,16 @@ export default function minigame() {
                 console.error("Error Fetching data:", error);
             }
         };
+
+        const testSend = async () => {
+            try{
+                const response = await fetch("http://localhost:8080/api/hello")
+                const result = await response.text();
+                console.log(result);
+            } catch (error) {
+                console.error("Error Fetching data:", error);
+            }
+        };
         // fetchData()
     // })
 
