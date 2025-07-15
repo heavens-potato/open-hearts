@@ -112,14 +112,14 @@ export default function learn() {
                             }}
                         >
                             In the United States, romance fraud cost a total of <span className="font-bold">$1.14 billion</span> in 2023, with over <span className="font-bold">60,000 cases</span> reported to the Federal Trade Commission alone.
-                            Median losses exceeded $2,000 per person, <span className="font-bold">the highest out of any form of imposter scam</span> (Fair, 2024). Losses nearly doubled between 2022 and 2023 (Knight, 2025).
+                            Median losses exceeded <span className="font-bold">$2,000</span> per person, <span className="font-bold">the highest out of any form of imposter scam</span> (Fair, 2024). Losses nearly doubled between 2022 and 2023 (Knight, 2025).
                         </Typography>
                     </div>
                     {isMobile ? (
-                        <div className="w-full h-full flex flex-col gap-6">
-                            <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D] mt-6 md:mt-12">
+                        <div className="w-full h-full flex flex-col gap-8">
+                            <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D] mt-8">
                                 <Image src={MapCurveTop} alt="curved graphic piece on top of map section" />
-                                <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D]">
+                                <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D] gap-8">
                                     <Typography
                                         sx={{
                                             fontSize: theme.typography.h6.fontSize,
@@ -186,7 +186,7 @@ export default function learn() {
                                 </div>
                                 <Image src={MapCurveBottom} alt="curved graphic piece at bottom of map section" />
                             </div>
-                            <div className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-8">
                                 <div className="flex flex-row gap-4 items-center">
                                     <LooksOneIcon
                                         sx={{
@@ -201,7 +201,7 @@ export default function learn() {
                                             color: "black",
                                         }}
                                     >
-                                        C$18.5 million was lost in Canada (Fraud Centre CAFC, 2021)
+                                        <span className="font-bold">C$18.5 million</span> was lost in Canada (Fraud Centre CAFC, 2021)
                                     </Typography>
                                 </div>
                                 <div className="flex flex-row gap-4 items-center">
@@ -218,7 +218,7 @@ export default function learn() {
                                             color: "black",
                                         }}
                                     >
-                                        £68 million was lost in the United Kingdom (Wakefield, 2021)
+                                        <span className="font-bold">£68 million</span> was lost in the United Kingdom (Wakefield, 2021)
                                     </Typography>
                                 </div>
                                 <div className="flex flex-row gap-4 items-center">
@@ -235,7 +235,7 @@ export default function learn() {
                                             color: "black",
                                         }}
                                     >
-                                        HKD$160.8 million was lost in Hong Kong (Lee, 2020)
+                                        <span className="font-bold">HKD$160.8 million</span> was lost in Hong Kong (Lee, 2020)
                                     </Typography>
                                 </div>
                                 <div className="flex flex-row gap-4 items-center">
@@ -252,16 +252,16 @@ export default function learn() {
                                             color: "black",
                                         }}
                                     >
-                                        AUD$131 million was lost in Australia (Australian Competition and Consumer Commission ACCC, 2021)
+                                        <span className="font-bold">AUD$131 million</span> was lost in Australia (Australian Competition and Consumer Commission ACCC, 2021)
                                     </Typography>
                                 </div>
                             </div>
                         </div>
 
                     ) : (
-                        <div className="w-full h-full mt-6 md:mt-12">
+                        <div className="w-full h-full mt-8 md:mt-18">
                             <Image src={MapCurveTop} alt="curved graphic piece on top of map section" />
-                            <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D]">
+                            <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D] gap-18 py-8 md:py-18" >
                                 <Typography
                                     sx={{
                                         fontSize: {
@@ -291,14 +291,14 @@ export default function learn() {
                                     Explore the cost worldwide. In 2020 alone:
                                 </Typography>
 
-                                <Image src={WorldMap} alt="white world map graphic" />
+                                <Image src={WorldMap} alt="white world map graphic" className="mt-16"/>
                                 <AddCircleIcon
                                     sx={{
                                         fontSize: '3rem',
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '24%',
+                                        top: '35%',
                                         left: '12%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%'
@@ -310,7 +310,7 @@ export default function learn() {
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '27%',
+                                        top: '35%',
                                         left: {
                                             sm: '40%',
                                             md: '42%',
@@ -327,7 +327,7 @@ export default function learn() {
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '47%',
+                                        top: '52%',
                                         left: '80%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%'
@@ -339,7 +339,7 @@ export default function learn() {
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '74%',
+                                        top: '73%',
                                         left: '85%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%'
