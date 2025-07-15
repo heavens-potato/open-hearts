@@ -13,13 +13,17 @@ import MapCurveTop from "../../components/images/map-curve-top.svg";
 import MapCurveBottom from "../../components/images/map-curve-bottom.svg";
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import LooksOneIcon from '@mui/icons-material/LooksOne';
+import LooksTwoIcon from '@mui/icons-material/LooksTwo';
+import Looks3Icon from '@mui/icons-material/Looks3';
+import Looks4Icon from '@mui/icons-material/Looks4';
 import { motion } from "framer-motion";
 import { useMediaQuery } from '@mui/system';
 
 export default function learn() {
     const theme = useTheme();
 
-    const [openIndex, setOpenIndex] = useState(0);
+    const [openIndex, setOpenIndex] = useState(null);
 
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -112,9 +116,148 @@ export default function learn() {
                         </Typography>
                     </div>
                     {isMobile ? (
-                        <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D] mt-6 md:mt-12">
-                            <h1>Mobile Placeholder TBA</h1>
+                        <div className="w-full h-full flex flex-col gap-6">
+                            <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D] mt-6 md:mt-12">
+                                <Image src={MapCurveTop} alt="curved graphic piece on top of map section" />
+                                <div className="relative w-full h-full bg-linear-to-b from-[#AD3F6B] to-[#A11B5D]">
+                                    <Typography
+                                        sx={{
+                                            fontSize: theme.typography.h6.fontSize,
+                                            color: "white",
+                                            justifyContent: "center",
+                                            textAlign: "center",
+                                            fontWeight: "bold",
+                                            paddingTop: "12px",
+                                            paddingBottom: "12px"
+                                        }}
+                                    >
+                                        Explore the cost worldwide. In 2020 alone:
+                                    </Typography>
+
+                                    <Image src={WorldMap} alt="white world map graphic" />
+                                    <LooksOneIcon
+                                        sx={{
+                                            fontSize: '2rem',
+                                            color: theme.palette.secondary.goldenYellow,
+                                            position: 'absolute',
+                                            cursor: 'pointer',
+                                            top: '35%',
+                                            left: '10%',
+                                            backgroundColor: 'white',
+                                            borderRadius: '8px'
+                                        }}
+                                    />
+                                    <LooksTwoIcon
+                                        sx={{
+                                            fontSize: '2rem',
+                                            color: theme.palette.secondary.goldenYellow,
+                                            position: 'absolute',
+                                            cursor: 'pointer',
+                                            top: '35%',
+                                            left: '40%',
+                                            backgroundColor: 'white',
+                                            borderRadius: '8px'
+                                        }}
+                                    />
+                                    <Looks3Icon
+                                        sx={{
+                                            fontSize: '2rem',
+                                            color: theme.palette.secondary.goldenYellow,
+                                            position: 'absolute',
+                                            cursor: 'pointer',
+                                            top: '53%',
+                                            left: '77%',
+                                            backgroundColor: 'white',
+                                            borderRadius: '8px'
+                                        }}
+                                    />
+                                    <Looks4Icon
+                                        sx={{
+                                            fontSize: '2rem',
+                                            color: theme.palette.secondary.goldenYellow,
+                                            position: 'absolute',
+                                            cursor: 'pointer',
+                                            top: '77%',
+                                            left: '83%',
+                                            backgroundColor: 'white',
+                                            borderRadius: '8px'
+                                        }}
+                                    />
+                                </div>
+                                <Image src={MapCurveBottom} alt="curved graphic piece at bottom of map section" />
+                            </div>
+                            <div className="flex flex-col gap-6">
+                                <div className="flex flex-row gap-4 items-center">
+                                    <LooksOneIcon
+                                        sx={{
+                                            fontSize: '2.5rem',
+                                            color: theme.palette.secondary.goldenYellow,
+                                            cursor: 'pointer',
+                                        }}
+                                    />
+                                     <Typography
+                                        sx={{
+                                            fontSize: theme.typography.h6.fontSize,
+                                            color: "black",
+                                        }}
+                                    >
+                                        C$18.5 million was lost in Canada (Fraud Centre CAFC, 2021)
+                                    </Typography>
+                                </div>
+                                <div className="flex flex-row gap-4 items-center">
+                                    <LooksTwoIcon
+                                        sx={{
+                                            fontSize: '2.5rem',
+                                            color: theme.palette.secondary.goldenYellow,
+                                            cursor: 'pointer',
+                                        }}
+                                    />
+                                     <Typography
+                                        sx={{
+                                            fontSize: theme.typography.h6.fontSize,
+                                            color: "black",
+                                        }}
+                                    >
+                                        £68 million was lost in the United Kingdom (Wakefield, 2021)
+                                    </Typography>
+                                </div>
+                                <div className="flex flex-row gap-4 items-center">
+                                    <Looks3Icon
+                                        sx={{
+                                            fontSize: '2.5rem',
+                                            color: theme.palette.secondary.goldenYellow,
+                                            cursor: 'pointer',
+                                        }}
+                                    />
+                                     <Typography
+                                        sx={{
+                                            fontSize: theme.typography.h6.fontSize,
+                                            color: "black",
+                                        }}
+                                    >
+                                        HKD$160.8 million was lost in Hong Kong (Lee, 2020)
+                                    </Typography>
+                                </div>
+                                <div className="flex flex-row gap-4 items-center">
+                                    <Looks4Icon
+                                        sx={{
+                                            fontSize: '2.5rem',
+                                            color: theme.palette.secondary.goldenYellow,
+                                            cursor: 'pointer',
+                                        }}
+                                    />
+                                     <Typography
+                                        sx={{
+                                            fontSize: theme.typography.h6.fontSize,
+                                            color: "black",
+                                        }}
+                                    >
+                                        AUD$131 million was lost in Australia (Australian Competition and Consumer Commission ACCC, 2021)
+                                    </Typography>
+                                </div>
+                            </div>
                         </div>
+
                     ) : (
                         <div className="w-full h-full mt-6 md:mt-12">
                             <Image src={MapCurveTop} alt="curved graphic piece on top of map section" />
@@ -205,10 +348,9 @@ export default function learn() {
                             </div>
                             <Image src={MapCurveBottom} alt="curved graphic piece at bottom of map section" />
                         </div>
-
-
-                    )}
-                </div>
+                    )
+                    }
+                </div >
         },
         {
             title: "Beyond the Statistics: The Emotional Toll",
