@@ -13,6 +13,7 @@ import MapCurveTop from "../../components/images/map-curve-top.svg";
 import MapCurveBottom from "../../components/images/map-curve-bottom.svg";
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import Looks3Icon from '@mui/icons-material/Looks3';
@@ -23,11 +24,17 @@ import { useMediaQuery } from '@mui/system';
 export default function learn() {
     const theme = useTheme();
 
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(0);
 
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
+
+    const [infoPopIndex, setInfoPopIndex] = useState(null);
+
+    const showInfoPop = (index) => {
+        setInfoPopIndex(infoPopIndex === index ? null : index);
+    }
 
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -195,7 +202,7 @@ export default function learn() {
                                             cursor: 'pointer',
                                         }}
                                     />
-                                     <Typography
+                                    <Typography
                                         sx={{
                                             fontSize: theme.typography.h6.fontSize,
                                             color: "black",
@@ -212,7 +219,7 @@ export default function learn() {
                                             cursor: 'pointer',
                                         }}
                                     />
-                                     <Typography
+                                    <Typography
                                         sx={{
                                             fontSize: theme.typography.h6.fontSize,
                                             color: "black",
@@ -229,7 +236,7 @@ export default function learn() {
                                             cursor: 'pointer',
                                         }}
                                     />
-                                     <Typography
+                                    <Typography
                                         sx={{
                                             fontSize: theme.typography.h6.fontSize,
                                             color: "black",
@@ -246,7 +253,7 @@ export default function learn() {
                                             cursor: 'pointer',
                                         }}
                                     />
-                                     <Typography
+                                    <Typography
                                         sx={{
                                             fontSize: theme.typography.h6.fontSize,
                                             color: "black",
@@ -257,7 +264,6 @@ export default function learn() {
                                 </div>
                             </div>
                         </div>
-
                     ) : (
                         <div className="w-full h-full mt-8 md:mt-18">
                             <Image src={MapCurveTop} alt="curved graphic piece on top of map section" />
@@ -291,60 +297,253 @@ export default function learn() {
                                     Explore the cost worldwide. In 2020 alone:
                                 </Typography>
 
-                                <Image src={WorldMap} alt="white world map graphic" className="mt-16"/>
-                                <AddCircleIcon
-                                    sx={{
-                                        fontSize: '3rem',
-                                        color: theme.palette.secondary.goldenYellow,
-                                        position: 'absolute',
-                                        cursor: 'pointer',
-                                        top: '35%',
-                                        left: '12%',
-                                        backgroundColor: 'white',
-                                        borderRadius: '50%'
-                                    }}
-                                />
-                                <AddCircleIcon
-                                    sx={{
-                                        fontSize: '3rem',
-                                        color: theme.palette.secondary.goldenYellow,
-                                        position: 'absolute',
-                                        cursor: 'pointer',
-                                        top: '35%',
-                                        left: {
-                                            sm: '40%',
-                                            md: '42%',
-                                            lg: '42%',
-                                            xl: '42%'
-                                        },
-                                        backgroundColor: 'white',
-                                        borderRadius: '50%'
-                                    }}
-                                />
-                                <AddCircleIcon
-                                    sx={{
-                                        fontSize: '3rem',
-                                        color: theme.palette.secondary.goldenYellow,
-                                        position: 'absolute',
-                                        cursor: 'pointer',
-                                        top: '52%',
-                                        left: '80%',
-                                        backgroundColor: 'white',
-                                        borderRadius: '50%'
-                                    }}
-                                />
-                                <AddCircleIcon
-                                    sx={{
-                                        fontSize: '3rem',
-                                        color: theme.palette.secondary.goldenYellow,
-                                        position: 'absolute',
-                                        cursor: 'pointer',
-                                        top: '73%',
-                                        left: '85%',
-                                        backgroundColor: 'white',
-                                        borderRadius: '50%'
-                                    }}
-                                />
+                                <Image src={WorldMap} alt="white world map graphic" className="mt-16" />
+                                {
+                                    (infoPopIndex === 0) ? (
+                                        <>
+                                            <RemoveCircleIcon
+                                                sx={{
+                                                    fontSize: '3rem',
+                                                    color: theme.palette.secondary.goldenYellow,
+                                                    position: 'absolute',
+                                                    cursor: 'pointer',
+                                                    top: '35%',
+                                                    left: '12%',
+                                                    backgroundColor: 'white',
+                                                    borderRadius: '50%',
+                                                    zIndex: '5'
+                                                }}
+                                                onClick={() => showInfoPop(null)}
+                                            />
+                                            <motion.div
+                                                className="absolute left-0 md:top-70 lg:top-82 xl:top-100 md:w-120 lg:w-150 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl p-2"
+                                                style={{ backgroundColor: theme.palette.secondary.goldenYellow }}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.5 }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: {
+                                                            xs: theme.typography.h6.fontSize,
+                                                            sm: theme.typography.h6.fontSize,
+                                                            md: theme.typography.h6.fontSize,
+                                                            lg: theme.typography.h5.fontSize,
+                                                            xl: theme.typography.h5.fontSize,
+                                                        },
+                                                        color: "black",
+                                                        textWrap: "wrap"
+                                                    }}
+                                                >
+                                                    <span className="font-bold">C$18.5 million</span> was lost in Canada (Fraud Centre CAFC, 2021)
+                                                </Typography>
+                                            </motion.div>
+                                        </>
+                                    ) : (
+                                        <AddCircleIcon
+                                            sx={{
+                                                fontSize: '3rem',
+                                                color: theme.palette.secondary.goldenYellow,
+                                                position: 'absolute',
+                                                cursor: 'pointer',
+                                                top: '35%',
+                                                left: '12%',
+                                                backgroundColor: 'white',
+                                                borderRadius: '50%',
+                                                zIndex: '5'
+                                            }}
+                                            onClick={() => showInfoPop(0)}
+                                        />
+                                    )
+                                }
+
+                                {
+                                    (infoPopIndex === 1) ? (
+                                        <>
+                                            <RemoveCircleIcon
+                                                sx={{
+                                                    fontSize: '3rem',
+                                                    color: theme.palette.secondary.goldenYellow,
+                                                    position: 'absolute',
+                                                    cursor: 'pointer',
+                                                    top: '35%',
+                                                    left: {
+                                                        sm: '40%',
+                                                        md: '42%',
+                                                        lg: '42%',
+                                                        xl: '42%'
+                                                    },
+                                                    backgroundColor: 'white',
+                                                    borderRadius: '50%',
+                                                    zIndex: '5'
+                                                }}
+                                                onClick={() => showInfoPop(null)}
+                                            />
+                                            <motion.div
+                                                className="absolute md:left-5 lg:left-0 xl:left-15 md:top-70 lg:top-82 xl:top-100 md:w-120 lg:w-150 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl text-wrap p-2"
+                                                style={{ backgroundColor: theme.palette.secondary.goldenYellow }}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.5 }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: {
+                                                            xs: theme.typography.h6.fontSize,
+                                                            sm: theme.typography.h6.fontSize,
+                                                            md: theme.typography.h6.fontSize,
+                                                            lg: theme.typography.h5.fontSize,
+                                                            xl: theme.typography.h5.fontSize,
+                                                        },
+                                                        color: "black",
+                                                        textWrap: "wrap"
+                                                    }}
+                                                >
+                                                    <span className="font-bold">£68 million</span> was lost in the United Kingdom (Wakefield, 2021)
+                                                </Typography>
+                                            </motion.div>
+                                        </>
+                                    ) : (
+                                        <AddCircleIcon
+                                            sx={{
+                                                fontSize: '3rem',
+                                                color: theme.palette.secondary.goldenYellow,
+                                                position: 'absolute',
+                                                cursor: 'pointer',
+                                                top: '35%',
+                                                left: {
+                                                    sm: '40%',
+                                                    md: '42%',
+                                                    lg: '42%',
+                                                    xl: '42%'
+                                                },
+                                                backgroundColor: 'white',
+                                                borderRadius: '50%',
+                                                zIndex: '5'
+                                            }}
+                                            onClick={() => showInfoPop(1)}
+                                        />
+                                    )
+                                }
+
+                                {
+                                    (infoPopIndex === 2) ? (
+                                        <>
+                                            <RemoveCircleIcon
+                                                sx={{
+                                                    fontSize: '3rem',
+                                                    color: theme.palette.secondary.goldenYellow,
+                                                    position: 'absolute',
+                                                    cursor: 'pointer',
+                                                    top: '52%',
+                                                    left: '80%',
+                                                    backgroundColor: 'white',
+                                                    borderRadius: '50%',
+                                                    zIndex: '5'
+                                                }}
+                                                onClick={() => showInfoPop(null)}
+                                            />
+                                            <motion.div
+                                                className="absolute md:left-7 lg:left-5 xl:left-15 md:top-70 lg:top-105 xl:top-110 md:w-120 lg:w-175 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl p-2"
+                                                style={{ backgroundColor: theme.palette.secondary.goldenYellow }}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.5 }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: {
+                                                            xs: theme.typography.h6.fontSize,
+                                                            sm: theme.typography.h6.fontSize,
+                                                            md: theme.typography.h6.fontSize,
+                                                            lg: theme.typography.h5.fontSize,
+                                                            xl: theme.typography.h5.fontSize,
+                                                        },
+                                                        color: "black",
+                                                        textWrap: "wrap"
+                                                    }}
+                                                >
+                                                    <span className="font-bold">HKD$160.8 million</span> was lost in Hong Kong (Lee, 2020)
+                                                </Typography>
+                                            </motion.div>
+                                        </>
+                                    ) : (
+                                        <AddCircleIcon
+                                            sx={{
+                                                fontSize: '3rem',
+                                                color: theme.palette.secondary.goldenYellow,
+                                                position: 'absolute',
+                                                cursor: 'pointer',
+                                                top: '52%',
+                                                left: '80%',
+                                                backgroundColor: 'white',
+                                                borderRadius: '50%',
+                                                zIndex: '5'
+                                            }}
+                                            onClick={() => showInfoPop(2)}
+                                        />
+                                    )
+                                }
+
+                                {
+                                    (infoPopIndex === 3) ? (
+                                        <>
+                                            <RemoveCircleIcon
+                                                sx={{
+                                                    fontSize: '3rem',
+                                                    color: theme.palette.secondary.goldenYellow,
+                                                    position: 'absolute',
+                                                    cursor: 'pointer',
+                                                    top: '73%',
+                                                    left: '85%',
+                                                    backgroundColor: 'white',
+                                                    borderRadius: '50%',
+                                                    zIndex: '5'
+                                                }}
+                                                onClick={() => showInfoPop(null)}
+                                            />
+                                            <motion.div
+                                                className="absolute md:left-15 lg:left-10 xl:left-20 md:top-100 lg:top-130 xl:top-160 md:w-120 lg:w-175 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl p-2"
+                                                style={{ backgroundColor: theme.palette.secondary.goldenYellow }}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.5 }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: {
+                                                            xs: theme.typography.h6.fontSize,
+                                                            sm: theme.typography.h6.fontSize,
+                                                            md: theme.typography.h6.fontSize,
+                                                            lg: theme.typography.h5.fontSize,
+                                                            xl: theme.typography.h5.fontSize,
+                                                        },
+                                                        color: "black",
+                                                        textWrap: "wrap"
+                                                    }}
+                                                >
+                                                    <span className="font-bold">AUD$131 million</span> was lost in Australia (Australian Competition and Consumer Commission ACCC, 2021)
+                                                </Typography>
+                                            </motion.div>
+                                        </>
+                                    ) : (
+                                        <AddCircleIcon
+                                            sx={{
+                                                fontSize: '3rem',
+                                                color: theme.palette.secondary.goldenYellow,
+                                                position: 'absolute',
+                                                cursor: 'pointer',
+                                                top: '73%',
+                                                left: '85%',
+                                                backgroundColor: 'white',
+                                                borderRadius: '50%',
+                                                zIndex: '5'
+                                            }}
+                                            onClick={() => showInfoPop(3)}
+                                        />
+                                    )
+                                }
+
                             </div>
                             <Image src={MapCurveBottom} alt="curved graphic piece at bottom of map section" />
                         </div>
