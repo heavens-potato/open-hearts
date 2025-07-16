@@ -444,7 +444,7 @@ export default function learn() {
                                                 onClick={() => showInfoPop(null)}
                                             />
                                             <motion.div
-                                                className="absolute md:left-7 lg:left-5 xl:left-25 md:top-70 lg:top-105 xl:top-110 md:w-120 lg:w-175 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl p-2"
+                                                className="absolute md:left-7 lg:left-5 xl:left-30 md:top-70 lg:top-105 xl:top-110 md:w-120 lg:w-175 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl p-2"
                                                 style={{ backgroundColor: theme.palette.secondary.goldenYellow }}
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
