@@ -21,12 +21,10 @@ export default function minigame() {
             try{
                 const response = await axios.post("http://localhost:8080/api/test", 
                 {
-                    name: 'John',
-                    scammer: false,
-                    messageOne: 'Hello From Next'
+                    data: 'John',
                 })
-                const result = await response.text();
-                console.log(result);
+                // const result = await response.text();
+                console.log(response.data);
             } catch (error) {
                 console.error("Error Fetching data:", error);
             }
