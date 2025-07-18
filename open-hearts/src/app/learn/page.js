@@ -10,6 +10,7 @@ import learnGraphic from "../../components/images/learn-component.svg";
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import FinancialToll from '../../components/financialToll.js';
 import { motion } from "framer-motion";
+import Link from 'next/link';
 
 export default function learn() {
     const theme = useTheme();
@@ -33,7 +34,7 @@ export default function learn() {
     ]);
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-center gap-0">
+        <div className="w-full min-h-screen flex flex-col items-center">
             <Header />
 
             {/* Gradient Section */}
@@ -175,7 +176,7 @@ export default function learn() {
 
             {/* Accordion Section */}
             <motion.section
-                className="w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-12 py-4"
+                className="w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.0, delay: 0.5 }}
@@ -191,11 +192,11 @@ export default function learn() {
                             <Typography
                                 sx={{
                                     fontSize: {
-                                        xs: theme.typography.h5.fontSize,
-                                        sm: theme.typography.h5.fontSize,
-                                        md: theme.typography.h5.fontSize,
-                                        lg: theme.typography.h4.fontSize,
-                                        xl: theme.typography.h4.fontSize,
+                                        xs: theme.typography.h6.fontSize,
+                                        sm: theme.typography.h6.fontSize,
+                                        md: theme.typography.h6.fontSize,
+                                        lg: theme.typography.h5.fontSize,
+                                        xl: theme.typography.h5.fontSize,
                                     },
                                     color: "black",
                                     fontWeight: openIndex === index ? "bold" : "medium",
@@ -224,6 +225,30 @@ export default function learn() {
                     </div>
                 ))}
             </motion.section>
+
+            <motion.div
+                className="w-full flex justify-end px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-13 md:py-18"
+                 initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0, delay: 0.6 }}
+            >
+                <Link href="/learn/typical-case" passHref >
+                    <Typography
+                        sx={{
+                            fontSize: {
+                                xs: theme.typography.h6.fontSize,
+                                sm: theme.typography.h6.fontSize,
+                                md: theme.typography.h6.fontSize,
+                                lg: theme.typography.h5.fontSize,
+                                xl: theme.typography.h5.fontSize,
+                            },
+                            color: "black",
+                        }}
+                    >
+                        Next →
+                    </Typography>
+                </Link>
+            </motion.div>
         </div>
     );
 }
