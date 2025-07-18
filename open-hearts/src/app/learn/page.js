@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 export default function learn() {
     const theme = useTheme();
 
-    const [openIndex, setOpenIndex] = useState(0);
+    const [openIndex, setOpenIndex] = useState(null);
 
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
