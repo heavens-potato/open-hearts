@@ -8,6 +8,7 @@ import BannerGraphic from "../../../components/images/typical-case-curve.svg";
 import Image from "next/image";
 import Link from 'next/link';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { motion } from "framer-motion";
 
 export default function typicalCase() {
     const theme = useTheme();
@@ -39,24 +40,36 @@ export default function typicalCase() {
         <div className="w-full min-h-screen flex flex-col items-center">
             <Header />
             <section className="w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pt-13 md:pt-20 bg-linear-to-b from-[#A30B37] from-[35%] to-[#FF934F] flex flex-col items-center gap-14">
-                <Typography
-                    sx={{
-                        fontSize: {
-                            xs: theme.typography.h4.fontSize,
-                            sm: theme.typography.h4.fontSize,
-                            md: theme.typography.h4.fontSize,
-                            lg: theme.typography.h3.fontSize,
-                            xl: theme.typography.h3.fontSize,
-                        },
-                        color: "white",
-                        fontWeight: "bold",
-                        textAlign: "center"
-                    }}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1.0, delay: 0.1 }}
                 >
-                    A Typical Case of Fraud
-                </Typography>
+                    <Typography
+                        sx={{
+                            fontSize: {
+                                xs: theme.typography.h4.fontSize,
+                                sm: theme.typography.h4.fontSize,
+                                md: theme.typography.h4.fontSize,
+                                lg: theme.typography.h3.fontSize,
+                                xl: theme.typography.h3.fontSize,
+                            },
+                            color: "white",
+                            fontWeight: "bold",
+                            textAlign: "center"
+                        }}
+                    >
+                        A Typical Case of Fraud
+                    </Typography>
+                </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 pb-13 md:pb-20">
+
+                <motion.div
+                    className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 pb-13 md:pb-20"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1.0, delay: 0.2 }}
+                >
                     {steps.map((card, index) => {
                         const IconComponent = MuiIcons[card.icon];
 
@@ -105,27 +118,33 @@ export default function typicalCase() {
                             </div>
                         )
                     })}
-                </div>
+                </motion.div>
             </section>
 
             <Image src={BannerGraphic} alt="curved graphic on bottom of page introduction section" className="w-full h-auto" />
 
-            <Link href="#case-steps" className="flex flex-col items-center pt-4 pb-13">
-                <Typography align="center" sx={{
-                    color: 'black',
-                    fontSize: theme.typography.h5.fontSize,
-                    textAlign: 'center',
-                    fontWeight: 'bold'
-                }}>
-                    Continue
-                </Typography>
-                <KeyboardArrowDownIcon sx={{
-                    color: 'black',
-                    fontSize: theme.typography.h4.fontSize,
-                    textAlign: 'center',
-                    fontWeight: 'bold'
-                }} />
-            </Link>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0, delay: 0.3 }}
+            >
+                <Link href="#case-steps" className="flex flex-col items-center pt-4 pb-13">
+                    <Typography align="center" sx={{
+                        color: 'black',
+                        fontSize: theme.typography.h5.fontSize,
+                        textAlign: 'center',
+                        fontWeight: 'bold'
+                    }}>
+                        Continue
+                    </Typography>
+                    <KeyboardArrowDownIcon sx={{
+                        color: 'black',
+                        fontSize: theme.typography.h4.fontSize,
+                        textAlign: 'center',
+                        fontWeight: 'bold'
+                    }} />
+                </Link>
+            </motion.div>
 
             <section className="w-full min-h-screen px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32" id="case-steps">
                 <h1>TYPICAL CASE BLEH BLEH BLEH</h1>
