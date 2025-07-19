@@ -12,6 +12,8 @@ import Image from "next/image";
 import Link from 'next/link';
 import { motion } from "framer-motion";
 import { useMediaQuery } from '@mui/system';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 export default function typicalCase() {
     const theme = useTheme();
@@ -362,11 +364,23 @@ export default function typicalCase() {
                                         },
                                         textAlign: "center",
                                         fontWeight: openIndex == 0 ? "bold" : "normal",
-                                        textDecoration: openIndex == 0 ? "underline" : "none",
                                     }}
                                 >
                                     Step 1: Meeting the Victim
                                 </Typography>
+                                {
+                                    openIndex == 0 ? <ExpandLessIcon
+                                        sx={{
+                                            fontSize: '3rem',
+                                            color: 'white'
+                                        }}
+                                    /> : <ExpandMoreIcon
+                                        sx={{
+                                            fontSize: '3rem',
+                                            color: 'white'
+                                        }}
+                                    />
+                                }
                             </div>
                             {
                                 openIndex == 0 && (
@@ -388,11 +402,23 @@ export default function typicalCase() {
                                         },
                                         textAlign: "center",
                                         fontWeight: openIndex == 1 ? "bold" : "normal",
-                                        textDecoration: openIndex == 1 ? "underline" : "none"
                                     }}
                                 >
                                     Step 2: Building the Connection
                                 </Typography>
+                                {
+                                    openIndex == 1 ? <ExpandLessIcon
+                                        sx={{
+                                            fontSize: '3rem',
+                                            color: 'white'
+                                        }}
+                                    /> : <ExpandMoreIcon
+                                        sx={{
+                                            fontSize: '3rem',
+                                            color: 'white'
+                                        }}
+                                    />
+                                }
                             </div>
                             {
                                 openIndex == 1 && (
@@ -414,11 +440,23 @@ export default function typicalCase() {
                                         },
                                         textAlign: "center",
                                         fontWeight: openIndex == 2 ? "bold" : "normal",
-                                        textDecoration: openIndex == 2 ? "underline" : "none"
                                     }}
                                 >
                                     Step 3: Asking for Money
                                 </Typography>
+                                {
+                                    openIndex == 2 ? <ExpandLessIcon
+                                        sx={{
+                                            fontSize: '3rem',
+                                            color: 'white'
+                                        }}
+                                    /> : <ExpandMoreIcon
+                                        sx={{
+                                            fontSize: '3rem',
+                                            color: 'white'
+                                        }}
+                                    />
+                                }
                             </div>
                             {
                                 openIndex == 2 && (
@@ -440,11 +478,23 @@ export default function typicalCase() {
                                         },
                                         textAlign: "center",
                                         fontWeight: openIndex == 3 ? "bold" : "normal",
-                                        textDecoration: openIndex == 3 ? "underline" : "none"
                                     }}
                                 >
                                     Step 4: Leaving the Victim
                                 </Typography>
+                                {
+                                    openIndex == 3 ? <ExpandLessIcon
+                                        sx={{
+                                            fontSize: '3rem',
+                                            color: 'white'
+                                        }}
+                                    /> : <ExpandMoreIcon
+                                        sx={{
+                                            fontSize: '3rem',
+                                            color: 'white'
+                                        }}
+                                    />
+                                }
                             </div>
                             {
                                 openIndex == 3 && (
