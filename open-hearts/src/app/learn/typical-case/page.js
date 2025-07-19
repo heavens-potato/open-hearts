@@ -21,7 +21,7 @@ export default function typicalCase() {
 
     const [openIndex, setOpenIndex] = useState(0);
 
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const steps = useMemo(() => [
         {
