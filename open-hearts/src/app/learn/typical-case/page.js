@@ -13,6 +13,8 @@ import { motion } from "framer-motion";
 export default function typicalCase() {
     const theme = useTheme();
 
+    const [openIndex, setOpenIndex] = useState(0);
+
     const steps = useMemo(() => [
         {
             number: "1",
@@ -35,6 +37,192 @@ export default function typicalCase() {
             icon: 'PersonOutline'
         }
     ]);
+
+    let contentToDisplay;
+
+    if (openIndex == 0) {
+        contentToDisplay = (
+            <motion.div
+                className="h-full w-full flex flex-col justify-center items-center gap-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0 }}
+            >
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    Romance scammers don’t wait for love. They <span className="font-bold">meticulously create an illusion</span>. This starts with introducing themselves to potential victims with <span className="font-bold">fake online profiles</span> created on dating apps, social media, or other messaging services.
+                </Typography>
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    These profiles are <span className="font-bold">entirely fabricated</span>, using <span className="font-bold">stolen photos and made-up lives</span> to trick the victim into becoming interested.
+                </Typography>
+            </motion.div>
+        )
+    } else if (openIndex == 1) {
+        contentToDisplay = (
+            <motion.div
+                className="h-full w-full flex flex-col justify-center items-center gap-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0 }}
+            >
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    Once connected, the scammer begins a relentless barrage of <span className="font-bold">emotional manipulation</span>.
+                    Victims are showered with <span className="font-bold">affection, compliments</span>, and <span className="font-bold">emotional personal stories</span> that are used by the scammer to build a <span className="font-bold">profound, intimate connection</span>.
+                </Typography>
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    This phase, known as love-bombing, is designed to <span className="font-bold">disarm the victim</span> and <span className="font-bold">cut off any rational thoughts</span>.
+                    Any attempts to verify the identity of the scammer are <span className="font-bold">skillfully dodged or diverted</span>, ensuring the victim is <span className="font-bold">never aware</span> of who is truly behind that dreamy facade.
+                </Typography>
+            </motion.div>
+        )
+    } else if (openIndex == 2) {
+        contentToDisplay = (
+            <motion.div
+                className="h-full w-full flex flex-col justify-center items-center gap-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0 }}
+            >
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    With the stage set, the scammer begins to unveil their true motive: <span className="font-bold">money</span>.
+                </Typography>
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    A <span className="font-bold">sudden, urgent</span>, and often <span className="font-bold">heartbreaking</span> crisis emerges.
+                </Typography>
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    Whether a family member’s medical emergency, business venture gone wrong, travel expenses to visit an ailing friend, or legal troubles, victims are bombarded with <span className="font-bold">desperate pleas for money</span>.
+                </Typography>
+            </motion.div>
+        )
+    } else {
+        contentToDisplay = (
+            <motion.div
+                className="h-full w-full flex flex-col justify-center items-center gap-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0 }}
+            >
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    Even after receiving money, scammers will <span className="font-bold">continue pressing their victims for more</span>. New needs for assistance continue to occur, each more pressing than the last.
+                </Typography>
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    They may even resort to <span className="font-bold">blackmail</span>, using personal photos and sensitive messages shared by the victim to extort further payments.
+                </Typography>
+                <Typography
+                    sx={{
+                        color: 'black',
+                        fontSize: {
+                            xs: theme.typography.h6.fontSize,
+                            sm: theme.typography.h6.fontSize,
+                            md: theme.typography.h6.fontSize,
+                            lg: theme.typography.h5.fontSize,
+                            xl: theme.typography.h5.fontSize,
+                        },
+                    }}
+                >
+                    Once the victim’s funds have been fully depleted, scammers <span className="font-bold">vanish</span>, leaving behind a trail of financial and emotional destruction in their wake. 
+                </Typography>
+            </motion.div>
+        )
+    } 
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center">
@@ -146,9 +334,111 @@ export default function typicalCase() {
                 </Link>
             </motion.div>
 
-            <section className="w-full min-h-screen px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32" id="case-steps">
-                <h1>TYPICAL CASE BLEH BLEH BLEH</h1>
+            <section className="w-full min-h-screen px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 flex justify-center items-center" id="case-steps">
+                <div className="w-full h-full flex flex-row gap-8 items-stretch" >
+                    <div className="flex flex-col gap-4 w-[45%] h-full justify-center">
+                        <div className="w-full flex flex-row justify-center items-center bg-[#C32553] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(0)}>
+                            <Typography
+                                sx={{
+                                    color: 'white',
+                                    fontSize: {
+                                        xs: theme.typography.h6.fontSize,
+                                        sm: theme.typography.h6.fontSize,
+                                        md: theme.typography.h6.fontSize,
+                                        lg: theme.typography.h5.fontSize,
+                                        xl: theme.typography.h5.fontSize,
+                                    },
+                                    textAlign: "center",
+                                    fontWeight: openIndex == 0 ? "bold" : "normal"
+                                }}
+                            >
+                                Step 1: Meeting the Victim
+                            </Typography>
+                        </div>
+                        <div className="w-full flex justify-center items-center bg-[#A30B37] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(1)}>
+                            <Typography
+                                sx={{
+                                    color: 'white',
+                                    fontSize: {
+                                        xs: theme.typography.h6.fontSize,
+                                        sm: theme.typography.h6.fontSize,
+                                        md: theme.typography.h6.fontSize,
+                                        lg: theme.typography.h5.fontSize,
+                                        xl: theme.typography.h5.fontSize,
+                                    },
+                                    textAlign: "center",
+                                    fontWeight: openIndex == 1 ? "bold" : "normal"
+                                }}
+                            >
+                                Step 2: Building the Connection
+                            </Typography>
+                        </div>
+                        <div className="w-full flex justify-center items-center bg-[#671339] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(2)}>
+                            <Typography
+                                sx={{
+                                    color: 'white',
+                                    fontSize: {
+                                        xs: theme.typography.h6.fontSize,
+                                        sm: theme.typography.h6.fontSize,
+                                        md: theme.typography.h6.fontSize,
+                                        lg: theme.typography.h5.fontSize,
+                                        xl: theme.typography.h5.fontSize,
+                                    },
+                                    textAlign: "center",
+                                    fontWeight: openIndex == 2 ? "bold" : "normal"
+                                }}
+                            >
+                                Step 3: Asking for Money
+                            </Typography>
+                        </div>
+                        <div className="w-full flex justify-center items-center bg-[#460B26] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(3)}>
+                            <Typography
+                                sx={{
+                                    color: 'white',
+                                    fontSize: {
+                                        xs: theme.typography.h6.fontSize,
+                                        sm: theme.typography.h6.fontSize,
+                                        md: theme.typography.h6.fontSize,
+                                        lg: theme.typography.h5.fontSize,
+                                        xl: theme.typography.h5.fontSize,
+                                    },
+                                    textAlign: "center",
+                                    fontWeight: openIndex == 3 ? "bold" : "normal"
+                                }}
+                            >
+                                Step 4: Leaving the Victim
+                            </Typography>
+                        </div>
+                    </div>
+                    <div className="w-[55%] h-full flex justify-center items-center">
+                        {contentToDisplay}
+                    </div>
+                </div>
             </section>
+
+            <motion.div
+                className="w-full flex justify-end px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pb-13 md:pb-18"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0, delay: 0.6 }}
+            >
+                <Link href="/stories" passHref >
+                    <Typography
+                        sx={{
+                            fontSize: {
+                                xs: theme.typography.h6.fontSize,
+                                sm: theme.typography.h6.fontSize,
+                                md: theme.typography.h6.fontSize,
+                                lg: theme.typography.h5.fontSize,
+                                xl: theme.typography.h5.fontSize,
+                            },
+                            color: "black",
+                        }}
+                    >
+                        Next →
+                    </Typography>
+                </Link>
+            </motion.div>
         </div>
     )
 }
