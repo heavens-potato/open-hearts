@@ -194,9 +194,9 @@ export default function learn() {
                                     fontSize: {
                                         xs: theme.typography.h6.fontSize,
                                         sm: theme.typography.h6.fontSize,
-                                        md: theme.typography.h6.fontSize,
-                                        lg: theme.typography.h5.fontSize,
-                                        xl: theme.typography.h5.fontSize,
+                                        md: theme.typography.h5.fontSize,
+                                        lg: theme.typography.h4.fontSize,
+                                        xl: theme.typography.h4.fontSize,
                                     },
                                     color: "black",
                                     fontWeight: openIndex === index ? "bold" : "medium",
