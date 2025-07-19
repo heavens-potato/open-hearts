@@ -30,6 +30,21 @@ export default function minigame() {
                 console.error("Error Fetching data:", error);
             }
         };
+
+        const testSendTwo = async () => {
+            try{
+                const response = await axios.post("http://localhost:8080/api/testTwo",
+                {
+                    name: "Michael Carter",
+                    scammer: false,
+                    messageOne: "Looking forward to meeting you!"
+                })
+                const result = response.data;
+                console.log(result);
+            } catch (error) {
+                console.error("Error Fetching data:", error);
+            }
+        }
         // fetchData()
     // })
 
@@ -39,6 +54,8 @@ export default function minigame() {
             <button style={{cursor: 'pointer'}} onClick={fetchData}>Test!</button>
             <br></br>
             <button style={{cursor: 'pointer'}} onClick={testSendOne}>Test Post!</button>
+            <br></br>
+            <button style={{cursor: 'pointer'}} onClick={testSendTwo}>Test Profile!</button>
         </div>
     )
 }
