@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 import { useMediaQuery } from '@mui/system';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export default function typicalCase() {
     const theme = useTheme();
@@ -520,11 +521,19 @@ export default function typicalCase() {
                                             },
                                             textAlign: "center",
                                             fontWeight: openIndex == 0 ? "bold" : "normal",
-                                            textDecoration: openIndex == 0 ? "underline" : "none"
                                         }}
                                     >
                                         Step 1: Meeting the Victim
                                     </Typography>
+                                    {
+                                        openIndex == 0 &&
+                                        <KeyboardArrowRightIcon
+                                            sx={{
+                                                fontSize: '2rem',
+                                                color: 'white'
+                                            }}
+                                        />
+                                    }
                                 </div>
                                 <div className="w-full flex justify-center items-center bg-[#A30B37] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(1)}>
                                     <Typography
@@ -539,11 +548,19 @@ export default function typicalCase() {
                                             },
                                             textAlign: "center",
                                             fontWeight: openIndex == 1 ? "bold" : "normal",
-                                            textDecoration: openIndex == 1 ? "underline" : "none"
                                         }}
                                     >
                                         Step 2: Building the Connection
                                     </Typography>
+                                     {
+                                        openIndex == 1 &&
+                                        <KeyboardArrowRightIcon
+                                            sx={{
+                                                fontSize: '2rem',
+                                                color: 'white'
+                                            }}
+                                        />
+                                    }
                                 </div>
                                 <div className="w-full flex justify-center items-center bg-[#671339] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(2)}>
                                     <Typography
@@ -558,11 +575,19 @@ export default function typicalCase() {
                                             },
                                             textAlign: "center",
                                             fontWeight: openIndex == 2 ? "bold" : "normal",
-                                            textDecoration: openIndex == 2 ? "underline" : "none"
                                         }}
                                     >
                                         Step 3: Asking for Money
                                     </Typography>
+                                     {
+                                        openIndex == 2 &&
+                                        <KeyboardArrowRightIcon
+                                            sx={{
+                                                fontSize: '2rem',
+                                                color: 'white'
+                                            }}
+                                        />
+                                    }
                                 </div>
                                 <div className="w-full flex justify-center items-center bg-[#460B26] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(3)}>
                                     <Typography
@@ -577,11 +602,19 @@ export default function typicalCase() {
                                             },
                                             textAlign: "center",
                                             fontWeight: openIndex == 3 ? "bold" : "normal",
-                                            textDecoration: openIndex == 3 ? "underline" : "none"
                                         }}
                                     >
                                         Step 4: Leaving the Victim
                                     </Typography>
+                                     {
+                                        openIndex == 3 &&
+                                        <KeyboardArrowRightIcon
+                                            sx={{
+                                                fontSize: '2rem',
+                                                color: 'white'
+                                            }}
+                                        />
+                                    }
                                 </div>
                             </div>
                             <div className="w-[55%] h-full flex justify-center items-center">
