@@ -3,38 +3,43 @@ import { useState, useMemo } from "react";
 import { useTheme } from "@mui/material/styles";
 import Header from "../../../components/header.js";
 import { Typography } from "@mui/material";
-import * as MuiIcons from '@mui/icons-material';
+import PeopleIcon from '@mui/icons-material/People';
+import ExtensionIcon from '@mui/icons-material/Extension';
+import PaidIcon from '@mui/icons-material/Paid';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BannerGraphic from "../../../components/images/typical-case-curve.svg";
 import Image from "next/image";
 import Link from 'next/link';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { motion } from "framer-motion";
+import { useMediaQuery } from '@mui/system';
 
 export default function typicalCase() {
     const theme = useTheme();
 
     const [openIndex, setOpenIndex] = useState(0);
 
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
     const steps = useMemo(() => [
         {
             number: "1",
             title: "Meeting the Victim",
-            icon: 'People'
+            icon: PeopleIcon
         },
         {
             number: "2",
             title: "Building the Connection",
-            icon: 'Extension'
+            icon: ExtensionIcon
         },
         {
             number: "3",
             title: "Asking for Money",
-            icon: 'Paid'
+            icon: PaidIcon
         },
         {
             number: "4",
             title: "Leaving the Victim",
-            icon: 'PersonOutline'
+            icon: PersonOutlineIcon
         }
     ]);
 
@@ -46,7 +51,7 @@ export default function typicalCase() {
                 className="h-full w-full flex flex-col justify-center items-center gap-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1.0 }}
+                transition={{ duration: 0.5 }}
             >
                 <Typography
                     sx={{
@@ -218,11 +223,11 @@ export default function typicalCase() {
                         },
                     }}
                 >
-                    Once the victim’s funds have been fully depleted, scammers <span className="font-bold">vanish</span>, leaving behind a trail of financial and emotional destruction in their wake. 
+                    Once the victim’s funds have been fully depleted, scammers <span className="font-bold">vanish</span>, leaving behind a trail of financial and emotional destruction in their wake.
                 </Typography>
             </motion.div>
         )
-    } 
+    }
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center">
@@ -258,8 +263,9 @@ export default function typicalCase() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1.0, delay: 0.2 }}
                 >
+
                     {steps.map((card, index) => {
-                        const IconComponent = MuiIcons[card.icon];
+                        const IconComponent = card.icon;
 
                         return (
                             <div key={card.number} className="flex flex-col justify-center items-center gap-2 md:gap-8">
@@ -311,7 +317,7 @@ export default function typicalCase() {
 
             <Image src={BannerGraphic} alt="curved graphic on bottom of page introduction section" className="w-full h-auto" />
 
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.0, delay: 0.3 }}
@@ -332,95 +338,215 @@ export default function typicalCase() {
                         fontWeight: 'bold'
                     }} />
                 </Link>
-            </motion.div>
+            </motion.div> */}
 
-            <section className="w-full min-h-screen px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 flex justify-center items-center" id="case-steps">
-                <div className="w-full h-full flex flex-row gap-8 items-stretch" >
-                    <div className="flex flex-col gap-4 w-[45%] h-full justify-center">
-                        <div className="w-full flex flex-row justify-center items-center bg-[#C32553] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(0)}>
-                            <Typography
-                                sx={{
-                                    color: 'white',
-                                    fontSize: {
-                                        xs: theme.typography.h6.fontSize,
-                                        sm: theme.typography.h6.fontSize,
-                                        md: theme.typography.h6.fontSize,
-                                        lg: theme.typography.h5.fontSize,
-                                        xl: theme.typography.h5.fontSize,
-                                    },
-                                    textAlign: "center",
-                                    fontWeight: openIndex == 0 ? "bold" : "normal"
-                                }}
-                            >
-                                Step 1: Meeting the Victim
-                            </Typography>
+            <motion.section
+                className="w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 flex justify-center items-center my-20"
+                id="case-steps"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0, delay: 0.3 }}>
+                {
+                    isMobile ?
+                        <div className="w-full h-full flex flex-col gap-4">
+                            <div className="w-full flex flex-row justify-center items-center bg-[#C32553] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(0)}>
+                                <Typography
+                                    sx={{
+                                        color: 'white',
+                                        fontSize: {
+                                            xs: theme.typography.h6.fontSize,
+                                            sm: theme.typography.h6.fontSize,
+                                            md: theme.typography.h6.fontSize,
+                                            lg: theme.typography.h5.fontSize,
+                                            xl: theme.typography.h5.fontSize,
+                                        },
+                                        textAlign: "center",
+                                        fontWeight: openIndex == 0 ? "bold" : "normal",
+                                        textDecoration: openIndex == 0 ? "underline" : "none",
+                                    }}
+                                >
+                                    Step 1: Meeting the Victim
+                                </Typography>
+                            </div>
+                            {
+                                openIndex == 0 && (
+                                    <div className="w-full h-full flex justify-center items-center">
+                                        {contentToDisplay}
+                                    </div>
+                                )
+                            }
+                            <div className="w-full flex justify-center items-center bg-[#A30B37] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(1)}>
+                                <Typography
+                                    sx={{
+                                        color: 'white',
+                                        fontSize: {
+                                            xs: theme.typography.h6.fontSize,
+                                            sm: theme.typography.h6.fontSize,
+                                            md: theme.typography.h6.fontSize,
+                                            lg: theme.typography.h5.fontSize,
+                                            xl: theme.typography.h5.fontSize,
+                                        },
+                                        textAlign: "center",
+                                        fontWeight: openIndex == 1 ? "bold" : "normal",
+                                        textDecoration: openIndex == 1 ? "underline" : "none"
+                                    }}
+                                >
+                                    Step 2: Building the Connection
+                                </Typography>
+                            </div>
+                            {
+                                openIndex == 1 && (
+                                    <div className="w-full h-full flex justify-center items-center">
+                                        {contentToDisplay}
+                                    </div>
+                                )
+                            }
+                            <div className="w-full flex justify-center items-center bg-[#671339] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(2)}>
+                                <Typography
+                                    sx={{
+                                        color: 'white',
+                                        fontSize: {
+                                            xs: theme.typography.h6.fontSize,
+                                            sm: theme.typography.h6.fontSize,
+                                            md: theme.typography.h6.fontSize,
+                                            lg: theme.typography.h5.fontSize,
+                                            xl: theme.typography.h5.fontSize,
+                                        },
+                                        textAlign: "center",
+                                        fontWeight: openIndex == 2 ? "bold" : "normal",
+                                        textDecoration: openIndex == 2 ? "underline" : "none"
+                                    }}
+                                >
+                                    Step 3: Asking for Money
+                                </Typography>
+                            </div>
+                            {
+                                openIndex == 2 && (
+                                    <div className="w-full h-full flex justify-center items-center">
+                                        {contentToDisplay}
+                                    </div>
+                                )
+                            }
+                            <div className="w-full flex justify-center items-center bg-[#460B26] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(3)}>
+                                <Typography
+                                    sx={{
+                                        color: 'white',
+                                        fontSize: {
+                                            xs: theme.typography.h6.fontSize,
+                                            sm: theme.typography.h6.fontSize,
+                                            md: theme.typography.h6.fontSize,
+                                            lg: theme.typography.h5.fontSize,
+                                            xl: theme.typography.h5.fontSize,
+                                        },
+                                        textAlign: "center",
+                                        fontWeight: openIndex == 3 ? "bold" : "normal",
+                                        textDecoration: openIndex == 3 ? "underline" : "none"
+                                    }}
+                                >
+                                    Step 4: Leaving the Victim
+                                </Typography>
+                            </div>
+                            {
+                                openIndex == 3 && (
+                                    <div className="w-full h-full flex justify-center items-center">
+                                        {contentToDisplay}
+                                    </div>
+                                )
+                            }
                         </div>
-                        <div className="w-full flex justify-center items-center bg-[#A30B37] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(1)}>
-                            <Typography
-                                sx={{
-                                    color: 'white',
-                                    fontSize: {
-                                        xs: theme.typography.h6.fontSize,
-                                        sm: theme.typography.h6.fontSize,
-                                        md: theme.typography.h6.fontSize,
-                                        lg: theme.typography.h5.fontSize,
-                                        xl: theme.typography.h5.fontSize,
-                                    },
-                                    textAlign: "center",
-                                    fontWeight: openIndex == 1 ? "bold" : "normal"
-                                }}
-                            >
-                                Step 2: Building the Connection
-                            </Typography>
+                        :
+                        <div className="w-full h-full flex flex-row gap-8 items-stretch" >
+                            <div className="flex flex-col gap-4 w-[45%] h-full justify-center">
+                                <div className="w-full flex flex-row justify-center items-center bg-[#C32553] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(0)}>
+                                    <Typography
+                                        sx={{
+                                            color: 'white',
+                                            fontSize: {
+                                                xs: theme.typography.h6.fontSize,
+                                                sm: theme.typography.h6.fontSize,
+                                                md: theme.typography.h6.fontSize,
+                                                lg: theme.typography.h5.fontSize,
+                                                xl: theme.typography.h5.fontSize,
+                                            },
+                                            textAlign: "center",
+                                            fontWeight: openIndex == 0 ? "bold" : "normal",
+                                            textDecoration: openIndex == 0 ? "underline" : "none"
+                                        }}
+                                    >
+                                        Step 1: Meeting the Victim
+                                    </Typography>
+                                </div>
+                                <div className="w-full flex justify-center items-center bg-[#A30B37] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(1)}>
+                                    <Typography
+                                        sx={{
+                                            color: 'white',
+                                            fontSize: {
+                                                xs: theme.typography.h6.fontSize,
+                                                sm: theme.typography.h6.fontSize,
+                                                md: theme.typography.h6.fontSize,
+                                                lg: theme.typography.h5.fontSize,
+                                                xl: theme.typography.h5.fontSize,
+                                            },
+                                            textAlign: "center",
+                                            fontWeight: openIndex == 1 ? "bold" : "normal",
+                                            textDecoration: openIndex == 1 ? "underline" : "none"
+                                        }}
+                                    >
+                                        Step 2: Building the Connection
+                                    </Typography>
+                                </div>
+                                <div className="w-full flex justify-center items-center bg-[#671339] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(2)}>
+                                    <Typography
+                                        sx={{
+                                            color: 'white',
+                                            fontSize: {
+                                                xs: theme.typography.h6.fontSize,
+                                                sm: theme.typography.h6.fontSize,
+                                                md: theme.typography.h6.fontSize,
+                                                lg: theme.typography.h5.fontSize,
+                                                xl: theme.typography.h5.fontSize,
+                                            },
+                                            textAlign: "center",
+                                            fontWeight: openIndex == 2 ? "bold" : "normal",
+                                            textDecoration: openIndex == 2 ? "underline" : "none"
+                                        }}
+                                    >
+                                        Step 3: Asking for Money
+                                    </Typography>
+                                </div>
+                                <div className="w-full flex justify-center items-center bg-[#460B26] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(3)}>
+                                    <Typography
+                                        sx={{
+                                            color: 'white',
+                                            fontSize: {
+                                                xs: theme.typography.h6.fontSize,
+                                                sm: theme.typography.h6.fontSize,
+                                                md: theme.typography.h6.fontSize,
+                                                lg: theme.typography.h5.fontSize,
+                                                xl: theme.typography.h5.fontSize,
+                                            },
+                                            textAlign: "center",
+                                            fontWeight: openIndex == 3 ? "bold" : "normal",
+                                            textDecoration: openIndex == 3 ? "underline" : "none"
+                                        }}
+                                    >
+                                        Step 4: Leaving the Victim
+                                    </Typography>
+                                </div>
+                            </div>
+                            <div className="w-[55%] h-full flex justify-center items-center">
+                                {contentToDisplay}
+                            </div>
                         </div>
-                        <div className="w-full flex justify-center items-center bg-[#671339] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(2)}>
-                            <Typography
-                                sx={{
-                                    color: 'white',
-                                    fontSize: {
-                                        xs: theme.typography.h6.fontSize,
-                                        sm: theme.typography.h6.fontSize,
-                                        md: theme.typography.h6.fontSize,
-                                        lg: theme.typography.h5.fontSize,
-                                        xl: theme.typography.h5.fontSize,
-                                    },
-                                    textAlign: "center",
-                                    fontWeight: openIndex == 2 ? "bold" : "normal"
-                                }}
-                            >
-                                Step 3: Asking for Money
-                            </Typography>
-                        </div>
-                        <div className="w-full flex justify-center items-center bg-[#460B26] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(3)}>
-                            <Typography
-                                sx={{
-                                    color: 'white',
-                                    fontSize: {
-                                        xs: theme.typography.h6.fontSize,
-                                        sm: theme.typography.h6.fontSize,
-                                        md: theme.typography.h6.fontSize,
-                                        lg: theme.typography.h5.fontSize,
-                                        xl: theme.typography.h5.fontSize,
-                                    },
-                                    textAlign: "center",
-                                    fontWeight: openIndex == 3 ? "bold" : "normal"
-                                }}
-                            >
-                                Step 4: Leaving the Victim
-                            </Typography>
-                        </div>
-                    </div>
-                    <div className="w-[55%] h-full flex justify-center items-center">
-                        {contentToDisplay}
-                    </div>
-                </div>
-            </section>
+                }
+
+            </motion.section>
 
             <motion.div
                 className="w-full flex justify-end px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pb-13 md:pb-18"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1.0, delay: 0.6 }}
+                transition={{ duration: 1.0, delay: 0.4 }}
             >
                 <Link href="/stories" passHref >
                     <Typography
