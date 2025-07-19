@@ -300,7 +300,7 @@ export default function financialToll() {
                                             color: theme.palette.secondary.goldenYellow,
                                             position: 'absolute',
                                             cursor: 'pointer',
-                                            top: '33%',
+                                            top: '37%',
                                             left: '12%',
                                             backgroundColor: 'white',
                                             borderRadius: '50%',
@@ -345,7 +345,7 @@ export default function financialToll() {
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '33%',
+                                        top: '37%',
                                         left: '12%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%',
@@ -371,7 +371,12 @@ export default function financialToll() {
                                             color: theme.palette.secondary.goldenYellow,
                                             position: 'absolute',
                                             cursor: 'pointer',
-                                            top: '33%',
+                                            top: {
+                                                sm: '40%',
+                                                md: '40%',
+                                                lg: '36%',
+                                                xl: '37%'
+                                            },
                                             left: {
                                                 sm: '40%',
                                                 md: '42%',
@@ -421,7 +426,12 @@ export default function financialToll() {
                                         color: theme.palette.secondary.goldenYellow,
                                         position: 'absolute',
                                         cursor: 'pointer',
-                                        top: '33%',
+                                        top: {
+                                            sm: '40%',
+                                            md: '40%',
+                                            lg: '36%',
+                                            xl: '37%'
+                                        },
                                         left: {
                                             sm: '40%',
                                             md: '42%',
