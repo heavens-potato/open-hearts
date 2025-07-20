@@ -626,11 +626,27 @@ export default function typicalCase() {
             </motion.section>
 
             <motion.div
-                className="w-full flex justify-end px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pb-13 md:pb-18"
+                className="w-full flex justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pb-13 md:pb-18"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.0, delay: 0.4 }}
             >
+                <Link href="/learn" passHref >
+                    <Typography
+                        sx={{
+                            fontSize: {
+                                xs: theme.typography.h6.fontSize,
+                                sm: theme.typography.h6.fontSize,
+                                md: theme.typography.h6.fontSize,
+                                lg: theme.typography.h5.fontSize,
+                                xl: theme.typography.h5.fontSize,
+                            },
+                            color: "black",
+                        }}
+                    >
+                        ← Back
+                    </Typography>
+                </Link>
                 <Link href="/stories" passHref >
                     <Typography
                         sx={{
