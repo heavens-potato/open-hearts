@@ -8,20 +8,13 @@ import { Typography } from "@mui/material";
 export default function minigame() {
     const [data, setData] = useState(null);
     const [strList, setStrList] = useState([]);
-    const tempStringOptions = ['Test_String_1', 'Test_String_2', 'Test_String_3']
-    let htmlLst = []
+    const tempStringOptions = ['Test_String_1', 'Test_String_2', 'Test_String_3'];
+    let count = 0;
     // useEffect(() =>{
         const testDataMapping = () => {
-            const randInd = Math.floor(Math.random()*3);
-            const curr = tempStringOptions[randInd];
-            strList.push(curr);
-            setStrList(strList);
-            htmlLst = strList.map((text, index) => (
-                <Typography key={index}>{text}</Typography>
-            ))
-            htmlLst.forEach(function(element) {
-                        console.log(element);
-                    })
+            const randInd = Math.floor(Math.random()*3); //random string test from array. REPLACE
+            const curr = tempStringOptions[randInd]; //random string test from array. REPLACE
+            setStrList(prevItems => [...prevItems, curr]);
         }
         
         const fetchData = async () => {
@@ -71,8 +64,13 @@ export default function minigame() {
                     <br></br>
                     <button style={{cursor: 'pointer'}} onClick={profileTest}>Test Profile!</button>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
                     <button style={{cursor: 'pointer'}} onClick={testDataMapping}>Test Data Map!</button>
+                    <div>
+                        {strList.map((text) => (
+                            <Typography key={count++}>{text}</Typography>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
