@@ -166,7 +166,7 @@ export default function header() {
                                 cursor: 'pointer'
                             }}
                             component={Link}
-                            href="/stories"
+                            href="/red-flags"
                         >
                             Red Flags
                         </Typography>
