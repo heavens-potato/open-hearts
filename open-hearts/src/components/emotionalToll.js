@@ -179,7 +179,7 @@ export default function EmotionalToll() {
               className="focus:outline-none"
             >
               <span
-                className={`text-4xl transition-all duration-300 ${i === page ? "opacity-100 scale-110" : "opacity-30 grayscale"
+                className={`text-4xl transition-all duration-300 ${i === page ? "opacity-100 scale-110" : "opacity-30 grayscale cursor-pointer"
                   }`}
                 style={{
                   background: "linear-gradient(to right, #FF934F, #A30B37)",
