@@ -14,7 +14,7 @@ export default function stories() {
         <div className="w-full min-h-screen flex flex-col items-center">
             <Header />
             <section className="w-full flex flex-col text-left px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 bg-linear-to-b from-[#A30B37] to-[#C60528] pt-13 md:pt-20">
-                <div className="pb-13 md:pb-20 flex flex-col items-left gap-6 md:gap-8 mx-auto">
+                <div className="pb-13 md:pb-20 flex flex-col items-left gap-4 md:gap-6 mx-auto">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -54,19 +54,7 @@ export default function stories() {
                                 color: "white",
                             }}
                         >
-                            Romance fraud is a confidence scheme in which a perpetrator deceives
-                            someone into{" "}
-                            <span className="font-bold underline">
-                                believing they are in a romantic relationship
-                            </span>
-                            , with the goal of{" "}
-                            <span className="font-bold underline">
-                                exploiting them for personal gain
-                            </span>{" "}
-                            (Cross & Holt, 2023). It's a{" "}
-                            <span className="font-bold underline">calculated deception</span>{" "}
-                            that preys on <span className="font-bold underline">emotions and connection</span> to extract resources such as
-                            money, credit card information, personal documents, and more.
+                            Romance scammers leave a trail of warning signs and red flags. Learning to spot these is key to protecting yourself!
                         </Typography>
                     </motion.div>
                 </div>
