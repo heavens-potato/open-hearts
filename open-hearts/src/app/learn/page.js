@@ -9,6 +9,7 @@ import Image from "next/image";
 import learnGraphic from "../../components/images/learn-component.svg";
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import FinancialToll from '../../components/financialToll.js';
+import EmotionalToll from '../../components/emotionalToll.js';
 import { motion } from "framer-motion";
 import Link from 'next/link';
 
@@ -28,8 +29,7 @@ export default function learn() {
         },
         {
             title: "Beyond the Statistics: The Emotional Toll",
-            content:
-                "While the financial numbers are shocking, the damage extends far beyond money.",
+            content: <EmotionalToll />
         },
     ]);
 
