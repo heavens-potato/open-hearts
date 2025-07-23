@@ -89,9 +89,19 @@ export default function header() {
                                         cursor: 'pointer'
                                     }}
                                     component={Link}
+                                    href="/red-flags"
+                                >
+                                    Red Flags
+                                </Typography>
+                                <Typography
+                                    variant="h6"
+                                    sx={{
+                                        cursor: 'pointer'
+                                    }}
+                                    component={Link}
                                     href="/minigame"
                                 >
-                                    Play
+                                    Game
                                 </Typography>
                                 <Typography
                                     variant="h6"
@@ -124,12 +134,12 @@ export default function header() {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className="w-screen h-20 flex flex-row px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 items-center"
                 >
-                    <Link href="/landing" className="w-full">
+                    <Link href="/landing" className="w-[40%]">
                         <Image src={HeaderLogo}
                             alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart."
                             className="h-10 w-auto object-fill cursor-pointer" />
                     </Link>
-                    <div className="w-full h-full flex flex-row gap-12 justify-end items-center">
+                    <div className="w-[60%] h-full flex flex-row gap-12 justify-end items-center">
                         <Typography
                             variant="h6"
                             sx={{
@@ -156,9 +166,19 @@ export default function header() {
                                 cursor: 'pointer'
                             }}
                             component={Link}
+                            href="/stories"
+                        >
+                            Red Flags
+                        </Typography>
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                cursor: 'pointer'
+                            }}
+                            component={Link}
                             href="/minigame"
                         >
-                            Play
+                            Game
                         </Typography>
                         <Typography
                             variant="h6"

@@ -17,7 +17,7 @@ export default function EmotionalToll() {
   const goBack = () => page > 0 && setPage(page - 1);
 
   return (
-    <div className="relative flex flex-col items-center justify-center text-center p-3 w-full mx-auto">
+    <div className="relative flex flex-col items-center justify-center text-center p-3 w-full mx-auto gap-6 md:gap-12">
       <motion.div
         key={page}
         className="w-full flex flex-col justify-center"
@@ -52,13 +52,11 @@ export default function EmotionalToll() {
                 <Image
                   src={cryingIcon}
                   alt="Crying icon"
-                  width={170}
-                  height={170}
-                  className="object-contain"
+                  className="object-contain w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64"
                 />
               </div>
 
-              <div className="w-full md:w-1/2">
+              <div className="w-full md:w-1/2 flex justify-center items-center">
                 <Typography
                   sx={{
                     fontSize: {
@@ -109,48 +107,48 @@ export default function EmotionalToll() {
               <strong>“psychological abuse techniques”</strong> often used in
               the context of <strong>domestic violence</strong> (Cross, 2023).
             </Typography>
-            <div className="flex justify-center mt-8">
+            <div className="flex justify-center mt-8 h-full">
               <Image
                 src={psychoIcon}
                 alt="Psychological manipulation"
-                width={300}
-                height={300}
-                className="object-contain"
+                className="object-contain max-w-full"
               />
             </div>
           </div>
         )}
 
         {page === 2 && (
-          <div className="flex flex-col md:flex-row items-center">
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: theme.typography.h6.fontSize,
-                  sm: theme.typography.h6.fontSize,
-                  md: theme.typography.h6.fontSize,
-                  lg: theme.typography.h5.fontSize,
-                  xl: theme.typography.h5.fontSize,
-                },
-                color: "black",
-                textAlign: "left",
-                width: "100%",
-              }}
-            >
-              Victims continue to suffer long after cases of fraud are over,
-              experiencing severe <strong>embarrassment</strong> and{" "}
-              <strong>shame</strong> at falling for such a scheme, as well as “
-              <strong>anxiety, depression</strong>”, and even “
-              <strong>suicidal ideation</strong>” (<u>Aborisade et al., 2024</u>
-              ).
-            </Typography>
-            <div className="w-full md:w-1/2 sm:w-1/4 flex justify-center p-4">
+          <div className="flex flex-col md:flex-row items-center justify-center h-full w-full gap-6 md:gap-0">
+            <div className="w-full md:w-[60%]">
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: theme.typography.h6.fontSize,
+                    sm: theme.typography.h6.fontSize,
+                    md: theme.typography.h6.fontSize,
+                    lg: theme.typography.h5.fontSize,
+                    xl: theme.typography.h5.fontSize,
+                  },
+                  color: "black",
+                  textAlign: "left",
+                }}
+              >
+                Victims continue to suffer long after cases of fraud are over,
+                experiencing severe <strong>embarrassment</strong> and{" "}
+                <strong>shame</strong> at falling for such a scheme, as well as “
+                <strong>anxiety, depression</strong>”, and even “
+                <strong>suicidal ideation</strong>” (<u>Aborisade et al., 2024</u>
+                ).
+              </Typography>
+            </div>
+
+            <div className="w-full md:w-[40%] flex justify-center p-4">
               <Image
                 src={depressionIcon}
                 alt="Depression icon"
                 width={200}
                 height={200}
-                className="object-contain w-32 sm:w-40 md:w-48 lg:w-56"
+                className="object-contain w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64"
               />
             </div>
           </div>
@@ -163,7 +161,7 @@ export default function EmotionalToll() {
         {page > 0 ? (
           <button
             onClick={goBack}
-            className="text-5xl hover:scale-110 transition-transform"
+            className="text-5xl hover:scale-110 transition-transform cursor-pointer"
             style={{ color: "#FF934F" }}
           >
             &lt;
@@ -173,7 +171,7 @@ export default function EmotionalToll() {
         )}
 
         {/* Hearts */}
-        <div className="flex space-x-4 mt-2 mb-8">
+        <div className="flex items-center justify-center h-full gap-4">
           {[0, 1, 2].map((i) => (
             <button
               key={i}
@@ -181,9 +179,8 @@ export default function EmotionalToll() {
               className="focus:outline-none"
             >
               <span
-                className={`text-4xl transition-all duration-300 ${
-                  i === page ? "opacity-100 scale-110" : "opacity-30 grayscale"
-                }`}
+                className={`text-4xl transition-all duration-300 ${i === page ? "opacity-100 scale-110" : "opacity-30 grayscale"
+                  }`}
                 style={{
                   background: "linear-gradient(to right, #FF934F, #A30B37)",
                   backgroundSize: "300% 100%",
@@ -202,7 +199,7 @@ export default function EmotionalToll() {
         {page < 2 ? (
           <button
             onClick={goNext}
-            className="text-5xl hover:scale-110 transition-transform"
+            className="text-5xl hover:scale-110 transition-transform cursor-pointer"
             style={{ color: "#FF934F" }}
           >
             &gt;
