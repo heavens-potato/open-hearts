@@ -1,23 +1,19 @@
 "use client";
-import Header from "../../components/header.js";
+import Header from "../../../components/header.js";
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
 import Link from 'next/link';
 import { useTheme } from "@mui/material/styles";
 
-export default function stories() {
+export default function Lyn() {
     const theme = useTheme();
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center justify-between">
             <Header />
-            <motion.section
-                initial = {{ opacity: 0 }}
-                animate = {{ opacity: 1 }}
-                transition = {{ duration: 1.0, delay: 0.1 }}
-                className="w-full flex flex-col items-center mt-20 mb-40 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32"
-            >
-                <div className="w-full bg-[#A33E70] rounded-2xl flex flex-col pt-12 pb-24 px-6 md:px-12">
+
+            <section className="flex flex-row gap-4 w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32">
+                <div className="flex flex-col gap-4 w-1/3">
                     <Typography
                         sx={{
                             fontSize: {
@@ -27,11 +23,11 @@ export default function stories() {
                                 lg: theme.typography.h3.fontSize,
                                 xl: theme.typography.h3.fontSize,
                             },
-                            color: "white",
+                            color: theme.palette.primary.crimsonRed,
                             fontWeight: "bold",
                         }}
                     >
-                        Stories of Romance Fraud
+                        Lyn's Story
                     </Typography>
                     <Typography
                         sx={{
@@ -42,13 +38,16 @@ export default function stories() {
                                 lg: theme.typography.h5.fontSize,
                                 xl: theme.typography.h5.fontSize,
                             },
-                            color: "white",
+                            color: "black",
                         }}
                     >
-                        Explore real stories of romance fraud and identify major red flags.
+                        Lyn, a woman in her 60s from Warrington, England, became a victim of romance fraud, losing over £50,000 to a scammer named "Derek."
                     </Typography>
                 </div>
-            </motion.section>
+                <div className="">
+
+                </div>
+            </section>
 
             <motion.div
                 className="w-full flex justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pb-13 md:pb-18"
@@ -56,7 +55,7 @@ export default function stories() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.0, delay: 0.4 }}
             >
-                <Link href="/learn/typical-case" passHref >
+                <Link href="/stories" passHref >
                     <Typography
                         sx={{
                             fontSize: {
@@ -72,7 +71,7 @@ export default function stories() {
                         ← Back
                     </Typography>
                 </Link>
-                <Link href="/stories/lyn" passHref >
+                <Link href="/stories/doreen" passHref >
                     <Typography
                         sx={{
                             fontSize: {
@@ -89,6 +88,6 @@ export default function stories() {
                     </Typography>
                 </Link>
             </motion.div>
-        </div>
+        </div >
     )
 }

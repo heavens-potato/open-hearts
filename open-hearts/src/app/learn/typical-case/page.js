@@ -233,7 +233,7 @@ export default function typicalCase() {
     }
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-center">
+        <div className="w-full min-h-screen flex flex-col items-center justify-between">
             <Header />
             <section className="w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pt-13 md:pt-20 bg-linear-to-b from-[#A30B37] from-[35%] to-[#FF934F] flex flex-col items-center gap-14">
                 <motion.div
