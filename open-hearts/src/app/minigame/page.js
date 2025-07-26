@@ -5,13 +5,16 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Typography } from "@mui/material";
 
-export default function minigame() {
+export default function Minigame() {
     const [data, setData] = useState(null);
     const [strList, setStrList] = useState([]);
     const [currProfile, setProfile] = useState(null);
     const [dialogue, setDialogue] = useState(null);
     const [index, setindex] = useState(0);
     let count = 0;
+
+        useEffect(() => {
+        }, [dialogue]);
 
         const getRandomProfile = async () => {
             // Get a random profile
@@ -39,13 +42,15 @@ export default function minigame() {
         }
 
         const testDataMapping = async () => {
-            const dialogue = await getDialogue(currProfile);
-            setStrList(prevItems => [...prevItems, dialogue[index]]);
-            setindex(index + 1);
+            if (dialogue && index < dialogue.length) {
+                setStrList(prevItems => [...prevItems, dialogue[index]]);
+                setindex(index + 1);
+            }
         }
         
         const clearMapping = () => {
             setStrList([]);
+            setindex(0);
         }
 
     return (
