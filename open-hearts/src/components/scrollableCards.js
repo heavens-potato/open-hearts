@@ -25,7 +25,7 @@ export default function scrollableCards() {
     const handleArrowClick = useCallback((direction) => {
         const container = scrollContainerRef.current;
         if (container) {
-            const scrollAmount = container.clientWidth * 0.5;
+            const scrollAmount = container.clientWidth * 0.3;
 
             container.scrollBy({
                 left: direction === 'left' ? -scrollAmount : scrollAmount,
@@ -46,9 +46,14 @@ export default function scrollableCards() {
             link: "/stories",
         },
         {
-            title: "Play",
+            title: "Game",
             description: "Test your skills!",
             link: "/minigame",
+        },
+        {
+            title: "Red Flags",
+            description: "Romance fraud's most common red flags",
+            link: "/red-flags"
         },
         {
             title: "Resources",
