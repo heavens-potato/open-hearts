@@ -88,7 +88,7 @@ export default function Lyn() {
         <div className="w-full min-h-screen flex flex-col items-center justify-between">
             <Header />
 
-            <section className="flex flex-col md:flex-row gap-4 w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 items-center justify-center mb-13">
+            <section className="flex flex-col md:flex-row gap-4 w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 items-center justify-center mt-13 md:mt-18">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -136,7 +136,7 @@ export default function Lyn() {
             </section>
 
             <motion.div
-                className="w-full flex justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pb-13 md:pb-18"
+                className="w-full flex justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-13 md:py-18"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.0, delay: 0.5 }}
