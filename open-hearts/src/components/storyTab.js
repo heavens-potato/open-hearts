@@ -172,7 +172,7 @@ export default function StoryTab({ summary, redFlags }) {
                                 </Typography>
                             </div>
                         </div>
-                        <div className="w-full h-full overflow-y-scroll border-[#A33E70] border-4 rounded-b-2xl p-6 scrollbar-hide shadow-xl">
+                        <div className={`w-full h-full overflow-y-scroll ${openIndex === 0 ? "border-[#A33E70]" : "border-[#A30B37]" } border-4 rounded-b-2xl p-6 scrollbar-hide shadow-xl`}>
                             {
                                 openIndex === 0
                                     ?
