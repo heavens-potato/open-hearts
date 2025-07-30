@@ -88,12 +88,12 @@ export default function Lyn() {
         <div className="w-full min-h-screen flex flex-col items-center justify-between">
             <Header />
 
-            <section className="flex flex-col md:flex-row gap-4 w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 items-center justify-center mt-13 md:mt-18">
+            <section className="flex flex-col sm:flex-row h-full gap-6 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 items-stretch md:justify-center mt-13 md:mt-18">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1.0, delay: 0.1 }}
-                    className="flex flex-col gap-4 w-full md:w-1/3 h-full"
+                    className="flex flex-col flex-grow justify-evenly w-full min-h-full sm:w-1/3 bg-linear-to-b from-[#7D1538] to-[#A30B37] p-6 rounded-2xl gap-6"
                 >
                     <Typography
                         sx={{
@@ -106,6 +106,7 @@ export default function Lyn() {
                             },
                             color: theme.palette.primary.crimsonRed,
                             fontWeight: "bold",
+                            color: "white"
                         }}
                     >
                         Lyn's Story
@@ -119,14 +120,14 @@ export default function Lyn() {
                                 lg: theme.typography.h5.fontSize,
                                 xl: theme.typography.h5.fontSize,
                             },
-                            color: "black",
+                            color: "white",
                         }}
                     >
                         Lyn, a woman in her 60s from Warrington, England, became a victim of romance fraud, losing over £50,000 to a scammer named "Derek."
                     </Typography>
                 </motion.div>
                 <motion.div
-                    className="w-full md:w-2/3"
+                    className="w-full sm:w-2/3"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1.0, delay: 0.3 }}

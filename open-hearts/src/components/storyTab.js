@@ -14,7 +14,7 @@ export default function StoryTab({ summary, redFlags }) {
     const theme = useTheme();
 
     const [openIndex, setOpenIndex] = useState(0);
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
         <div>

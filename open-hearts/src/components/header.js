@@ -34,7 +34,7 @@ export default function header() {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className="relative w-screen"
                 >
-                    <div className="h-24 flex flex-row px-8 items-center justify-between gap-4">
+                    <div className="h-24 flex flex-row px-8 items-center justify-between gap-4 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32">
                         <Link href="/landing">
                             <Image src={HeaderLogo} alt="Open Hearts logo with the tagline Spot the Scam. Save a Heart." className="h-8 w-auto" />
                         </Link>
