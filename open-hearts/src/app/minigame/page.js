@@ -20,27 +20,28 @@ export default function Minigame() {
     const [dialogue, setDialogue] = useState(null);
     const [index, setindex] = useState(0);
     const [gameStarted, setGameStarted] = useState(false);
+    const [randomOption, setRandomOption] = useState(Math.floor(Math.random() * 3)); // Random option for dialogue
     let count = 0;
 
     useEffect(() => {
-    }, [dialogue]);
+        if (gameStarted && currProfile === null) {
+            generateRandomProfile();
+        }
+    }, [gameStarted]);
 
     const getRandomProfile = async () => {
         // Get a random profile
         const res = await fetch("http://localhost:8080/api/profile");
         const profile = await res.json(); // contains full profile (id, name, dialogue map, etc)
         console.log("Profile: " + JSON.stringify(profile));
-        setProfile(profile); // store this in frontend state
         return profile;
     }
 
     const getDialogue = async (profile) => {
-        const randomOption = Math.floor(Math.random() * 3); // Choose a random dialogue option from 0 to 3
         const response = await fetch(`http://localhost:8080/api/dialogue?profileId=${profile.profileId}&option=${"option" + randomOption}`);
         console.log("Profile ID: " + profile.profileId + " Option: " + randomOption);
         const nextDialogue = await response.json();
         console.log("Dialogue:", nextDialogue);
-        setDialogue(nextDialogue);
         return nextDialogue;
     }
 
@@ -48,6 +49,8 @@ export default function Minigame() {
         const profile = await getRandomProfile();
         const nextDialogue = await getDialogue(profile);
         setDialogue(nextDialogue);
+        setProfile(profile);
+        console.log("Generated Profile: " + JSON.stringify(currProfile));
     }
 
     const testDataMapping = async () => {
@@ -72,7 +75,7 @@ export default function Minigame() {
                         {
                             gameStarted &&
                             <div className="h-full w-full flex justify-center items-center w-full">
-                                <Game gameStarted={gameStarted} />
+                                <Game gameStarted={gameStarted} currProfile={currProfile ? currProfile.name : ""} />
                             </div>
                         }
                         {
@@ -136,7 +139,7 @@ export default function Minigame() {
                     :
                     <div className="h-full w-full flex flex-row justify-center items-center px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 gap-16 my-13 md:my-18">
                         <div className={`h-full flex justify-center items-center ${gameStarted ? 'w-full' : 'w-1/2'}`}>
-                            <Game gameStarted={gameStarted} />
+                            <Game Game gameStarted={gameStarted} currProfile={currProfile ? currProfile.name : ""}/>
                         </div>
                         {
                             !gameStarted &&
@@ -174,7 +177,7 @@ export default function Minigame() {
                                 </Typography>
                                 <div
                                     className="w-full h-18 bg-[#A33E70] rounded-full cursor-pointer flex justify-center items-center text-center"
-                                    onClick={() => setGameStarted(true)}
+                                    onClick={() => { setGameStarted(true) }}
                                 >
                                     <Typography
                                         sx={{
