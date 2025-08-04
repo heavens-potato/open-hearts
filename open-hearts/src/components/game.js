@@ -9,6 +9,7 @@ import blankProfilePic from "../components/images/blank-pfp.png";
 export default function Game({ gameStarted, currProfile }) {
     const theme = useTheme()
     const [page, setPage] = useState(0);
+    let count = 0;
 
     // Page 0: Match page
     if (page === 0) {
@@ -66,7 +67,12 @@ export default function Game({ gameStarted, currProfile }) {
                             </div>
                             <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
                                 <Typography sx={{fontWeight: 'bold'}}>Interests</Typography>
-                                <Typography>Temp place holder</Typography>
+                                {/* Map hobbies*/}
+                                <div className="flex flex-wrap gap-1">
+                                    {currProfile.hobbies.map((text) => (
+                                        <Typography sx={{padding: '0.2rem 0.75rem 0.2rem 0.75rem', borderRadius: '1rem', color: 'white', bgcolor: '#7D1538', fontSize: '0.75rem'}} key={count++}>{text}</Typography>
+                                    ))}
+                                </div>
                             </div>
                             <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
                                 <Typography sx={{fontWeight: 'bold'}}>Looking For</Typography>
@@ -84,13 +90,7 @@ export default function Game({ gameStarted, currProfile }) {
                         >
                             <Typography
                             sx={{
-                                fontSize: {
-                                    xs: theme.typography.h5.fontSize,
-                                    sm: theme.typography.h5.fontSize,
-                                    md: theme.typography.h5.fontSize,
-                                    lg: theme.typography.h5.fontSize,
-                                    xl: theme.typography.h5.fontSize,
-                                },
+                                fontSize: theme.typography.h5.fontSize,
                                 color: "white",
                             }}
                             >
