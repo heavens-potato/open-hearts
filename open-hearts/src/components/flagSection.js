@@ -9,8 +9,7 @@ export default function FlagSection({ imageSrc, title, description, type }) {
 
     return (
         <>
-            <div className="h-1 my-8 mx-6 sm:mx-6 md:mx-10 lg:mx-12"></div>
-            <section className="w-full flex flex-col md:flex-row items-center px-6 sm:px-6 md:px-10 lg:px-12 xl:px-30 py-3">
+            <section className="w-full flex flex-col md:flex-row items-center px-6 sm:px-6 md:px-10 lg:px-12 xl:px-30 py-4 my-5">
                 <div className="flex-shrink-0 w-32 h-32">
                     <Image
                         src={imageSrc}

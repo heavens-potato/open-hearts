@@ -121,8 +121,7 @@ export default function stories() {
             </section>
 
             <motion.div
-                className="w-full"
-
+                className="w-full mb-12"
             >
                 <Image
                     src={RedFlag}
@@ -156,7 +155,7 @@ export default function stories() {
             ))}
 
             <motion.div
-                className="w-full flex justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pb-13 md:pb-18"
+                className="w-full flex justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pb-13 md:pb-18 mt-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.0, delay: 0.4 }}
