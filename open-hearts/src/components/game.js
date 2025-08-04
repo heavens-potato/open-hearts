@@ -47,57 +47,68 @@ export default function Game({ gameStarted, currProfile }) {
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl">
                 <div className="h-[37rem] bg-gray-400 border-black border-8 rounded-3xl flex justify-center items-center text-center">
                     <section className="relative w-full h-[32.5em] mt-14 rounded-2xl bg-white flex flex-col px-2 overflow-auto">
-                                <Image
-                                    src={blankProfilePic}
-                                    alt="Blank Profile Picture"
-                                    width={800}
-                                    height={800}
-                                    className="mt-3 object-contain flex justify-center items-center"
-                                />
-                                <div className="flex flex row">
-                                    <Typography sx={{fontWeight: 'bold', marginRight: '.5rem', fontSize: theme.typography.h6.fontSize}}>{currProfile.name}</Typography>
-                                    <Typography sx={{fontSize: theme.typography.h6.fontSize}}>{currProfile.age}</Typography>
-                                </div>
+                        <Image
+                            src={blankProfilePic}
+                            alt="Blank Profile Picture"
+                            width={800}
+                            height={800}
+                            className="mt-3 object-contain flex justify-center items-center"
+                        />
+                        <div className="flex flex row">
+                            <Typography sx={{fontWeight: 'bold', marginRight: '.5rem', fontSize: theme.typography.h6.fontSize}}>{currProfile.name}</Typography>
+                            <Typography sx={{fontSize: theme.typography.h6.fontSize}}>{currProfile.age}</Typography>
+                        </div>
                                 
-                                <div className=""> {/* three info boxes*/}
-                                    <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
-                                        <Typography sx={{fontWeight: 'bold'}}>Location</Typography>
-                                        <Typography>{currProfile.location}</Typography>
-                                    </div>
-                                    <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
-                                        <Typography sx={{fontWeight: 'bold'}}>Interests</Typography>
-                                        <Typography>Temp place holder</Typography>
-                                    </div>
-                                    <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
-                                        <Typography sx={{fontWeight: 'bold'}}>Looking For</Typography>
-                                        <Typography>??</Typography>
-                                    </div>
-                                </div> {/* end three info boxes*/}
+                        <div className=""> {/* three info boxes*/}
+                            <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
+                                <Typography sx={{fontWeight: 'bold'}}>Location</Typography>
+                                <Typography>{currProfile.location}</Typography>
+                            </div>
+                            <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
+                                <Typography sx={{fontWeight: 'bold'}}>Interests</Typography>
+                                <Typography>Temp place holder</Typography>
+                            </div>
+                            <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
+                                <Typography sx={{fontWeight: 'bold'}}>Looking For</Typography>
+                                <Typography>??</Typography>
+                            </div>
+                        </div> {/* end three info boxes*/}
                     
-                                <Typography>You have a new message from {currProfile.name}</Typography>
+                        <div className="rounded-sm bg-[#A33E70] my-5">
+                            <Typography sx={{color: 'white', fontSize: '.75rem'}}>You have a new message from {currProfile.name}</Typography>
+                        </div>
                     
-                                 <div
-                                 className="w-full h-12 bg-[#A33E70] rounded-full cursor-pointer flex justify-center items-center text-center"
-                                 >
-                                <Typography
-                                sx={{
-                                    fontSize: {
-                                        xs: theme.typography.h5.fontSize,
-                                        sm: theme.typography.h5.fontSize,
-                                        md: theme.typography.h5.fontSize,
-                                        lg: theme.typography.h5.fontSize,
-                                        xl: theme.typography.h5.fontSize,
-                                    },
-                                    color: "white",
-                                }}
-                                                        >
+                        <div
+                            onClick={() => setPage(2)}
+                            className="w-full h-12 bg-[#A33E70] rounded-full cursor-pointer flex justify-center items-center text-center mb-10"
+                        >
+                            <Typography
+                            sx={{
+                                fontSize: {
+                                    xs: theme.typography.h5.fontSize,
+                                    sm: theme.typography.h5.fontSize,
+                                    md: theme.typography.h5.fontSize,
+                                    lg: theme.typography.h5.fontSize,
+                                    xl: theme.typography.h5.fontSize,
+                                },
+                                color: "white",
+                            }}
+                            >
                                 Start Chatting
-                                </Typography>
+                            </Typography>
                     
-                                </div>
-                            </section>
+                        </div>
+                    </section>
                 </div>
             </div>
         );
+    }
+
+    if (page == 2) {
+        return (
+            <>
+                <h1>NEXT PAGE</h1>
+            </>
+        )
     }
 }
