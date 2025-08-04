@@ -67,11 +67,11 @@ export default function StoryTab({ summary, redFlags }) {
                                 sx={{
                                     color: 'white',
                                     fontSize: {
-                                        xs: theme.typography.h6.fontSize,
-                                        sm: theme.typography.h6.fontSize,
-                                        md: theme.typography.h6.fontSize,
-                                        lg: theme.typography.h5.fontSize,
-                                        xl: theme.typography.h5.fontSize,
+                                        xs: theme.typography.h5.fontSize,
+                                        sm: theme.typography.h5.fontSize,
+                                        md: theme.typography.h5.fontSize,
+                                        lg: theme.typography.h4.fontSize,
+                                        xl: theme.typography.h4.fontSize,
                                     },
                                     textAlign: "center",
                                     fontWeight: openIndex == 1 ? "bold" : "normal",
@@ -108,7 +108,7 @@ export default function StoryTab({ summary, redFlags }) {
                     <div className="w-full flex flex-col items-center justify-center">
                         <div className="flex flex-row gap-2 justify-evenly w-full">
                             <div
-                                className={`flex flex-row gap-4text-center justify-center items-center w-1/2 ${openIndex === 0 ? 'rounded-b-none h-20 shadow-none' : 'rounded-b-2xl h-18 shadow-xl'} rounded-t-2xl cursor-pointer bg-[#A33E70]`}
+                                className={`flex flex-row gap-4text-center justify-center items-center w-1/2 ${openIndex === 0 ? 'rounded-b-none h-20 shadow-none' : 'rounded-b-2xl h-18 shadow-md shadow-black'} rounded-t-2xl cursor-pointer bg-[#A33E70]`}
                                 onClick={() => setOpenIndex(0)}
                             >
                                 <PersonSearchIcon
@@ -140,7 +140,7 @@ export default function StoryTab({ summary, redFlags }) {
                                 </Typography>
                             </div>
                             <div
-                                className={`flex flex-row gap-4 bg-[#A30B37] text-center justify-center items-center w-1/2 ${openIndex === 1 ? 'rounded-b-none h-20 shadow-none' : 'rounded-b-2xl h-18 shadow-xl'} rounded-t-2xl cursor-pointer`}
+                                className={`flex flex-row gap-4 bg-[#A30B37] text-center justify-center items-center w-1/2 ${openIndex === 1 ? 'rounded-b-none h-20 shadow-none' : 'rounded-b-2xl h-18 shadow-md shadow-black'} rounded-t-2xl cursor-pointer`}
                                 onClick={() => setOpenIndex(1)}
                             >
                                 <FlagIcon
@@ -172,7 +172,7 @@ export default function StoryTab({ summary, redFlags }) {
                                 </Typography>
                             </div>
                         </div>
-                        <div className={`w-full h-full overflow-y-scroll ${openIndex === 0 ? "border-[#A33E70]" : "border-[#A30B37]" } border-4 rounded-b-2xl p-6 scrollbar-hide shadow-xl`}>
+                        <div className={`w-full h-full overflow-y-scroll ${openIndex === 0 ? "border-[#A33E70]" : "border-[#A30B37]" } border-4 rounded-b-2xl p-6 scrollbar-hide rounded-b-2xl h-18 shadow-md shadow-black` }>
                             {
                                 openIndex === 0
                                     ?
