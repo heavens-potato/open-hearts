@@ -75,7 +75,7 @@ export default function Minigame() {
                         {
                             gameStarted &&
                             <div className="h-full w-full flex justify-center items-center w-full">
-                                <Game gameStarted={gameStarted} currProfile={currProfile ? currProfile.name : ""} />
+                                <Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} />
                             </div>
                         }
                         {
@@ -139,7 +139,7 @@ export default function Minigame() {
                     :
                     <div className="h-full w-full flex flex-row justify-center items-center px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 gap-16 my-13 md:my-18">
                         <div className={`h-full flex justify-center items-center ${gameStarted ? 'w-full' : 'w-1/2'}`}>
-                            <Game Game gameStarted={gameStarted} currProfile={currProfile ? currProfile.name : ""}/>
+                            <Game Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""}/>
                         </div>
                         {
                             !gameStarted &&
