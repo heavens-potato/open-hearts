@@ -46,14 +46,14 @@ export default function scrollableCards() {
             link: "/stories",
         },
         {
-            title: "Game",
-            description: "Test your skills!",
-            link: "/minigame",
-        },
-        {
             title: "Red Flags",
             description: "Romance fraud's most common red flags",
             link: "/red-flags"
+        },
+        {
+            title: "Game",
+            description: "Test your skills!",
+            link: "/minigame",
         },
         {
             title: "Resources",
