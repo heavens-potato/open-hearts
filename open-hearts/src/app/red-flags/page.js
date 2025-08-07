@@ -160,7 +160,7 @@ export default function stories() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.0, delay: 0.4 }}
             >
-                <Link href="/stories" passHref >
+                <Link href="/stories/rita" passHref >
                     <Typography
                         sx={{
                             fontSize: {
@@ -173,7 +173,7 @@ export default function stories() {
                             color: "black",
                         }}
                     >
-                        ← Back [CHANGE THIS TO LAST VICTIM STORY]
+                        ← Back
                     </Typography>
                 </Link>
                 <Link href="/minigame" passHref >
