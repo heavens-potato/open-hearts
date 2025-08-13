@@ -142,7 +142,7 @@ export default function Game({ gameStarted, currProfile, dialogue }) {
                         />
                         <Typography sx={{fontSize: '0.9rem'}}>Chat with <strong>{currProfile.name}</strong> </Typography>   {/* Header End */}                     
                     </div>
-                    <div className="flex flex-col mt-5"> {/* Message */}
+                    <div className="flex flex-col mt-5 h-1/2"> {/* Message */}
                         {/* Below map should be used to display full conversation AFTER user has selected a dialogue option,
                             we already have the function to choose a dialogue branch based on the option number parameter */}
                         {/* {messageArr.map((text) => (   
@@ -156,6 +156,9 @@ export default function Game({ gameStarted, currProfile, dialogue }) {
                             <Typography sx={{textAlign: messageInd++ %2 === 0 ? 'left' : 'right', marginBottom: '0.8rem', padding: '0.5rem 0.5rem 0.5rem 0.5rem', width:'50%', right: '0', borderRadius: '0.2rem', color: 'white', bgcolor: '#7D1538', fontSize: '0.75rem'}}>{introMessage}</Typography>
                         </div>}
                     </div> {/* Message End */}
+                    <div className="h-1/2">
+                        <Typography sx={{fontSize: '0.75rem', borderRadius: '0.25rem', textAlign: 'center', color: 'white', backgroundColor: '#A33E70', padding: '0.5rem 0 0.5rem 0', margin: '0 1.5rem 0 1.5rem'}}>Choose a Response ...</Typography>
+                    </div>
                 </div>
             </div>
         )
