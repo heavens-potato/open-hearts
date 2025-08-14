@@ -5,6 +5,8 @@ import { Typography } from "@mui/material";
 import Link from 'next/link';
 import { useTheme } from "@mui/material/styles";
 import Image from "next/image";
+import resourcesCurve from "../../components/images/resources-curve.svg";
+import SupportIcon from '@mui/icons-material/Support';
 import ReportIcon from '@mui/icons-material/Report';
 import LinkIcon from '@mui/icons-material/Link';
 
@@ -132,6 +134,14 @@ export default function stories() {
                     </motion.div>
                 </div>
             </section>
+            <div className="w-full mb-12">
+                <Image
+                    src={resourcesCurve}
+                    alt="resources graphic"
+                    className="w-full block"
+                    priority
+                />
+            </div>
 
             <section className="flex flex-col gap-8 md:gap-16 py-8 md:py-16 w-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32">
                 <div className="flex flex-row w-full border-b-4 border-[#7D1538] pb-8 gap-8 items-center">
@@ -238,7 +248,7 @@ export default function stories() {
 
             <section className="flex flex-col gap-8 md:gap-16 py-8 md:py-16 w-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32">
                 <div className="flex flex-row w-full border-b-4 border-[#7D1538] pb-8 gap-8 items-center">
-                    <ReportIcon
+                    <SupportIcon
                         sx={{
                             fontSize: {
                                 xs: theme.typography.h4.fontSize,
@@ -345,7 +355,7 @@ export default function stories() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.0, delay: 0.4 }}
             >
-                <Link href="/stories/rita" passHref >
+                <Link href="/minigame" passHref >
                     <Typography
                         sx={{
                             fontSize: {
@@ -374,7 +384,7 @@ export default function stories() {
                             color: "black",
                         }}
                     >
-                        Next →
+                        Next [no link yet, maybe change this text]→
                     </Typography>
                 </Link>
             </motion.div>

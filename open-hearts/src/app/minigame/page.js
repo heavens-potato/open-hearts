@@ -224,7 +224,7 @@ export default function Minigame() {
                         ← Back
                     </Typography>
                 </Link>
-                <Link href="/stories" passHref >
+                <Link href="/resources" passHref >
                     <Typography
                         sx={{
                             fontSize: {
@@ -237,7 +237,7 @@ export default function Minigame() {
                             color: "black",
                         }}
                     >
-                        Next [change to subsequent page!] →
+                        Next →
                     </Typography>
                 </Link>
             </motion.div>
