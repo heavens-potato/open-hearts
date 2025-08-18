@@ -20,6 +20,7 @@ export default function Minigame() {
     const [dialogue, setDialogue] = useState(null);
     const [index, setindex] = useState(0);
     const [gameStarted, setGameStarted] = useState(false);
+    const [options, setOptions] = useState([]);
     const [option, setOption] = useState(0);
     let count = 0;
 
@@ -51,6 +52,7 @@ export default function Minigame() {
         setProfile(profile);
         console.log("Generated Profile: " + JSON.stringify(profile));
         console.log("Dialogue:", nextDialogue);
+        generateOptions(profile);
     }
 
     const testDataMapping = async () => {
@@ -65,6 +67,13 @@ export default function Minigame() {
         setindex(0);
     }
 
+    const generateOptions = async (profile) => {
+        const response = await fetch(`http://localhost:8080/api/userOptions?profileId=${profile.profileId}`);
+        const optionsData = await response.json();
+        console.log("Options Data: " + JSON.stringify(optionsData));
+        setOptions(optionsData);
+    }
+
     return (
         <div className="min-h-screen flex flex-col items-center justify-between">
             <Header />
@@ -75,7 +84,7 @@ export default function Minigame() {
                         {
                             gameStarted &&
                             <div className="h-full w-full flex justify-center items-center w-full">
-                                <Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} dialogue={dialogue ? dialogue : []}/>
+                                <Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} dialogue={dialogue ? dialogue : []} options={options ? options: []}/>
                             </div>
                         }
                         {
@@ -139,7 +148,7 @@ export default function Minigame() {
                     :
                     <div className="h-full w-full flex flex-row justify-center items-center px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 gap-16 my-13 md:my-18">
                         <div className={`h-full flex justify-center items-center ${gameStarted ? 'w-full' : 'w-1/2'}`}>
-                            <Game Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} dialogue={dialogue ? dialogue : []}/>
+                            <Game Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} dialogue={dialogue ? dialogue : []} options={options ? options: []}/>
                         </div>
                         {
                             !gameStarted &&

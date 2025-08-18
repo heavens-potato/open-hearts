@@ -7,11 +7,11 @@ import Image from "next/image";
 import blankProfilePic from "../components/images/blank-pfp.png";
 import gameStartCurve from "../components/images/GameStartCurve1.svg"
 
-export default function Game({ gameStarted, currProfile, dialogue }) {
+export default function Game({ gameStarted, currProfile, dialogue, options}) {
     const theme = useTheme()
     const [page, setPage] = useState(0);
     const [messageArr, setMessageArr] = useState([]);
-    const tempOptions = ["Option1", "Option2", "Option3"];
+
     let count = 0;
     let messageInd = 0;
     let optionCount = 1;
@@ -158,9 +158,9 @@ export default function Game({ gameStarted, currProfile, dialogue }) {
                             <Typography sx={{textAlign: messageInd++ %2 === 0 ? 'left' : 'right', marginBottom: '0.8rem', padding: '0.5rem 0.5rem 0.5rem 0.5rem', width:'50%', right: '0', borderRadius: '0.2rem', color: 'white', bgcolor: '#7D1538', fontSize: '0.75rem'}}>{introMessage}</Typography>
                         </div>}
                     </div> {/* Message End */}
-                    <div className="h-1/2"> {/* Choice start */}
+                    <div className="h-1/2 overflow-auto"> {/* Choice start */}
                         <Typography sx={{fontSize: '0.75rem', borderRadius: '0.25rem', textAlign: 'center', color: 'white', backgroundColor: '#A33E70', padding: '0.5rem 0 0.5rem 0', margin: '0 1.5rem 1rem 1.5rem'}}>Choose a Response ...</Typography>
-                        {tempOptions.map((option) => (
+                        {options.map((option) => (
                             <div className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5" key={count++}>
                                 <Typography sx={{padding: "0.35rem 0.35rem 0.35rem 0.35rem", fontSize: '0.65rem', color: 'black'}}>{optionCount++}. {option}</Typography>
                             </div>
