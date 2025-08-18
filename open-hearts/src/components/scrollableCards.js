@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { Card, CardContent, Typography, Box } from '@mui/material';
 import Link from 'next/link';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { useTheme, darken } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
 
 export default function scrollableCards() {
     const theme = useTheme();
@@ -25,7 +26,7 @@ export default function scrollableCards() {
     const handleArrowClick = useCallback((direction) => {
         const container = scrollContainerRef.current;
         if (container) {
-            const scrollAmount = container.clientWidth * 0.3;
+            const scrollAmount = container.clientWidth * 0.4;
 
             container.scrollBy({
                 left: direction === 'left' ? -scrollAmount : scrollAmount,
@@ -69,25 +70,32 @@ export default function scrollableCards() {
 
     return (
         <section className="relative w-full h-full flex flex-row px-6 md:px-8 scrollbar-hide">
-            <ChevronLeftIcon
-                sx={{
-                    position: 'absolute',
-                    left: '0',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    fontSize: '4rem',
-                    color: '#44001A',
-                    backgroundColor: 'white',
-                    borderRadius: '50%',
-                    zIndex: '5',
-                    cursor: 'pointer'
-                }}
-                onClick={() => handleArrowClick('left')}
-                disabled={!canScrollLeft}
-            />
-            <div ref={scrollContainerRef}
+            <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-5"
+            >
+                <ChevronLeftIcon
+                    sx={{
+                        fontSize: '4rem',
+                        color: '#44001A',
+                        backgroundColor: 'white',
+                        borderRadius: '50%',
+                        cursor: 'pointer'
+                    }}
+                    onClick={() => handleArrowClick('left')}
+                    disabled={!canScrollLeft}
+                />
+            </motion.div>
+            <motion.div ref={scrollContainerRef}
                 className="flex overflow-x-scroll snap-x snap-mandatory py-4 gap-6 md:gap-8 lg:gap-10 
                 pb-6 items-stretch scrollbar-hide"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.0 }}
             >
                 {cardsData.map((card, index) => (
                     <div key={card.title} className="flex-shrink-0 snap-center w-[80%] md:w-80">
@@ -105,7 +113,7 @@ export default function scrollableCards() {
                                     borderRadius: '12px',
                                     '&:hover': {
                                         boxShadow: 6,
-                                        transform: 'translateY(-4px)',
+                                        transform: 'translateY(-10px)',
                                         transition: 'transform 0.2s ease-in-out',
                                     },
                                     height: '25rem',
@@ -157,23 +165,27 @@ export default function scrollableCards() {
                         </Link>
                     </div>
                 ))}
-            </div>
-            <ChevronRightIcon
-                sx={{
-                    position: 'absolute',
-                    right: '0',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    fontSize: '4rem',
-                    color: '#44001A',
-                    backgroundColor: 'white',
-                    borderRadius: '50%',
-                    zIndex: '5',
-                    cursor: 'pointer'
-                }}
-                onClick={() => handleArrowClick('right')}
-                disabled={!canScrollRight}
-            />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{  duration: 0.5 }}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-5"
+            >
+                <ChevronRightIcon
+                    sx={{
+                        fontSize: '4rem',
+                        color: '#44001A',
+                        backgroundColor: 'white',
+                        borderRadius: '50%',
+                        cursor: 'pointer'
+                    }}
+                    onClick={() => handleArrowClick('right')}
+                    disabled={!canScrollRight}
+                />
+            </motion.div>
+
         </section>
     )
 }

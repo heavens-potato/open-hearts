@@ -38,12 +38,17 @@ export default function learn() {
             <Header />
 
             {/* Gradient Section */}
-            <section className="w-full flex flex-col text-left px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 bg-linear-to-b from-[#B51745] to-[#D82E5F] pt-13 md:pt-20">
-                <div className="pb-13 md:pb-20 flex flex-col items-left gap-6 md:gap-8 mx-auto">
+            <motion.section
+                className="w-full flex flex-col text-left px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 bg-linear-to-b from-[#B51745] to-[#D82E5F] pt-13 md:pt-20"
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.0, delay: 0.1, ease: "easeInOut"}}
+            >
+                <div className="pb-13 md:pb-20 flex flex-col items-left gap-6 md:gap-8 mx-auto" >
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.1 }}
+                        transition={{ duration: 1.0, delay: 1.0 }}
                     >
                         <Typography
                             sx={{
@@ -65,7 +70,7 @@ export default function learn() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.2 }}
+                        transition={{ duration: 1.0, delay: 1.5 }}
                     >
                         <Typography
                             sx={{
@@ -94,14 +99,15 @@ export default function learn() {
                             money, credit card information, personal documents, and more.
                         </Typography>
                     </motion.div>
-
                 </div>
-            </section>
+            </motion.section>
 
             {/* Graphic Component Section */}
             <motion.div
                 className="w-full"
-
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.0, delay: 0.1, ease: "easeInOut" }}
             >
                 <Image
                     src={learnGraphic}
@@ -118,7 +124,7 @@ export default function learn() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.3 }}
+                        transition={{ duration: 1.0, delay: 2.0 }}
                     >
                         <Typography
                             sx={{
@@ -155,7 +161,7 @@ export default function learn() {
                         className="flex justify-center md:justify-enditems-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.4 }}
+                        transition={{ duration: 1.0, delay: 2.5 }}
                     >
                         <VolunteerActivismIcon
                             sx={{
@@ -179,7 +185,7 @@ export default function learn() {
                 className="w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1.0, delay: 0.5 }}
+                transition={{ duration: 1.0, delay: 3.0 }}
             >
                 {items.map((item, index) => (
                     <div key={index} className="border-b-4 py-4 border-[#7D1538]" style={{ borderTop: index === 0 ? '4px solid #7D1538' : 'none' }} >
@@ -211,16 +217,9 @@ export default function learn() {
 
                         {/* Content */}
                         {openIndex === index && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 1.0 }}
-                                className="mt-3 text-black"
-                            >
-                                <div>
-                                    {item.content}
-                                </div>
-                            </motion.div>
+                            <div className="mt-3 text-black">
+                                {item.content}
+                            </div>
                         )}
                     </div>
                 ))}
@@ -228,9 +227,9 @@ export default function learn() {
 
             <motion.div
                 className="w-full flex justify-end px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-13 md:py-18"
-                 initial={{ opacity: 0 }}
+                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1.0, delay: 0.6 }}
+                transition={{ duration: 1.0, delay: 4.5 }}
             >
                 <Link href="/learn/typical-case" passHref >
                     <Typography

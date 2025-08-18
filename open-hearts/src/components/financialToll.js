@@ -29,7 +29,12 @@ export default function financialToll() {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
-        <div className="w-full h-full gap-6 md:gap-12 py-6 md:py-12">
+        <motion.div
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="w-full h-full gap-6 md:gap-12 py-6 md:py-12"
+        >
             <Typography
                 sx={{
                     fontSize: {
@@ -304,16 +309,20 @@ export default function financialToll() {
                                             left: '12%',
                                             backgroundColor: 'white',
                                             borderRadius: '50%',
-                                            zIndex: '5'
+                                            zIndex: '5',
+                                            '&:hover': {
+                                                transform: 'scale(1.1)',
+                                            },
+                                            transition: 'transform 0.5s ease-in-out'
                                         }}
                                         onClick={() => showInfoPop(null)}
                                     />
                                     <motion.div
                                         className="absolute left-0 top-[44%] md:w-120 lg:w-150 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl p-2"
                                         style={{ backgroundColor: theme.palette.secondary.goldenYellow }}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ duration: 0.5 }}
+                                        initial={{ opacity: 0, y: 100 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
                                     >
                                         <Typography
                                             sx={{
@@ -349,7 +358,11 @@ export default function financialToll() {
                                         left: '12%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%',
-                                        zIndex: '5'
+                                        zIndex: '5',
+                                        '&:hover': {
+                                            transform: 'scale(1.1)',
+                                        },
+                                        transition: 'transform 0.5s ease-in-out'
                                     }}
                                     onClick={() => showInfoPop(0)}
                                 />
@@ -385,16 +398,20 @@ export default function financialToll() {
                                             },
                                             backgroundColor: 'white',
                                             borderRadius: '50%',
-                                            zIndex: '5'
+                                            zIndex: '5',
+                                            '&:hover': {
+                                                transform: 'scale(1.1)',
+                                            },
+                                            transition: 'transform 0.5s ease-in-out'
                                         }}
                                         onClick={() => showInfoPop(null)}
                                     />
                                     <motion.div
                                         className="absolute md:left-[3%] lg:left-[5%] xl:left-[5%] 2xl:left-[15%] top-[46%] md:w-120 lg:w-150 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl text-wrap p-2"
                                         style={{ backgroundColor: theme.palette.secondary.goldenYellow }}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ duration: 0.5 }}
+                                        initial={{ opacity: 0, y: 100 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
                                     >
                                         <Typography
                                             sx={{
@@ -440,7 +457,11 @@ export default function financialToll() {
                                         },
                                         backgroundColor: 'white',
                                         borderRadius: '50%',
-                                        zIndex: '5'
+                                        zIndex: '5',
+                                        '&:hover': {
+                                            transform: 'scale(1.1)',
+                                        },
+                                        transition: 'transform 0.5s ease-in-out'
                                     }}
                                     onClick={() => showInfoPop(1)}
                                 />
@@ -466,16 +487,20 @@ export default function financialToll() {
                                             left: '80%',
                                             backgroundColor: 'white',
                                             borderRadius: '50%',
-                                            zIndex: '5'
+                                            zIndex: '5',
+                                            '&:hover': {
+                                                transform: 'scale(1.1)',
+                                            },
+                                            transition: 'transform 0.5s ease-in-out'
                                         }}
                                         onClick={() => showInfoPop(null)}
                                     />
                                     <motion.div
                                         className="absolute md:left-[2%] lg:left-[3%] xl:left-[5%] 2xl:left-[20%] top-[51%] md:w-110 lg:w-175 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl p-2"
                                         style={{ backgroundColor: theme.palette.secondary.goldenYellow }}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ duration: 0.5 }}
+                                        initial={{ opacity: 0, y: 100 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
                                     >
                                         <Typography
                                             sx={{
@@ -511,7 +536,11 @@ export default function financialToll() {
                                         left: '80%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%',
-                                        zIndex: '5'
+                                        zIndex: '5',
+                                        '&:hover': {
+                                            transform: 'scale(1.1)',
+                                        },
+                                        transition: 'transform 0.5s ease-in-out'
                                     }}
                                     onClick={() => showInfoPop(2)}
                                 />
@@ -537,16 +566,20 @@ export default function financialToll() {
                                             left: '85%',
                                             backgroundColor: 'white',
                                             borderRadius: '50%',
-                                            zIndex: '5'
+                                            zIndex: '5',
+                                            '&:hover': {
+                                                transform: 'scale(1.1)',
+                                            },
+                                            transition: 'transform 0.5s ease-in-out'
                                         }}
                                         onClick={() => showInfoPop(null)}
                                     />
                                     <motion.div
                                         className="absolute md:left-[2%] xl:left-[5%] 2xl:left-[20%] top-[71%] md:w-120 lg:w-175 xl:w-200 h-30 rounded-xl flex justify-center items-center text-center shadow-xl p-2"
                                         style={{ backgroundColor: theme.palette.secondary.goldenYellow }}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ duration: 0.5 }}
+                                        initial={{ opacity: 0, y: 100 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
                                     >
                                         <Typography
                                             sx={{
@@ -582,7 +615,11 @@ export default function financialToll() {
                                         left: '85%',
                                         backgroundColor: 'white',
                                         borderRadius: '50%',
-                                        zIndex: '5'
+                                        zIndex: '5',
+                                        '&:hover': {
+                                            transform: 'scale(1.1)',
+                                        },
+                                        transition: 'transform 0.5s ease-in-out'
                                     }}
                                     onClick={() => showInfoPop(3)}
                                 />
@@ -594,6 +631,6 @@ export default function financialToll() {
                 </div>
             )
             }
-        </div >
+        </motion.div >
     )
 }

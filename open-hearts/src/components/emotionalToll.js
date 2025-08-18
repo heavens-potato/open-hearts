@@ -17,18 +17,20 @@ export default function EmotionalToll() {
   const goBack = () => page > 0 && setPage(page - 1);
 
   return (
-    <div className="relative flex flex-col items-center justify-center text-center p-3 w-full mx-auto gap-6 md:gap-12">
-      <motion.div
-        key={page}
-        className="w-full flex flex-col justify-center"
-        minHeight="100vh"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-      >
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="relative flex flex-col items-center justify-center text-center p-3 w-full mx-auto gap-6 md:gap-12"
+    >
+      <div key={page} className="w-full flex flex-col justify-center min-h-100vh">
         {page === 0 && (
-          <div className="w-full">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="w-full"
+          >
             <Typography
               sx={{
                 fontSize: {
@@ -81,11 +83,15 @@ export default function EmotionalToll() {
                 </Typography>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {page === 1 && (
-          <div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
             <Typography
               sx={{
                 fontSize: {
@@ -114,11 +120,16 @@ export default function EmotionalToll() {
                 className="object-contain max-w-full"
               />
             </div>
-          </div>
+          </motion.div>
         )}
 
         {page === 2 && (
-          <div className="flex flex-col md:flex-row items-center justify-center h-full w-full gap-6 md:gap-0">
+          <motion.div
+            className="flex flex-col md:flex-row items-center justify-center h-full w-full gap-6 md:gap-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
             <div className="w-full md:w-[60%]">
               <Typography
                 sx={{
@@ -151,9 +162,9 @@ export default function EmotionalToll() {
                 className="object-contain w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64"
               />
             </div>
-          </div>
+          </motion.div>
         )}
-      </motion.div>
+      </div>
 
       {/* Bottom Navigation */}
       <div className="flex items-center justify-between w-full mt-4 mb-6">
@@ -208,6 +219,6 @@ export default function EmotionalToll() {
           <div className="w-6" />
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

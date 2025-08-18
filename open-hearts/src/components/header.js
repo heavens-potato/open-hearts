@@ -129,10 +129,10 @@ export default function header() {
                 </motion.div>
             ) : (
                 <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="w-screen h-20 flex flex-row px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 items-center"
+                    className="w-screen h-20 flex flex-row px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 items-center z-10 bg-white"
                 >
                     <Link href="/landing" className="w-[40%]">
                         <Image src={HeaderLogo}

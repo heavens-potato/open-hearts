@@ -109,9 +109,10 @@ export default function landing() {
 
                     <motion.div
                         className="w-full"
-                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.9 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 1.0 }}
+                        viewport={{ once: true }}
                     >
                         <ScrollableCards />
                     </motion.div>
