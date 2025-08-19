@@ -18,9 +18,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export default function typicalCase() {
     const theme = useTheme();
-
     const [openIndex, setOpenIndex] = useState(0);
-
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const steps = useMemo(() => [
@@ -358,13 +356,16 @@ export default function typicalCase() {
 
             <motion.section
                 className="w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 flex justify-center items-center my-20"
-                id="case-steps"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.0, delay: 0.3 }}>
+                id="case-steps">
                 {
                     isMobile ?
-                        <div className="w-full h-full flex flex-col gap-4">
+                        <motion.div
+                            className="w-full h-full flex flex-col gap-4"
+                            initial={{ opacity: 0, y: 100 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
                             <div className="w-full flex flex-row justify-center items-center bg-[#C32553] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(0)}>
                                 <Typography
                                     sx={{
@@ -537,7 +538,7 @@ export default function typicalCase() {
                                     </motion.div>
                                 )
                             }
-                        </div>
+                        </motion.div>
                         :
                         <div className="w-full h-full flex flex-row gap-8 items-stretch" >
                             <motion.div
@@ -545,6 +546,7 @@ export default function typicalCase() {
                                 initial={{ opacity: 0, x: -100 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
+                                viewport={{ once: true }}
                             >
                                 <div className="w-full flex flex-row justify-center items-center bg-[#C32553] px-16 py-6 cursor-pointer hover:scale-105 ease-in-out duration-500" onClick={() => setOpenIndex(0)}>
                                     <Typography
@@ -660,6 +662,7 @@ export default function typicalCase() {
                                 initial={{ opacity: 0, x: 100 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
+                                viewport={{ once: true }}
                             >
                                 {contentToDisplay}
                             </motion.div>
