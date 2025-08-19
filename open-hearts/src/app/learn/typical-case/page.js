@@ -54,7 +54,7 @@ export default function typicalCase() {
                 className="h-full w-full flex flex-col justify-center items-center gap-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 1.0 }}
             >
                 <Typography
                     sx={{
@@ -235,11 +235,16 @@ export default function typicalCase() {
     return (
         <div className="w-full min-h-screen flex flex-col items-center justify-between">
             <Header />
-            <section className="w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pt-13 md:pt-20 bg-linear-to-b from-[#A30B37] from-[35%] to-[#FF934F] flex flex-col items-center gap-14">
+            <motion.section
+                className="w-full h-full px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pt-13 md:pt-20 bg-linear-to-b from-[#A30B37] from-[35%] to-[#FF934F] flex flex-col items-center gap-14"
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.0, delay: 0.1, ease: "easeInOut" }}
+            >
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1.0, delay: 0.1 }}
+                    transition={{ duration: 1.0, delay: 1.0 }}
                 >
                     <Typography
                         sx={{
@@ -264,7 +269,7 @@ export default function typicalCase() {
                     className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 pb-13 md:pb-20"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1.0, delay: 0.2 }}
+                    transition={{ duration: 1.0, delay: 1.5 }}
                 >
 
                     {steps.map((card, index) => {
@@ -316,9 +321,17 @@ export default function typicalCase() {
                         )
                     })}
                 </motion.div>
-            </section>
+            </motion.section>
 
-            <Image src={BannerGraphic} alt="curved graphic on bottom of page introduction section" className="w-full h-auto" />
+            <motion.div
+                className="w-full"
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.0, delay: 0.1, ease: "easeInOut" }}
+            >
+                <Image src={BannerGraphic} alt="curved graphic on bottom of page introduction section" className="w-full h-auto" />
+            </motion.div>
+
 
             {/* <motion.div
                 initial={{ opacity: 0 }}
@@ -385,9 +398,14 @@ export default function typicalCase() {
                             </div>
                             {
                                 openIndex == 0 && (
-                                    <div className="w-full h-full flex justify-center items-center">
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -100 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                                        className="w-full h-full flex justify-center items-center"
+                                    >
                                         {contentToDisplay}
-                                    </div>
+                                    </motion.div>
                                 )
                             }
                             <div className="w-full flex justify-center items-center bg-[#A30B37] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(1)}>
@@ -423,9 +441,14 @@ export default function typicalCase() {
                             </div>
                             {
                                 openIndex == 1 && (
-                                    <div className="w-full h-full flex justify-center items-center">
+                                    <motion.div
+                                        className="w-full h-full flex justify-center items-center"
+                                        initial={{ opacity: 0, y: -100 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                                    >
                                         {contentToDisplay}
-                                    </div>
+                                    </motion.div>
                                 )
                             }
                             <div className="w-full flex justify-center items-center bg-[#671339] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(2)}>
@@ -461,9 +484,14 @@ export default function typicalCase() {
                             </div>
                             {
                                 openIndex == 2 && (
-                                    <div className="w-full h-full flex justify-center items-center">
+                                    <motion.div
+                                        className="w-full h-full flex justify-center items-center"
+                                        initial={{ opacity: 0, y: -100 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                                    >
                                         {contentToDisplay}
-                                    </div>
+                                    </motion.div>
                                 )
                             }
                             <div className="w-full flex justify-center items-center bg-[#460B26] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(3)}>
@@ -499,16 +527,26 @@ export default function typicalCase() {
                             </div>
                             {
                                 openIndex == 3 && (
-                                    <div className="w-full h-full flex justify-center items-center">
+                                    <motion.div
+                                        className="w-full h-full flex justify-center items-center"
+                                        initial={{ opacity: 0, y: -100 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                                    >
                                         {contentToDisplay}
-                                    </div>
+                                    </motion.div>
                                 )
                             }
                         </div>
                         :
                         <div className="w-full h-full flex flex-row gap-8 items-stretch" >
-                            <div className="flex flex-col gap-4 w-[45%] h-full justify-center">
-                                <div className="w-full flex flex-row justify-center items-center bg-[#C32553] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(0)}>
+                            <motion.div
+                                className="flex flex-col gap-4 w-[45%] h-full justify-center"
+                                initial={{ opacity: 0, x: -100 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                            >
+                                <div className="w-full flex flex-row justify-center items-center bg-[#C32553] px-16 py-6 cursor-pointer hover:scale-105 ease-in-out duration-500" onClick={() => setOpenIndex(0)}>
                                     <Typography
                                         sx={{
                                             color: 'white',
@@ -535,7 +573,7 @@ export default function typicalCase() {
                                         />
                                     }
                                 </div>
-                                <div className="w-full flex justify-center items-center bg-[#A30B37] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(1)}>
+                                <div className="w-full flex justify-center items-center bg-[#A30B37] px-16 py-6 cursor-pointer hover:scale-105 ease-in-out duration-500" onClick={() => setOpenIndex(1)}>
                                     <Typography
                                         sx={{
                                             color: 'white',
@@ -552,7 +590,7 @@ export default function typicalCase() {
                                     >
                                         Step 2: Building the Connection
                                     </Typography>
-                                     {
+                                    {
                                         openIndex == 1 &&
                                         <KeyboardArrowRightIcon
                                             sx={{
@@ -562,7 +600,7 @@ export default function typicalCase() {
                                         />
                                     }
                                 </div>
-                                <div className="w-full flex justify-center items-center bg-[#671339] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(2)}>
+                                <div className="w-full flex justify-center items-center bg-[#671339] px-16 py-6 cursor-pointer hover:scale-105 ease-in-out duration-500" onClick={() => setOpenIndex(2)}>
                                     <Typography
                                         sx={{
                                             color: 'white',
@@ -579,7 +617,7 @@ export default function typicalCase() {
                                     >
                                         Step 3: Asking for Money
                                     </Typography>
-                                     {
+                                    {
                                         openIndex == 2 &&
                                         <KeyboardArrowRightIcon
                                             sx={{
@@ -589,7 +627,7 @@ export default function typicalCase() {
                                         />
                                     }
                                 </div>
-                                <div className="w-full flex justify-center items-center bg-[#460B26] px-16 py-6 cursor-pointer" onClick={() => setOpenIndex(3)}>
+                                <div className="w-full flex justify-center items-center bg-[#460B26] px-16 py-6 cursor-pointer hover:scale-105 ease-in-out duration-500" onClick={() => setOpenIndex(3)}>
                                     <Typography
                                         sx={{
                                             color: 'white',
@@ -606,7 +644,7 @@ export default function typicalCase() {
                                     >
                                         Step 4: Leaving the Victim
                                     </Typography>
-                                     {
+                                    {
                                         openIndex == 3 &&
                                         <KeyboardArrowRightIcon
                                             sx={{
@@ -616,10 +654,15 @@ export default function typicalCase() {
                                         />
                                     }
                                 </div>
-                            </div>
-                            <div className="w-[55%] h-full flex justify-center items-center">
+                            </motion.div>
+                            <motion.div
+                                className="w-[55%] h-full flex justify-center items-center"
+                                initial={{ opacity: 0, x: 100 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                            >
                                 {contentToDisplay}
-                            </div>
+                            </motion.div>
                         </div>
                 }
 
