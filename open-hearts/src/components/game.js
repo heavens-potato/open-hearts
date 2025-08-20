@@ -7,28 +7,60 @@ import Image from "next/image";
 import blankProfilePic from "../components/images/blank-pfp.png";
 import gameStartCurve from "../components/images/GameStartCurve1.svg"
 
-export default function Game({ gameStarted, currProfile, dialogue, options}) {
+export default function Game({ gameStarted, currProfile, responses, options}) {
     const theme = useTheme()
     const [page, setPage] = useState(0);
-    const [messageArr, setMessageArr] = useState([]);
+    const [messageArr, setMessageArr] = useState(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
+    const [currResponses, setCurrResponses] = useState([...options]);
 
     let count = 0;
     let messageInd = 0;
     let optionCount = 1;
-    let introMessage = "";
-
-    if (currProfile && currProfile.isScammer) {
-        introMessage = "Hey there! I saw your profile and thought that we’d be a perfect match!";
-    } else if (currProfile) {
-        introMessage = "Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!";
+    
+    let responseInd = 0;
+    const handleClick = (text) => {
+        setMessageArr(messageArr => [...messageArr, text]);
+        currResponses.length = 0;
+        optionCount = 1;
+        if (responses.length !== 0 && responseInd < responses.length){ //prevents start error or OOB
+            for (let i = 0; i < responses[responseInd].length; i++) {
+                currResponses.push(responses[responseInd][i].response1);
+                currResponses.push(responses[responseInd][i].response2);
+            }
+            
+            setCurrResponses([ ... currResponses]);
+            responseInd++;
+        } else if (responseInd >= responses.length) {
+            setPage(3);
+        }
     }
+    // if (responses.length !== 0){ //prevents start error
+    //     for (let i = 0; i < responses[responseInd].length; i++) {
+    //         currResponses.push(responses[responseInd][i].response1);
+    //         currResponses.push(responses[responseInd][i].response2);
+    //     }
+    // }
+    // responses[responseInd].map((response) => (
+    //     currResponses.push(response)
+    // ))
 
-    useEffect(() => {
-        console.log("Current Profile:", currProfile);
-        console.log("Dialogue:", dialogue);
-        setMessageArr(dialogue);
-        console.log("Set message array:", dialogue);
-    }, [currProfile, dialogue])
+    // currResponses.map((response) => (
+    //     console.log(response)
+    // ))
+    
+
+    // if (currProfile && currProfile.isScammer) {
+    //     introMessage = "Hey there! I saw your profile and thought that we’d be a perfect match!";
+    // } else if (currProfile) {
+    //     introMessage = "Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!";
+    // }
+
+    // useEffect(() => {
+    //     console.log("Current Profile:", currProfile);
+    //     console.log("Dialogue:", dialogue);
+    //     setMessageArr(dialogue);
+    //     console.log("Set message array:", dialogue);
+    // }, [currProfile, dialogue])
 
     // Page 0: Match page
     if (page === 0) {
@@ -144,31 +176,38 @@ export default function Game({ gameStarted, currProfile, dialogue, options}) {
                         />
                         <Typography sx={{fontSize: '0.9rem'}}>Chat with <strong>{currProfile.name}</strong> </Typography>   {/* Header End */}                     
                     </div>
-                    <div className="flex flex-col mt-5 h-1/2"> {/* Message */}
+                    <div className="flex flex-col mt-5 h-1/2 overflow-auto"> {/* Message */}
                         {/* Below map should be used to display full conversation AFTER user has selected a dialogue option,
                             we already have the function to choose a dialogue branch based on the option number parameter */}
-                        {/* {messageArr.map((text) => (   
+                        {messageArr.map((text) => (   
                             <div style={{display: 'flex', flexDirection: 'row', justifyContent: messageInd %2 === 0 ? 'flex-start' : 'flex-end', 
                                 marginLeft: messageInd %2 ===0 ? '1.75rem' : '0', marginRight: messageInd %2 ===0 ? '0' : '1.75rem', }} key={count++}>
                                 <Typography sx={{textAlign: messageInd++ %2 === 0 ? 'left' : 'right', marginBottom: '0.8rem', padding: '0.5rem 0.5rem 0.5rem 0.5rem', width:'50%', right: '0', borderRadius: '0.2rem', color: 'white', bgcolor: '#7D1538', fontSize: '0.75rem'}}>{text}</Typography>
                             </div>
-                        ))} */
-                        <div style={{display: 'flex', flexDirection: 'row', justifyContent: messageInd %2 === 0 ? 'flex-start' : 'flex-end', 
-                            marginLeft: messageInd %2 ===0 ? '1.75rem' : '0', marginRight: messageInd %2 ===0 ? '0' : '1.75rem', }} key={count++}>
-                            <Typography sx={{textAlign: messageInd++ %2 === 0 ? 'left' : 'right', marginBottom: '0.8rem', padding: '0.5rem 0.5rem 0.5rem 0.5rem', width:'50%', right: '0', borderRadius: '0.2rem', color: 'white', bgcolor: '#7D1538', fontSize: '0.75rem'}}>{introMessage}</Typography>
-                        </div>}
+                        ))}
                     </div> {/* Message End */}
                     <div className="h-1/2 overflow-auto"> {/* Choice start */}
                         <Typography sx={{fontSize: '0.75rem', borderRadius: '0.25rem', textAlign: 'center', color: 'white', backgroundColor: '#A33E70', padding: '0.5rem 0 0.5rem 0', margin: '0 1.5rem 1rem 1.5rem'}}>Choose a Response ...</Typography>
-                        {options.map((option) => (
-                            <div className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5" key={count++}>
-                                <Typography sx={{padding: "0.35rem 0.35rem 0.35rem 0.35rem", fontSize: '0.65rem', color: 'black'}}>{optionCount++}. {option}</Typography>
+                        {currResponses.map((response) => (
+                            <div className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5" key={count++}
+                            onClick={(response) => handleClick(response)}>
+                                <Typography sx={{padding: "0.35rem 0.35rem 0.35rem 0.35rem", fontSize: '0.65rem', color: 'black'}}>{optionCount++}. {response}</Typography>
                             </div>
                         ))}
                         <div>
 
                         </div>
                     </div>
+                </div>
+            </div>
+        )
+    } 
+    
+    if (page == 3) {
+        return (
+            <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl overflow-hidden">
+                <div className="relative h-full w-full border-black border-8 rounded-3xl flex flex-col justify-center items-center text-center overflow-hidden">
+                    <Typography>VOTING PAGE</Typography>
                 </div>
             </div>
         )
