@@ -22,6 +22,7 @@ export default function Minigame() {
     const [gameStarted, setGameStarted] = useState(false);
     const [options, setOptions] = useState([]);
     const [option, setOption] = useState(0);
+    const [responses, setResponses] = useState([]);
     let count = 0;
 
     useEffect(() => {
@@ -53,6 +54,7 @@ export default function Minigame() {
         console.log("Generated Profile: " + JSON.stringify(profile));
         console.log("Dialogue:", nextDialogue);
         generateOptions(profile);
+        getUserResponses(profile);
     }
 
     const testDataMapping = async () => {
@@ -72,6 +74,13 @@ export default function Minigame() {
         const optionsData = await response.json();
         console.log("Options Data: " + JSON.stringify(optionsData));
         setOptions(optionsData);
+    }
+
+    const getUserResponses = async (profile) => {
+        const response = await fetch(`http://localhost:8080/api/userResponses?profileId=${profile.profileId}`);
+        const userResponses = await response.json();
+        console.log("User Responses: " + JSON.stringify(userResponses));
+        setResponses(userResponses);
     }
 
     return (
