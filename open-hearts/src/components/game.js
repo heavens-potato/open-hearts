@@ -11,29 +11,42 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
     const theme = useTheme()
     const [page, setPage] = useState(0);
     const [messageArr, setMessageArr] = useState(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
-    const [currResponses, setCurrResponses] = useState([...options]);
+    const [currResponses, setCurrResponses] = useState([]);
+    const [responseInd, setInd] = useState(0);
+    const [dialogueCount, setCount] = useState(0);
 
     let count = 0;
     let messageInd = 0;
     let optionCount = 1;
+
+    useEffect(() => {
+        setCurrResponses([... options]);
+    }, [options.length]);
     
-    let responseInd = 0;
-    const handleClick = (text) => {
-        setMessageArr(messageArr => [...messageArr, text]);
-        currResponses.length = 0;
-        optionCount = 1;
-        if (responses.length !== 0 && responseInd < responses.length){ //prevents start error or OOB
-            for (let i = 0; i < responses[responseInd].length; i++) {
-                currResponses.push(responses[responseInd][i].response1);
-                currResponses.push(responses[responseInd][i].response2);
-            }
-            
-            setCurrResponses([ ... currResponses]);
-            responseInd++;
-        } else if (responseInd >= responses.length) {
-            setPage(3);
-        }
+    const addDialogue = async () => {
+        const response = await fetch(`http://localhost:8080/api/dialogue?profileId=${currProfile.profileId}&option=${"option" + dialogueCount}`);
+        const nextDialogue = await response.json();
+        setMessageArr(messageArr => [...messageArr, nextDialogue]);
+        const temp = dialogueCount+1;
+        setCount(temp);
     }
+
+    // const handleClick = (text) => {
+    //     setMessageArr(messageArr => [...messageArr, text]);
+    //     currResponses.length = 0;
+    //     optionCount = 1;
+    //     if (responses.length !== 0 && responseInd < responses.length){ //prevents start error or OOB
+    //         for (let i = 0; i < responses[responseInd].length; i++) {
+    //             currResponses.push(responses[responseInd][i].response1);
+    //             currResponses.push(responses[responseInd][i].response2);
+    //         }
+            
+    //         setCurrResponses([ ... currResponses]);
+    //         responseInd++;
+    //     } else if (responseInd >= responses.length) {
+    //         setPage(3);
+    //     }
+    // }
     // if (responses.length !== 0){ //prevents start error
     //     for (let i = 0; i < responses[responseInd].length; i++) {
     //         currResponses.push(responses[responseInd][i].response1);
@@ -182,21 +195,37 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
                         {messageArr.map((text) => (   
                             <div style={{display: 'flex', flexDirection: 'row', justifyContent: messageInd %2 === 0 ? 'flex-start' : 'flex-end', 
                                 marginLeft: messageInd %2 ===0 ? '1.75rem' : '0', marginRight: messageInd %2 ===0 ? '0' : '1.75rem', }} key={count++}>
-                                <Typography sx={{textAlign: messageInd++ %2 === 0 ? 'left' : 'right', marginBottom: '0.8rem', padding: '0.5rem 0.5rem 0.5rem 0.5rem', width:'50%', right: '0', borderRadius: '0.2rem', color: 'white', bgcolor: '#7D1538', fontSize: '0.75rem'}}>{text}</Typography>
+                                <Typography sx={{textAlign: messageInd %2 === 0 ? 'left' : 'right', marginBottom: '0.8rem', padding: '0.5rem 0.5rem 0.5rem 0.5rem', width:'50%', right: '0', borderRadius: '0.2rem', color: 'white', bgcolor: messageInd++%2 ===0 ? '#7D1538' : '#A33E70', fontSize: '0.75rem'}}>{text}</Typography>
                             </div>
                         ))}
                     </div> {/* Message End */}
+                    <Typography sx={{fontSize: '0.75rem', borderRadius: '0.25rem', textAlign: 'center', color: 'white', backgroundColor: '#A33E70', padding: '0.5rem 0 0.5rem 0', margin: '0 1.5rem 1rem 1.5rem'}}>Choose a Response ...</Typography>
                     <div className="h-1/2 overflow-auto"> {/* Choice start */}
-                        <Typography sx={{fontSize: '0.75rem', borderRadius: '0.25rem', textAlign: 'center', color: 'white', backgroundColor: '#A33E70', padding: '0.5rem 0 0.5rem 0', margin: '0 1.5rem 1rem 1.5rem'}}>Choose a Response ...</Typography>
                         {currResponses.map((response) => (
                             <div className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5" key={count++}
-                            onClick={(response) => handleClick(response)}>
+                            onClick={() => {
+                                    setMessageArr(messageArr => [...messageArr, response]);
+                                    currResponses.length = 0;
+                                    optionCount = 1;
+                                    if (responses.length !== 0 && responseInd < responses.length){ //prevents start error or OOB
+                                        for (let i = 0; i < responses[responseInd].length; i++) {
+                                            currResponses.push(responses[responseInd][i].response1);
+                                            currResponses.push(responses[responseInd][i].response2);
+                                        }
+                                        console.log(currResponses);
+                                        setCurrResponses([ ... currResponses]);
+                                        console.log(responseInd);
+                                        const temp = responseInd+1;
+                                        setInd(temp);
+                                        addDialogue();
+                                        //get next dialogue
+                                    } else if (responseInd >= responses.length) {
+                                        setPage(3);
+                                    }
+                                }}>
                                 <Typography sx={{padding: "0.35rem 0.35rem 0.35rem 0.35rem", fontSize: '0.65rem', color: 'black'}}>{optionCount++}. {response}</Typography>
                             </div>
                         ))}
-                        <div>
-
-                        </div>
                     </div>
                 </div>
             </div>

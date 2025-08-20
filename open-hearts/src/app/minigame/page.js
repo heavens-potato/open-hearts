@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Link from 'next/link';
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from '@mui/system';
+import next from "next";
 
 export default function Minigame() {
     const theme = useTheme();
