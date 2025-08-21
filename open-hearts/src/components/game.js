@@ -38,6 +38,12 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
         setCount(temp);
     }
 
+    const clearMapping = () => {
+        setMessageArr(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
+        setInd(0);
+        setCurrResponses([... options]);
+    }
+
     // const handleClick = (text) => {
     //     setMessageArr(messageArr => [...messageArr, text]);
     //     currResponses.length = 0;
@@ -186,7 +192,10 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
         return (
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl">
                 <div className="h-[37rem] bg-white border-black border-8 rounded-3xl flex flex-col">
-                    <div className="flex flex-row justify-center items-center mt-10"> {/* Header */}
+                    <div className="flex flex-row align-center ml-7 mt-5 mb-2">
+                        <button style={{cursor: 'pointer'}} onClick={() => clearMapping()}>&lt;</button>
+                    </div>
+                    <div className="flex flex-row justify-center items-center"> {/* Header */}
                         <Image
                             src={blankProfilePic}
                             alt="Blank Profile Picture"
