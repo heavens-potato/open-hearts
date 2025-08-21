@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useTheme } from "@mui/material/styles";
 import { Typography, Box} from "@mui/material";
 import Image from "next/image";
@@ -14,6 +14,7 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
     const [currResponses, setCurrResponses] = useState([]);
     const [responseInd, setInd] = useState(0);
     const [dialogueCount, setCount] = useState(0);
+    const messageDivRef = useRef(null);
 
     let count = 0;
     let messageInd = 0;
@@ -23,6 +24,12 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
         setCurrResponses([... options]);
     }, [options.length]);
     
+    useEffect(() => {
+        if (messageDivRef.current){
+            messageDivRef.current.scrollTop = messageDivRef.current.scrollHeight;
+        }
+    }, [messageArr.length])
+
     const addDialogue = async () => {
         const response = await fetch(`http://localhost:8080/api/dialogue?profileId=${currProfile.profileId}&option=${"option" + dialogueCount}`);
         const nextDialogue = await response.json();
@@ -189,9 +196,7 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
                         />
                         <Typography sx={{fontSize: '0.9rem'}}>Chat with <strong>{currProfile.name}</strong> </Typography>   {/* Header End */}                     
                     </div>
-                    <div className="flex flex-col mt-5 h-1/2 overflow-auto"> {/* Message */}
-                        {/* Below map should be used to display full conversation AFTER user has selected a dialogue option,
-                            we already have the function to choose a dialogue branch based on the option number parameter */}
+                    <div ref={messageDivRef} className="flex flex-col mt-5 h-1/2 overflow-auto"> {/* Message */}
                         {messageArr.map((text) => (   
                             <div style={{display: 'flex', flexDirection: 'row', justifyContent: messageInd %2 === 0 ? 'flex-start' : 'flex-end', 
                                 marginLeft: messageInd %2 ===0 ? '1.75rem' : '0', marginRight: messageInd %2 ===0 ? '0' : '1.75rem', }} key={count++}>
