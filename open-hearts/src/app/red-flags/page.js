@@ -73,12 +73,17 @@ export default function stories() {
     return (
         <div className="w-full min-h-screen flex flex-col items-center">
             <Header />
-            <section className="w-full flex flex-col text-left px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 bg-linear-to-b from-[#A30B37] to-[#C60528] pt-13 md:pt-20">
+            <motion.section
+                className="w-full flex flex-col text-left px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 bg-linear-to-b from-[#A30B37] to-[#C60528] pt-13 md:pt-20"
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.0, delay: 0.1, ease: "easeInOut" }}
+            >
                 <div className="pb-13 md:pb-20 flex flex-col items-left gap-4 md:gap-6 mx-auto">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.1 }}
+                        transition={{ duration: 1.0, delay: 1.0 }}
                     >
                         <Typography
                             sx={{
@@ -100,7 +105,7 @@ export default function stories() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.0, delay: 0.2 }}
+                        transition={{ duration: 1.0, delay: 1.5 }}
                     >
                         <Typography
                             sx={{
@@ -118,10 +123,13 @@ export default function stories() {
                         </Typography>
                     </motion.div>
                 </div>
-            </section>
+            </motion.section>
 
             <motion.div
                 className="w-full mb-12"
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.0, delay: 0.1, ease: "easeInOut" }}
             >
                 <Image
                     src={RedFlag}
@@ -132,7 +140,12 @@ export default function stories() {
             </motion.div>
 
             {flagContent.map((flag, index) => (
-                <div key={index} className="w-full">
+                <motion.div
+                    key={index} className="w-full"
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.0, delay: 1.0, ease: "easeInOut" }}
+                >
                     <FlagSection
                         key={index}
                         imageSrc={flag.image}
@@ -151,14 +164,14 @@ export default function stories() {
                             }}
                         ></div>
                     )}
-                </div>
+                </motion.div>
             ))}
 
             <motion.div
                 className="w-full flex justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pb-13 md:pb-18 mt-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1.0, delay: 0.4 }}
+                transition={{ duration: 1.0, delay: 1.5 }}
             >
                 <Link href="/stories/rita" passHref >
                     <Typography

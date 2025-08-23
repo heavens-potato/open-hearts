@@ -1,6 +1,8 @@
+"use client";
 import { Typography } from "@mui/material";
 import Image from "next/image";
 import { useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
 
 export default function FlagSection({ imageSrc, title, description, type }) {
     const theme = useTheme();
@@ -9,23 +11,30 @@ export default function FlagSection({ imageSrc, title, description, type }) {
 
     return (
         <>
-            <section className="w-full flex flex-col md:flex-row items-center px-6 sm:px-6 md:px-10 lg:px-12 xl:px-30 py-4 my-5">
-                <div className="flex-shrink-0 w-32 h-32">
+            <motion.section
+                className="w-full flex flex-col md:flex-row items-center px-6 sm:px-6 md:px-10 lg:px-12 xl:px-30 py-4 my-5"
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.0, ease: "easeInOut" }}
+            >
+                <motion.div className="flex-shrink-0 w-32 h-32" >
                     <Image
                         src={imageSrc}
                         alt={`${type} flag icon`}
                         width={75}
                         height={75}
                     />
-                </div>
-                <div className="flex flex-col text-left flex-grow">
+                </motion.div>
+                <motion.div className="flex flex-col text-left flex-grow" >
                     <Typography
                         sx={{
                             fontSize: {
-                                xs: theme.typography.h6.fontSize,
-                                sm: theme.typography.h6.fontSize,
+                                xs: theme.typography.h5.fontSize,
+                                sm: theme.typography.h5.fontSize,
                                 md: theme.typography.h5.fontSize,
                                 lg: theme.typography.h4.fontSize,
+                                xl: theme.typography.h4.fontSize,
                             },
                             color: titleColor,
                             fontWeight: "bold",
@@ -37,17 +46,19 @@ export default function FlagSection({ imageSrc, title, description, type }) {
                     <Typography
                         sx={{
                             fontSize: {
-                                xs: theme.typography.body1.fontSize,
-                                sm: theme.typography.body1.fontSize,
+                                xs: theme.typography.h6.fontSize,
+                                sm: theme.typography.h6.fontSize,
                                 md: theme.typography.h6.fontSize,
+                                lg: theme.typography.h5.fontSize,
+                                xl: theme.typography.h5.fontSize,
                             },
                             color: "black",
                         }}
                     >
                         {description}
                     </Typography>
-                </div>
-            </section>
+                </motion.div>
+            </motion.section>
         </>
     );
 }
