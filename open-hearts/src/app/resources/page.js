@@ -371,7 +371,7 @@ export default function stories() {
                         ← Back
                     </Typography>
                 </Link>
-                <Link href="/minigame" passHref >
+                {/* <Link href="/minigame" passHref >
                     <Typography
                         sx={{
                             fontSize: {
@@ -386,7 +386,7 @@ export default function stories() {
                     >
                         Next [no link yet, maybe change this text]→
                     </Typography>
-                </Link>
+                </Link> */}
             </motion.div>
         </div>
     )
