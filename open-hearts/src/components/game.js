@@ -31,17 +31,24 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
     }, [messageArr.length])
 
     const addDialogue = async () => {
+        if (!currProfile || !currProfile.profileId) return; // Prevent fetch if not ready
         const response = await fetch(`http://localhost:8080/api/dialogue?profileId=${currProfile.profileId}&option=${"option" + dialogueCount}`);
-        const nextDialogue = await response.json();
+        if (!response.ok) {
+            // Optionally handle error
+            return;
+        }
+        const text = await response.text();
+        if (!text) return; // Prevent parsing empty response
+        const nextDialogue = JSON.parse(text);
         setMessageArr(messageArr => [...messageArr, nextDialogue]);
-        const temp = dialogueCount+1;
-        setCount(temp);
+        setCount(dialogueCount + 1);
     }
 
     const clearMapping = () => {
         setMessageArr(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
         setInd(0);
         setCurrResponses([... options]);
+        setCount(0);
     }
 
     // const handleClick = (text) => {
@@ -192,8 +199,25 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
         return (
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl">
                 <div className="h-[37rem] bg-white border-black border-8 rounded-3xl flex flex-col">
-                    <div className="flex flex-row align-center ml-7 mt-5 mb-2">
+                    <div className="flex flex-row justify-between ml-7 mr-5 mt-5 mb-2">
                         <button style={{cursor: 'pointer'}} onClick={() => clearMapping()}>&lt;</button>
+                        <div onClick={() => setPage(3)}>
+                            <Typography
+                                sx={{
+                                    fontSize: '10px',
+                                    fontWeight: 'bold',
+                                    color: 'white', 
+                                    backgroundColor: '#A33E70',
+                                    borderRadius: '.5rem',
+                                    width: '7rem',
+                                    textAlign: 'center',
+                                    padding: '0.2rem 0 0.2rem 0',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                I&apos;m Ready to Vote!
+                            </Typography>
+                        </div>
                     </div>
                     <div className="flex flex-row justify-center items-center"> {/* Header */}
                         <Image
@@ -234,7 +258,7 @@ export default function Game({ gameStarted, currProfile, responses, options}) {
                                         addDialogue();
                                         //get next dialogue
                                     } else if (responseInd >= responses.length) {
-                                        setPage(3);
+                                        clearMapping();
                                     }
                                 }}>
                                 <Typography sx={{padding: "0.35rem 0.35rem 0.35rem 0.35rem", fontSize: '0.65rem', color: 'black'}}>{optionCount++}. {response}</Typography>
