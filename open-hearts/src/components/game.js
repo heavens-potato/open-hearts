@@ -14,6 +14,7 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
     const [currResponses, setCurrResponses] = useState([]);
     const [responseInd, setInd] = useState(0);
     const [dialogueCount, setCount] = useState(0);
+    const [scammerFound, setFound] = useState(false);
     const messageDivRef = useRef(null);
 
     let count = 0;
@@ -305,7 +306,7 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                             Do you think this profile is a scam?
                         </Typography>
                     </div>
-                    <div className="border-2 border-[#A33E70] rounded-md cursor-pointer">
+                    <div className="border-2 border-[#A33E70] rounded-md cursor-pointer" onClick = {() => { setFound(true); setPage(4);}}>
                         <Typography
                             sx={{
                                 fontSize: {
@@ -321,7 +322,7 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                             Yes - this looks like a romance scam attempt.
                         </Typography>
                     </div>
-                    <div className="border-2 border-[#A33E70] rounded-md cursor-pointer">
+                    <div className="border-2 border-[#A33E70] rounded-md cursor-pointer" onClick = {() => { setPage(4);}}>
                         <Typography
                             sx={{
                                 fontSize: {
@@ -335,6 +336,51 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                             }}
                         >
                             No - this seems legitimate.
+                        </Typography>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    if (page == 4) {
+        return (
+            <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl overflow-hidden">
+                <div className="relative h-full w-full border-black border-8 rounded-3xl flex flex-col justify-center items-center text-center overflow-hidden px-4 gap-4">
+                    <div className="flex flex-col gap-1">
+                        <Typography
+                            sx={{
+                                fontSize: {
+                                    xs: theme.typography.h6.fontSize,
+                                    sm: theme.typography.h6.fontSize,
+                                    md: theme.typography.h6.fontSize,
+                                    lg: theme.typography.h5.fontSize,
+                                    xl: theme.typography.h5.fontSize,
+                                },
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            {(scammerFound && currProfile.scammer) || (!scammerFound && !currProfile.scammer) ? "Correct!" : "Incorrect"}
+                        </Typography>
+                        <Typography
+                            sx={{
+                                fontSize: {
+                                    xs: theme.typography.h6.fontSize,
+                                    sm: theme.typography.h6.fontSize,
+                                    md: theme.typography.h6.fontSize,
+                                    lg: theme.typography.h6.fontSize,
+                                    xl: theme.typography.h6.fontSize,
+                                },
+                            }}
+                        >
+                            {(scammerFound && currProfile.scammer)
+                                ? "Great job!"
+                                : (!scammerFound && !currProfile.scammer)
+                                    ? "Great job! Not scammer!"
+                                    : (scammerFound && !currProfile.scammer)
+                                        ? "Oops! This profile is actually legitimate."
+                                        : "Oops! This profile is actually a scammer."
+                            }
                         </Typography>
                     </div>
                 </div>
