@@ -6,20 +6,23 @@ import { Typography, Box } from "@mui/material";
 import Image from "next/image";
 import blankProfilePic from "../components/images/blank-pfp.png";
 import gameStartCurve from "../components/images/GameStartCurve1.svg"
+import { Key } from "@mui/icons-material";
 
 export default function Game({ gameStarted, currProfile, responses, options }) {
     const theme = useTheme()
     const [page, setPage] = useState(0);
     const [messageArr, setMessageArr] = useState(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
-    const [currResponses, setCurrResponses] = useState([]);
-    const [responseInd, setInd] = useState(0);
-    const [dialogueCount, setCount] = useState(0);
+    const [currResponses, setCurrResponses] = useState(["f"]);
+    const [responseInd, setResInd] = useState(0);
+    const [dialogueInd, setDialInd] = useState(0);
     const [scammerFound, setFound] = useState(false);
     const messageDivRef = useRef(null);
 
     let count = 0;
     let messageInd = 0;
     let optionCount = 1;
+    let index = -1;
+    const dialogueArr = [];
 
     useEffect(() => {
         setCurrResponses([...options]);
@@ -31,25 +34,26 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
         }
     }, [messageArr.length])
 
-    const addDialogue = async () => {
+    const getDialogueArr = async () => {
         if (!currProfile || !currProfile.profileId) return; // Prevent fetch if not ready
-        const response = await fetch(`http://localhost:8080/api/dialogue?profileId=${currProfile.profileId}&option=${"option" + dialogueCount}`);
+        const response = await fetch(`http://localhost:8080/api/dialogue?profileId=${currProfile.profileId}&option=${"option" + index}`);
         if (!response.ok) {
             // Optionally handle error
             return;
         }
         const text = await response.text();
         if (!text) return; // Prevent parsing empty response
-        const nextDialogue = JSON.parse(text);
-        setMessageArr(messageArr => [...messageArr, nextDialogue]);
-        setCount(dialogueCount + 1);
+        const arr = JSON.parse(text); //gets dialogue arr
+        dialogueArr.push(...arr);
+        setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
+        setDialInd(dialogueInd + 1);
     }
 
     const clearMapping = () => {
         setMessageArr(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
-        setInd(0);
+        setResInd(0);
         setCurrResponses([...options]);
-        setCount(0);
+        setDialInd(0);
     }
 
     // const handleClick = (text) => {
@@ -245,23 +249,29 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                         {currResponses.map((response) => (
                             <div className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5" key={count++}
                                 onClick={() => {
+                                    if (index === -1) { //not set
+                                        index = currResponses.indexOf(response);
+                                        getDialogueArr();
+                                    }
                                     setMessageArr(messageArr => [...messageArr, response]);
                                     currResponses.length = 0;
                                     optionCount = 1;
-                                    if (responses.length !== 0 && responseInd < responses.length) { //prevents start error or OOB
-                                        for (let i = 0; i < responses[responseInd].length; i++) {
-                                            currResponses.push(responses[responseInd][i].response1);
-                                            currResponses.push(responses[responseInd][i].response2);
-                                        }
-                                        console.log(currResponses);
-                                        setCurrResponses([...currResponses]);
-                                        console.log(responseInd);
-                                        const temp = responseInd + 1;
-                                        setInd(temp);
-                                        addDialogue();
-                                        //get next dialogue
+                                    if (responses.length !== 0 && responseInd < responses[index].length){
+                                        currResponses.push(responses[index][responseInd].response1);
+                                        currResponses.push(responses[index][responseInd].response2);
+                                        // if (responses.length !== 0 && responseInd < responses.length) { //prevents start error or OOB
+                                            // for (let i = 0; i < responses[responseInd].length; i++) {
+                                            //     currResponses.push(responses[responseInd][i].response1);
+                                            //     currResponses.push(responses[responseInd][i].response2);
+                                            // }
+                                            console.log(currResponses);
+                                            setCurrResponses([...currResponses]);
+                                            const temp = responseInd + 1;
+                                            setResInd(temp);
+                                            //get next dialogue
                                     } else if (responseInd >= responses.length) {
-                                        clearMapping();
+                                        // clearMapping();
+                                        setPage(3);
                                     }
                                 }}>
                                 <Typography sx={{ padding: "0.35rem 0.35rem 0.35rem 0.35rem", fontSize: '0.65rem', color: 'black' }}>{optionCount++}. {response}</Typography>
