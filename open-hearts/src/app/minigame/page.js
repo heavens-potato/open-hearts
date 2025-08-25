@@ -24,6 +24,7 @@ export default function Minigame() {
     const [options, setOptions] = useState([]);
     const [option, setOption] = useState(0);
     const [responses, setResponses] = useState([]);
+    const [endingText, setEnding] = useState("");
     let count = 0;
 
     useEffect(() => {
@@ -56,6 +57,14 @@ export default function Minigame() {
         console.log("Dialogue:", nextDialogue);
         generateOptions(profile);
         getUserResponses(profile);
+        getEndingText(profile);
+    }
+
+    const getEndingText = async (profile) => {
+        const response = await fetch(`http://localhost:8080/api/ending?profileId=${profile.profileId}`);
+        const ending = await response.text();
+        console.log("Ending text: " + ending);
+        setEnding(ending);
     }
 
     const testDataMapping = async () => {
@@ -94,7 +103,7 @@ export default function Minigame() {
                         {
                             gameStarted &&
                             <div className="h-full w-full flex justify-center items-center w-full">
-                                <Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} responses={responses ? responses : []} options={options ? options : []}/>
+                                <Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} responses={responses ? responses : []} options={options ? options : []} endingText={endingText ? endingText: ""}/>
                             </div>
                         }
                         {
@@ -158,7 +167,7 @@ export default function Minigame() {
                     :
                     <div className="h-full w-full flex flex-row justify-center items-center px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 gap-16 my-13 md:my-18">
                         <div className={`h-full flex justify-center items-center ${gameStarted ? 'w-full' : 'w-1/2'}`}>
-                            <Game Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} responses={responses ? responses : []} options={options ? options : []}/>
+                            <Game Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} responses={responses ? responses : []} options={options ? options : []} endingText={endingText ? endingText: ""}/>
                         </div>
                         {
                             !gameStarted &&

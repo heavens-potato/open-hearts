@@ -8,7 +8,7 @@ import blankProfilePic from "../components/images/blank-pfp.png";
 import gameStartCurve from "../components/images/GameStartCurve1.svg"
 import { Key } from "@mui/icons-material";
 
-export default function Game({ gameStarted, currProfile, responses, options }) {
+export default function Game({ gameStarted, currProfile, responses, options, endingText }) {
     const theme = useTheme()
     const [page, setPage] = useState(0);
     const [messageArr, setMessageArr] = useState(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
@@ -357,7 +357,7 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
         return (
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl overflow-hidden">
                 <div className="relative h-full w-full border-black border-8 rounded-3xl flex flex-col justify-center items-center text-center overflow-hidden px-4 gap-4">
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1 overflow-auto">
                         <Typography
                             sx={{
                                 fontSize: {
@@ -384,13 +384,26 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                             }}
                         >
                             {(scammerFound && currProfile.scammer)
-                                ? "Great job!"
+                                ? <>Great job! {currProfile.name}&apos;s profile was <strong>a scam.</strong> {currProfile.name} displayed multiple red flags throughout the conversation.</>
                                 : (!scammerFound && !currProfile.scammer)
-                                    ? "Great job! Not scammer!"
+                                    ? <>Great job! {currProfile.name}&apos;s profile was <strong>not a scam.</strong> {currProfile.name} displayed multiple green flags throughout the conversation.</>
                                     : (scammerFound && !currProfile.scammer)
-                                        ? "Oops! This profile is actually legitimate."
-                                        : "Oops! This profile is actually a scammer."
+                                        ? <>Sorry, {currProfile.name}&apos;s profile was <strong>not a scam.</strong> {currProfile.name} displayed multiple green flags throughout the conversation.</>
+                                        : <>Sorry {currProfile.name}&apos;s profile was <strong>a scam.</strong> {currProfile.name} displayed multiple red flags throughout the conversation.</>
                             }
+                        </Typography>
+                        <Typography
+                            sx={{
+                                fontSize: {
+                                    xs: theme.typography.h6.fontSize,
+                                    sm: theme.typography.h6.fontSize,
+                                    md: theme.typography.h6.fontSize,
+                                    lg: theme.typography.h6.fontSize,
+                                    xl: theme.typography.h6.fontSize,
+                                },
+                            }}
+                        >
+                            {endingText}
                         </Typography>
                     </div>
                 </div>
