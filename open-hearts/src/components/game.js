@@ -77,6 +77,8 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
         setResInd(0);
         setCurrResponses([...options]);
         setDialInd(0);
+        setIndex(-1);
+        setDialogues([]);
     }
 
     // const handleClick = (text) => {
@@ -279,7 +281,7 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                                         setIndex(temp);
                                     } else {
                                         currResponses.length = 0;
-                                        if (dialogueInd <= dialogueArr.length) {
+                                        if (dialogueInd <= dialogueArr.length && dialogueArr[dialogueInd]) {
                                            setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
                                            setDialInd(dialogueInd + 1); 
                                         }
