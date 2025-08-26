@@ -8,22 +8,41 @@ import blankProfilePic from "../components/images/blank-pfp.png";
 import gameStartCurve from "../components/images/GameStartCurve1.svg"
 import { Key } from "@mui/icons-material";
 
-export default function Game({ gameStarted, currProfile, responses, options, endingText }) {
+export default function Game({ gameStarted, currProfile, responses, options }) {
     const theme = useTheme()
     const [page, setPage] = useState(0);
     const [messageArr, setMessageArr] = useState(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
-    const [currResponses, setCurrResponses] = useState(["f"]);
+    const [currResponses, setCurrResponses] = useState([]);
     const [responseInd, setResInd] = useState(0);
     const [dialogueInd, setDialInd] = useState(0);
+    const [dialogueArr, setDialogues] = useState([]);
     const [scammerFound, setFound] = useState(false);
+    const [index, setIndex] = useState(-1);
     const messageDivRef = useRef(null);
 
     let count = 0;
     let messageInd = 0;
     let optionCount = 1;
-    let index = -1;
-    const dialogueArr = [];
 
+    useEffect(() =>{
+        console.log(index);
+        if(index !== -1){
+            currResponses.length = 0;
+            getDialogueArr();
+            if (responses.length !== 0 && responseInd < responses[index].length){
+                currResponses.push(responses[index][responseInd].response1);
+                currResponses.push(responses[index][responseInd].response2);
+                setCurrResponses([...currResponses]);
+                const temp = responseInd + 1;
+                setResInd(temp);
+                console.log("Index Update");
+            } else if (responseInd >= responses.length) {
+                // clearMapping();
+                setPage(3);
+            }
+        }
+    }, [index])
+    
     useEffect(() => {
         setCurrResponses([...options]);
     }, [options.length]);
@@ -34,8 +53,18 @@ export default function Game({ gameStarted, currProfile, responses, options, end
         }
     }, [messageArr.length])
 
+    useEffect(() =>{
+        if (dialogueArr.length !== 0){
+            setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
+            setDialInd(dialogueInd + 1);
+            console.log("Dialogue Set");
+        }
+    }, [dialogueArr.length])
+
     const getDialogueArr = async () => {
-        if (!currProfile || !currProfile.profileId) return; // Prevent fetch if not ready
+        console.log("asdfasf");
+        // if (!currProfile || !currProfile.profileId) return; // Prevent fetch if not ready
+        if (!currProfile) return;
         const response = await fetch(`http://localhost:8080/api/dialogue?profileId=${currProfile.profileId}&option=${"option" + index}`);
         if (!response.ok) {
             // Optionally handle error
@@ -44,9 +73,8 @@ export default function Game({ gameStarted, currProfile, responses, options, end
         const text = await response.text();
         if (!text) return; // Prevent parsing empty response
         const arr = JSON.parse(text); //gets dialogue arr
-        dialogueArr.push(...arr);
-        setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
-        setDialInd(dialogueInd + 1);
+        console.log(arr);
+        setDialogues([...arr]);
     }
 
     const clearMapping = () => {
@@ -249,29 +277,27 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                         {currResponses.map((response) => (
                             <div className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5" key={count++}
                                 onClick={() => {
-                                    if (index === -1) { //not set
-                                        index = currResponses.indexOf(response);
-                                        getDialogueArr();
-                                    }
                                     setMessageArr(messageArr => [...messageArr, response]);
-                                    currResponses.length = 0;
                                     optionCount = 1;
-                                    if (responses.length !== 0 && responseInd < responses[index].length){
-                                        currResponses.push(responses[index][responseInd].response1);
-                                        currResponses.push(responses[index][responseInd].response2);
-                                        // if (responses.length !== 0 && responseInd < responses.length) { //prevents start error or OOB
-                                            // for (let i = 0; i < responses[responseInd].length; i++) {
-                                            //     currResponses.push(responses[responseInd][i].response1);
-                                            //     currResponses.push(responses[responseInd][i].response2);
-                                            // }
-                                            console.log(currResponses);
+                                    if (index === -1) { //not set
+                                        const temp = currResponses.indexOf(response);
+                                        setIndex(temp);
+                                    } else {
+                                        console.log("POOPY BUTT");
+                                        currResponses.length = 0;
+                                        if (dialogueInd <= dialogueArr.length) {
+                                            setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
+                                            setDialInd(dialogueInd + 1);
+                                        }
+                                        if (responses.length !== 0 && responseInd < responses[index].length){
+                                            currResponses.push(responses[index][responseInd].response1);
+                                            currResponses.push(responses[index][responseInd].response2);
                                             setCurrResponses([...currResponses]);
-                                            const temp = responseInd + 1;
-                                            setResInd(temp);
-                                            //get next dialogue
-                                    } else if (responseInd >= responses.length) {
-                                        // clearMapping();
-                                        setPage(3);
+                                            setResInd(responseInd + 1);
+                                        } else if (responseInd >= responses.length) {
+                                            // clearMapping();
+                                            setPage(3);
+                                        }
                                     }
                                 }}>
                                 <Typography sx={{ padding: "0.35rem 0.35rem 0.35rem 0.35rem", fontSize: '0.65rem', color: 'black' }}>{optionCount++}. {response}</Typography>
@@ -357,7 +383,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
         return (
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl overflow-hidden">
                 <div className="relative h-full w-full border-black border-8 rounded-3xl flex flex-col justify-center items-center text-center overflow-hidden px-4 gap-4">
-                    <div className="flex flex-col gap-1 overflow-auto">
+                    <div className="flex flex-col gap-1">
                         <Typography
                             sx={{
                                 fontSize: {
@@ -384,26 +410,13 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                             }}
                         >
                             {(scammerFound && currProfile.scammer)
-                                ? <>Great job! {currProfile.name}&apos;s profile was <strong>a scam.</strong> {currProfile.name} displayed multiple red flags throughout the conversation.</>
+                                ? "Great job!"
                                 : (!scammerFound && !currProfile.scammer)
-                                    ? <>Great job! {currProfile.name}&apos;s profile was <strong>not a scam.</strong> {currProfile.name} displayed multiple green flags throughout the conversation.</>
+                                    ? "Great job! Not scammer!"
                                     : (scammerFound && !currProfile.scammer)
-                                        ? <>Sorry, {currProfile.name}&apos;s profile was <strong>not a scam.</strong> {currProfile.name} displayed multiple green flags throughout the conversation.</>
-                                        : <>Sorry {currProfile.name}&apos;s profile was <strong>a scam.</strong> {currProfile.name} displayed multiple red flags throughout the conversation.</>
+                                        ? "Oops! This profile is actually legitimate."
+                                        : "Oops! This profile is actually a scammer."
                             }
-                        </Typography>
-                        <Typography
-                            sx={{
-                                fontSize: {
-                                    xs: theme.typography.h6.fontSize,
-                                    sm: theme.typography.h6.fontSize,
-                                    md: theme.typography.h6.fontSize,
-                                    lg: theme.typography.h6.fontSize,
-                                    xl: theme.typography.h6.fontSize,
-                                },
-                            }}
-                        >
-                            {endingText}
                         </Typography>
                     </div>
                 </div>
