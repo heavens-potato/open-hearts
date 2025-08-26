@@ -280,7 +280,8 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                                     } else {
                                         currResponses.length = 0;
                                         if (dialogueInd <= dialogueArr.length) {
-                                            
+                                           setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
+                                           setDialInd(dialogueInd + 1); 
                                         }
                                         if (responses.length !== 0 && responseInd < responses[index].length){
                                             currResponses.push(responses[index][responseInd].response1);
