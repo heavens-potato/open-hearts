@@ -25,7 +25,6 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
     let optionCount = 1;
 
     useEffect(() =>{
-        console.log(index);
         if(index !== -1){
             currResponses.length = 0;
             getDialogueArr();
@@ -35,7 +34,6 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                 setCurrResponses([...currResponses]);
                 const temp = responseInd + 1;
                 setResInd(temp);
-                console.log("Index Update");
             } else if (responseInd >= responses.length) {
                 // clearMapping();
                 setPage(3);
@@ -57,12 +55,10 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
         if (dialogueArr.length !== 0){
             setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
             setDialInd(dialogueInd + 1);
-            console.log("Dialogue Set");
         }
     }, [dialogueArr.length])
 
     const getDialogueArr = async () => {
-        console.log("asdfasf");
         // if (!currProfile || !currProfile.profileId) return; // Prevent fetch if not ready
         if (!currProfile) return;
         const response = await fetch(`http://localhost:8080/api/dialogue?profileId=${currProfile.profileId}&option=${"option" + index}`);
@@ -73,7 +69,6 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
         const text = await response.text();
         if (!text) return; // Prevent parsing empty response
         const arr = JSON.parse(text); //gets dialogue arr
-        console.log(arr);
         setDialogues([...arr]);
     }
 
@@ -283,11 +278,9 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                                         const temp = currResponses.indexOf(response);
                                         setIndex(temp);
                                     } else {
-                                        console.log("POOPY BUTT");
                                         currResponses.length = 0;
                                         if (dialogueInd <= dialogueArr.length) {
-                                            setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
-                                            setDialInd(dialogueInd + 1);
+                                            
                                         }
                                         if (responses.length !== 0 && responseInd < responses[index].length){
                                             currResponses.push(responses[index][responseInd].response1);
