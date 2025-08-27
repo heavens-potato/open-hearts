@@ -27,6 +27,17 @@ export default function Minigame() {
     const [endingText, setEnding] = useState("");
     let count = 0;
 
+    const handleRestart = () => {
+        setProfile(null);
+        setDialogue(null);
+        setindex(0);
+        setOptions([]);
+        setOption(0);
+        setResponses([]);
+        setEnding("");
+        generateRandomProfile();
+    };
+
     useEffect(() => {
         if (gameStarted && currProfile === null) {
             generateRandomProfile();
@@ -103,7 +114,13 @@ export default function Minigame() {
                         {
                             gameStarted &&
                             <div className="h-full w-full flex justify-center items-center w-full">
-                                <Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} responses={responses ? responses : []} options={options ? options : []} endingText={endingText ? endingText: ""}/>
+                                <Game gameStarted={gameStarted} 
+                                    currProfile={currProfile ? currProfile : ""} 
+                                    responses={responses ? responses : []} 
+                                    options={options ? options : []} 
+                                    endingText={endingText ? endingText: ""}
+                                    onRestart={handleRestart}
+                                />
                             </div>
                         }
                         {
@@ -167,7 +184,13 @@ export default function Minigame() {
                     :
                     <div className="h-full w-full flex flex-row justify-center items-center px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 gap-16 my-13 md:my-18">
                         <div className={`h-full flex justify-center items-center ${gameStarted ? 'w-full' : 'w-1/2'}`}>
-                            <Game Game gameStarted={gameStarted} currProfile={currProfile ? currProfile : ""} responses={responses ? responses : []} options={options ? options : []} endingText={endingText ? endingText: ""}/>
+                            <Game Game gameStarted={gameStarted} 
+                                  currProfile={currProfile ? currProfile : ""} 
+                                  responses={responses ? responses : []}
+                                  options={options ? options : []} 
+                                  endingText={endingText ? endingText: ""}
+                                  onRestart={handleRestart}
+                                  />
                         </div>
                         {
                             !gameStarted &&

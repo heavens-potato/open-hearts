@@ -7,8 +7,10 @@ import Image from "next/image";
 import blankProfilePic from "../components/images/blank-pfp.png";
 import gameStartCurve from "../components/images/GameStartCurve1.svg"
 import { Key } from "@mui/icons-material";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-export default function Game({ gameStarted, currProfile, responses, options }) {
+export default function Game({ gameStarted, currProfile, responses, options, endingText, onRestart }) {
     const theme = useTheme()
     const [page, setPage] = useState(0);
     const [messageArr, setMessageArr] = useState(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
@@ -229,26 +231,6 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
         return (
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl">
                 <div className="h-[37rem] bg-white border-black border-8 rounded-3xl flex flex-col">
-                    <div className="flex flex-row justify-between ml-7 mr-5 mt-5 mb-2">
-                        <button style={{ cursor: 'pointer' }} onClick={() => clearMapping()}>&lt;</button>
-                        <div onClick={() => setPage(3)}>
-                            <Typography
-                                sx={{
-                                    fontSize: '10px',
-                                    fontWeight: 'bold',
-                                    color: 'white',
-                                    backgroundColor: '#A33E70',
-                                    borderRadius: '.5rem',
-                                    width: '7rem',
-                                    textAlign: 'center',
-                                    padding: '0.2rem 0 0.2rem 0',
-                                    cursor: 'pointer'
-                                }}
-                            >
-                                I&apos;m Ready to Vote!
-                            </Typography>
-                        </div>
-                    </div>
                     <div className="flex flex-row justify-center items-center"> {/* Header */}
                         <Image
                             src={blankProfilePic}
@@ -271,34 +253,72 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                     </div> {/* Message End */}
                     <Typography sx={{ fontSize: '0.75rem', borderRadius: '0.25rem', textAlign: 'center', color: 'white', backgroundColor: '#A33E70', padding: '0.5rem 0 0.5rem 0', margin: '0 1.5rem 1rem 1.5rem' }}>Choose a Response ...</Typography>
                     <div className="h-1/2 overflow-auto"> {/* Choice start */}
-                        {currResponses.map((response) => (
-                            <div className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5" key={count++}
-                                onClick={() => {
-                                    setMessageArr(messageArr => [...messageArr, response]);
-                                    optionCount = 1;
-                                    if (index === -1) { //not set
-                                        const temp = currResponses.indexOf(response);
-                                        setIndex(temp);
-                                    } else {
-                                        currResponses.length = 0;
-                                        if (dialogueInd <= dialogueArr.length && dialogueArr[dialogueInd]) {
-                                           setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
-                                           setDialInd(dialogueInd + 1); 
-                                        }
-                                        if (responses.length !== 0 && responseInd < responses[index].length){
-                                            currResponses.push(responses[index][responseInd].response1);
-                                            currResponses.push(responses[index][responseInd].response2);
-                                            setCurrResponses([...currResponses]);
-                                            setResInd(responseInd + 1);
-                                        } else if (responseInd >= responses.length) {
-                                            // clearMapping();
-                                            setPage(3);
-                                        }
-                                    }
-                                }}>
-                                <Typography sx={{ padding: "0.35rem 0.35rem 0.35rem 0.35rem", fontSize: '0.65rem', color: 'black' }}>{optionCount++}. {response}</Typography>
-                            </div>
-                        ))}
+                        {(index !== -1 && dialogueInd >= dialogueArr.length)
+                            ? (
+                                // Special menu with options to Keep Talking or Vote
+                                <>
+                                    <div className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5"
+                                        onClick={() => {
+                                            // Reset to options menu without clearing chat history
+                                            setCurrResponses([...options]);
+                                            setResInd(0);
+                                            setDialInd(0);
+                                            setIndex(-1);
+                                            setDialogues([]);
+                                        }}
+                                    >
+                                        <Typography sx={{ padding: "0.35rem", fontSize: '0.65rem', color: 'black' }}>
+                                            Keep Talking
+                                        </Typography>
+                                    </div>
+                                    <div
+                                        className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5"
+                                        onClick={() => setPage(3)}
+                                    >
+                                        <Typography sx={{ padding: "0.35rem", fontSize: '0.65rem', color: 'black' }}>
+                                            I'm Ready to Vote!
+                                        </Typography>
+                                    </div>
+                                </>
+                            )
+                            : (
+                                // Normal response mapping
+                                currResponses.map((response, idx) => (
+                                    <div
+                                        className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5"
+                                        key={idx}
+                                        onClick={() => {
+                                            setMessageArr(messageArr => [...messageArr, response]);
+                                            optionCount = 1;
+                                            if (index === -1) { //not set
+                                                const temp = currResponses.indexOf(response);
+                                                setIndex(temp);
+                                            } else {
+                                                currResponses.length = 0;
+
+                                                if (dialogueInd < dialogueArr.length && dialogueArr[dialogueInd]) {
+                                                    setMessageArr(messageArr => [...messageArr, dialogueArr[dialogueInd]]);
+                                                    setDialInd(dialogueInd + 1); 
+                                                } 
+
+                                                if (responses.length !== 0 && responseInd < responses[index].length){
+                                                    currResponses.push(responses[index][responseInd].response1);
+                                                    currResponses.push(responses[index][responseInd].response2);
+                                                    setCurrResponses([...currResponses]);
+                                                    setResInd(responseInd + 1);
+                                                } else if (responseInd >= responses.length) {
+                                                    setPage(3);
+                                                }
+                                            }
+                                        }}
+                                    >
+                    <Typography sx={{ padding: "0.35rem", fontSize: '0.65rem', color: 'black' }}>
+                        {idx + 1}. {response}
+                    </Typography>
+                </div>
+            ))
+        )
+    }
                     </div>
                 </div>
             </div>
@@ -379,20 +399,25 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
         return (
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl overflow-hidden">
                 <div className="relative h-full w-full border-black border-8 rounded-3xl flex flex-col justify-center items-center text-center overflow-hidden px-4 gap-4">
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1 overflow-auto">
                         <Typography
                             sx={{
                                 fontSize: {
-                                    xs: theme.typography.h6.fontSize,
-                                    sm: theme.typography.h6.fontSize,
-                                    md: theme.typography.h6.fontSize,
-                                    lg: theme.typography.h5.fontSize,
-                                    xl: theme.typography.h5.fontSize,
+                                    xs: theme.typography.h5.fontSize,
+                                    sm: theme.typography.h5.fontSize,
+                                    md: theme.typography.h5.fontSize,
+                                    lg: theme.typography.h4.fontSize,
+                                    xl: theme.typography.h4.fontSize,
                                 },
-                                fontWeight: 'bold'
+                                fontWeight: 'bold',
+                                marginTop: '1.5rem',
+                                marginBottom: '.5rem'
                             }}
                         >
-                            {(scammerFound && currProfile.scammer) || (!scammerFound && !currProfile.scammer) ? "Correct!" : "Incorrect"}
+                            {(scammerFound && currProfile.scammer) || (!scammerFound && !currProfile.scammer)
+                                ? (<><CheckCircleOutlineIcon style={{fontSize: '50px', color: 'green'}}/> Correct!</>)
+                                : (<><HighlightOffIcon style={{fontSize: '50px', color: 'red'}}/> Incorrect</>)
+                            }
                         </Typography>
                         <Typography
                             sx={{
@@ -406,14 +431,55 @@ export default function Game({ gameStarted, currProfile, responses, options }) {
                             }}
                         >
                             {(scammerFound && currProfile.scammer)
-                                ? "Great job!"
+                                ? <>Great job! {currProfile.name}&apos;s profile was <strong>a scam.</strong> {currProfile.name} displayed multiple red flags throughout the conversation.</>
                                 : (!scammerFound && !currProfile.scammer)
-                                    ? "Great job! Not scammer!"
+                                    ? <>Great job! {currProfile.name}&apos;s profile was <strong>not a scam.</strong> {currProfile.name} displayed multiple green flags throughout the conversation.</>
                                     : (scammerFound && !currProfile.scammer)
-                                        ? "Oops! This profile is actually legitimate."
-                                        : "Oops! This profile is actually a scammer."
+                                        ? <>Sorry, {currProfile.name}&apos;s profile was <strong>not a scam.</strong> {currProfile.name} displayed multiple green flags throughout the conversation.</>
+                                        : <>Sorry {currProfile.name}&apos;s profile was <strong>a scam.</strong> {currProfile.name} displayed multiple red flags throughout the conversation.</>
                             }
                         </Typography>
+                        <Typography
+                            sx={{
+                                fontSize: {
+                                    xs: theme.typography.h6.fontSize,
+                                    sm: theme.typography.h6.fontSize,
+                                    md: theme.typography.h6.fontSize,
+                                    lg: theme.typography.h6.fontSize,
+                                    xl: theme.typography.h6.fontSize,
+                                },
+                            }}
+                        >
+                            {endingText}
+                        </Typography>
+                        <div className="border-2 border-[#A33E70] rounded-md cursor-pointer mb-5 mt-2" 
+                            onClick={() => {
+                                    setPage(0);
+                                    setMessageArr(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
+                                    setCurrResponses([...options]);
+                                    setResInd(0);
+                                    setDialInd(0);
+                                    setDialogues([]);
+                                    setFound(false);
+                                    setIndex(-1);
+                                    if (onRestart) onRestart();
+                                }}
+                            >
+                        <Typography
+                            sx={{
+                                fontSize: {
+                                    xs: theme.typography.h6.fontSize,
+                                    sm: theme.typography.h6.fontSize,
+                                    md: theme.typography.h6.fontSize,
+                                    lg: theme.typography.h6.fontSize,
+                                    xl: theme.typography.h6.fontSize,
+                                },
+                                padding: '0.3rem'
+                            }}
+                        >
+                            Restart
+                        </Typography>
+                    </div>
                     </div>
                 </div>
             </div>
