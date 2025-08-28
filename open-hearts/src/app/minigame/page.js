@@ -154,9 +154,7 @@ export default function Minigame() {
                                         color: "black",
                                     }}
                                 >
-                                    Game description blah blah blah blah blah
-                                    blah blah blah blah blah blah blah blah blah blah
-                                    blah blah blah blah blah blah blah blah blah blah
+                                    Game description.
                                 </Typography>
                                 <div
                                     className="w-full h-18 bg-[#A33E70] rounded-full cursor-pointer flex justify-center items-center text-center"
@@ -222,9 +220,7 @@ export default function Minigame() {
                                         color: "black",
                                     }}
                                 >
-                                    Game description blah blah blah blah blah
-                                    blah blah blah blah blah blah blah blah blah blah
-                                    blah blah blah blah blah blah blah blah blah blah
+                                    Game description.
                                 </Typography>
                                 <div
                                     className="w-full h-18 bg-[#A33E70] rounded-full cursor-pointer flex justify-center items-center text-center"

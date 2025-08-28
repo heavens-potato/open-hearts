@@ -159,7 +159,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                     style={{ pointerEvents: "none", bottom: "-1.2rem", width: "100%" }}
                                 />
                             </>
-                            : <Typography>WEEEEEEEEEEEEEE GAME PLACEHOLDER</Typography>
+                            : <Typography>Press 'PLAY' To Begin</Typography>
                     }
                 </div>
             </div>
@@ -184,11 +184,11 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                         </div>
 
                         <div className=""> {/* three info boxes*/}
-                            <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
+                            <div className='p-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2 shadow-lg'>
                                 <Typography sx={{ fontWeight: 'bold' }}>Location</Typography>
                                 <Typography>{currProfile.location}</Typography>
                             </div>
-                            <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
+                            <div className='p-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2 shadow-lg'>
                                 <Typography sx={{ fontWeight: 'bold' }}>Interests</Typography>
                                 {/* Map hobbies*/}
                                 <div className="flex flex-wrap gap-1">
@@ -197,23 +197,23 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                     ))}
                                 </div>
                             </div>
-                            <div className='px-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2'>
+                            <div className='p-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2 shadow-lg'>
                                 <Typography sx={{ fontWeight: 'bold' }}>Looking For</Typography>
                                 <Typography>??</Typography>
                             </div>
                         </div> {/* end three info boxes*/}
 
-                        <div className="rounded-sm bg-[#A33E70] my-5">
+                        <div className="rounded-bl-xs bg-[#A33E70] my-5 py-2 rounded-xl">
                             <Typography sx={{ color: 'white', fontSize: '.75rem' }}>You have a new message from {currProfile.name}</Typography>
                         </div>
 
                         <div
                             onClick={() => setPage(2)}
-                            className="w-full h-12 bg-[#A33E70] rounded-full cursor-pointer flex justify-center items-center text-center mb-10"
+                            className="w-full p-2 bg-[#7D1538] rounded-full cursor-pointer flex justify-center items-center text-center mb-10"
                         >
                             <Typography
                                 sx={{
-                                    fontSize: theme.typography.h5.fontSize,
+                                    fontSize: theme.typography.h6.fontSize,
                                     color: "white",
                                 }}
                             >
@@ -231,7 +231,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
         return (
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl">
                 <div className="h-[37rem] bg-white border-black border-8 rounded-3xl flex flex-col">
-                    <div className="flex flex-row justify-center items-center"> {/* Header */}
+                    <div className="flex flex-row justify-center items-center mt-4 gap-4"> {/* Header */}
                         <Image
                             src={blankProfilePic}
                             alt="Blank Profile Picture"
@@ -247,7 +247,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                 display: 'flex', flexDirection: 'row', justifyContent: messageInd % 2 === 0 ? 'flex-start' : 'flex-end',
                                 marginLeft: messageInd % 2 === 0 ? '1.75rem' : '0', marginRight: messageInd % 2 === 0 ? '0' : '1.75rem',
                             }} key={count++}>
-                                <Typography sx={{ textAlign: messageInd % 2 === 0 ? 'left' : 'right', marginBottom: '0.8rem', padding: '0.5rem 0.5rem 0.5rem 0.5rem', width: '50%', right: '0', borderRadius: '0.2rem', color: 'white', bgcolor: messageInd++ % 2 === 0 ? '#7D1538' : '#A33E70', fontSize: '0.75rem' }}>{text}</Typography>
+                                <Typography sx={{ textAlign: messageInd % 2 === 0 ? 'left' : 'right', marginBottom: '0.8rem', padding: '0.5rem 0.5rem 0.5rem 0.5rem', width: '50%', right: '0', borderRadius: '1rem', borderBottomLeftRadius: messageInd % 2 === 0 ? '0.125rem' : '1rem', borderBottomRightRadius: messageInd % 2 === 0 ? '1rem' : '0.125rem', color: 'white', bgcolor: messageInd++ % 2 === 0 ? '#7D1538' : '#A33E70', fontSize: '0.75rem' }}>{text}</Typography>
                             </div>
                         ))}
                     </div> {/* Message End */}
