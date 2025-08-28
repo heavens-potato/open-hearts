@@ -135,7 +135,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                     {
                         gameStarted ?
                             <>
-                                <Typography style={{ fontSize: "18px" }}>{"You've matched with"}<br />
+                                <Typography style={{ fontSize: "0.95rem" }}>{"You've matched with"}<br />
                                     <strong>{currProfile ? currProfile.name : "Loading..."}{"!"}</strong>
                                 </Typography>
                                 <Image
@@ -146,7 +146,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                     className="object-contain w-20 sm:w-20 md:w-20 lg:w-24 xl:w-28 rounded-full mt-5 flex justify-center items-center"
                                 />
                                 <Typography
-                                    sx={{ color: "black", cursor: "pointer", textDecoration: "underline", mt: 2, fontSize: "12px" }}
+                                    sx={{ color: "black", cursor: "pointer", textDecoration: "underline", mt: 2, fontSize: "0.85rem" }}
                                     onClick={() => setPage(1)}
                                 >
                                     See Profile
@@ -185,26 +185,26 @@ export default function Game({ gameStarted, currProfile, responses, options, end
 
                         <div className=""> {/* three info boxes*/}
                             <div className='p-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2 shadow-lg'>
-                                <Typography sx={{ fontWeight: 'bold' }}>Location</Typography>
+                                <Typography sx={{ fontWeight: 'bold', fontSize: '0.85rem' }}>Location</Typography>
                                 <Typography>{currProfile.location}</Typography>
                             </div>
                             <div className='p-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2 shadow-lg'>
-                                <Typography sx={{ fontWeight: 'bold' }}>Interests</Typography>
+                                <Typography sx={{ fontWeight: 'bold', fontSize: '0.85rem' }}>Interests</Typography>
                                 {/* Map hobbies*/}
                                 <div className="flex flex-wrap gap-1">
                                     {currProfile.hobbies.map((text) => (
-                                        <Typography sx={{ padding: '0.2rem 0.75rem 0.2rem 0.75rem', borderRadius: '1rem', color: 'white', bgcolor: '#7D1538', fontSize: '0.75rem' }} key={count++}>{text}</Typography>
+                                        <Typography sx={{ padding: '0.2rem 0.75rem 0.2rem 0.75rem', borderRadius: '1rem', color: 'white', bgcolor: '#7D1538', fontSize: '0.85rem' }} key={count++}>{text}</Typography>
                                     ))}
                                 </div>
                             </div>
                             <div className='p-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2 shadow-lg'>
-                                <Typography sx={{ fontWeight: 'bold' }}>Looking For</Typography>
+                                <Typography sx={{ fontWeight: 'bold', fontSize: '0.85rem' }}>Looking For</Typography>
                                 <Typography>??</Typography>
                             </div>
                         </div> {/* end three info boxes*/}
 
-                        <div className="rounded-bl-xs bg-[#A33E70] my-5 py-2 rounded-xl">
-                            <Typography sx={{ color: 'white', fontSize: '.75rem' }}>You have a new message from {currProfile.name}</Typography>
+                        <div className="rounded-bl-xs bg-[#A33E70] my-5 p-2 rounded-xl text-left">
+                            <Typography sx={{ color: 'white', fontSize: '0.85rem' }}>You have a new message from {currProfile.name}</Typography>
                         </div>
 
                         <div
@@ -267,7 +267,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                             setDialogues([]);
                                         }}
                                     >
-                                        <Typography sx={{ padding: "0.35rem", fontSize: '0.65rem', color: 'black' }}>
+                                        <Typography sx={{ padding: "0.35rem", fontSize: '0.75rem', color: 'black' }}>
                                             Keep Talking
                                         </Typography>
                                     </div>
@@ -275,7 +275,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                         className="cursor-pointer rounded-sm flex-col justify-center border-2 border-[#A33E70] mb-1.5 mx-6.5"
                                         onClick={() => setPage(3)}
                                     >
-                                        <Typography sx={{ padding: "0.35rem", fontSize: '0.65rem', color: 'black' }}>
+                                        <Typography sx={{ padding: "0.35rem", fontSize: '0.75rem', color: 'black' }}>
                                             I'm Ready to Vote!
                                         </Typography>
                                     </div>
@@ -312,7 +312,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                             }
                                         }}
                                     >
-                    <Typography sx={{ padding: "0.35rem", fontSize: '0.65rem', color: 'black' }}>
+                    <Typography sx={{ padding: "0.35rem", fontSize: '0.75rem', color: 'black' }}>
                         {idx + 1}. {response}
                     </Typography>
                 </div>
@@ -403,11 +403,11 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                         <Typography
                             sx={{
                                 fontSize: {
-                                    xs: theme.typography.h5.fontSize,
-                                    sm: theme.typography.h5.fontSize,
-                                    md: theme.typography.h5.fontSize,
-                                    lg: theme.typography.h4.fontSize,
-                                    xl: theme.typography.h4.fontSize,
+                                    xs: theme.typography.h6.fontSize,
+                                    sm: theme.typography.h6.fontSize,
+                                    md: theme.typography.h6.fontSize,
+                                    lg: theme.typography.h5.fontSize,
+                                    xl: theme.typography.h5.fontSize,
                                 },
                                 fontWeight: 'bold',
                                 marginTop: '1.5rem',
@@ -421,13 +421,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                         </Typography>
                         <Typography
                             sx={{
-                                fontSize: {
-                                    xs: theme.typography.h6.fontSize,
-                                    sm: theme.typography.h6.fontSize,
-                                    md: theme.typography.h6.fontSize,
-                                    lg: theme.typography.h6.fontSize,
-                                    xl: theme.typography.h6.fontSize,
-                                },
+                                fontSize: '0.85rem'
                             }}
                         >
                             {(scammerFound && currProfile.scammer)
@@ -441,13 +435,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                         </Typography>
                         <Typography
                             sx={{
-                                fontSize: {
-                                    xs: theme.typography.h6.fontSize,
-                                    sm: theme.typography.h6.fontSize,
-                                    md: theme.typography.h6.fontSize,
-                                    lg: theme.typography.h6.fontSize,
-                                    xl: theme.typography.h6.fontSize,
-                                },
+                                fontSize: '0.85rem',
                             }}
                         >
                             {endingText}
@@ -471,8 +459,8 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                     xs: theme.typography.h6.fontSize,
                                     sm: theme.typography.h6.fontSize,
                                     md: theme.typography.h6.fontSize,
-                                    lg: theme.typography.h6.fontSize,
-                                    xl: theme.typography.h6.fontSize,
+                                    lg: theme.typography.h5.fontSize,
+                                    xl: theme.typography.h5.fontSize,
                                 },
                                 padding: '0.3rem'
                             }}
