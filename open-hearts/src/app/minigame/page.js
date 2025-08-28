@@ -140,7 +140,7 @@ export default function Minigame() {
                                         textAlign: "center"
                                     }}
                                 >
-                                    Title of Game
+                                    Match or Mismatch
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -154,7 +154,7 @@ export default function Minigame() {
                                         color: "black",
                                     }}
                                 >
-                                    Game description.
+                                    In Match or Mismatch, you'll be randomly matched with a profile and chat with. Your mission is to spot the red flags and decide if they're a true connection or a dangerous scammer.
                                 </Typography>
                                 <div
                                     className="w-full h-18 bg-[#A33E70] rounded-full cursor-pointer flex justify-center items-center text-center"
@@ -206,7 +206,7 @@ export default function Minigame() {
                                         fontWeight: "bold",
                                     }}
                                 >
-                                    Title of Game
+                                    Match or Mismatch
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -220,7 +220,7 @@ export default function Minigame() {
                                         color: "black",
                                     }}
                                 >
-                                    Game description.
+                                    In Match or Mismatch, you'll be randomly matched with a profile and chat with. Your mission is to spot the red flags and decide if they're a true connection or a dangerous scammer.
                                 </Typography>
                                 <div
                                     className="w-full h-18 bg-[#A33E70] rounded-full cursor-pointer flex justify-center items-center text-center"
