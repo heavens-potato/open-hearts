@@ -252,7 +252,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                         ))}
                     </div> {/* Message End */}
                     <Typography sx={{ fontSize: '0.75rem', borderRadius: '0.25rem', textAlign: 'center', color: 'white', backgroundColor: '#A33E70', padding: '0.5rem 0 0.5rem 0', margin: '0 1.5rem 1rem 1.5rem' }}>Choose a Response ...</Typography>
-                    <div className="h-1/2 overflow-auto"> {/* Choice start */}
+                    <div className="max-h-auto overflow-auto"> {/* Choice start */}
                         {(index !== -1 && dialogueInd >= dialogueArr.length)
                             ? (
                                 // Special menu with options to Keep Talking or Vote
