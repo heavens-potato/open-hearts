@@ -197,10 +197,10 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                     ))}
                                 </div>
                             </div>
-                            <div className='p-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2 shadow-lg'>
+                            {/* <div className='p-2 bg-[#FFEFF6] rounded-md flex flex-col text-left mt-2 shadow-lg'>
                                 <Typography sx={{ fontWeight: 'bold', fontSize: '0.85rem' }}>Looking For</Typography>
                                 <Typography>??</Typography>
-                            </div>
+                            </div> */}
                         </div> {/* end three info boxes*/}
 
                         <div className="rounded-bl-xs bg-[#A33E70] my-5 p-2 rounded-xl text-left">
