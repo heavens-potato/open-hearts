@@ -40,5 +40,5 @@ Meet the amazing people behind this project:
 - **Claire Chen**: Frontend Engineer | [GitHub Profile](https://github.com/cc13985)
 - **Alexis Giobbi**: UI/UX Designer | [GitHub Profile](https://github.com/alexisgiobbi)
 - **Tracy Tan**: UI/UX Designer
-- - **Jennifer Vo**: UI/UX Designer
+- **Jennifer Vo**: UI/UX Designer
   
