@@ -34,7 +34,7 @@ Got ideas to improve the project? We'd love to hear them! Open an issue or submi
 
 ## 👩‍💻 Our Team  
 Meet the amazing people behind this project:  
-- **Stephen Wu**: Product Manager & Lead Softwear Engineer | [GitHub Profile](https://github.com/heavens-potato)  
+- **Stephen Wu**: Product Manager & Lead Software Engineer | [GitHub Profile](https://github.com/heavens-potato)  
 - **Justin Glazer**: Backend Engineer | [GitHub Profile](https://github.com/justin-glazer)
 - **Rachel Kim**: Backend Engineer | [GitHub Profile](https://github.com/RachelK23)
 - **Claire Chen**: Frontend Engineer | [GitHub Profile](https://github.com/cc13985)
