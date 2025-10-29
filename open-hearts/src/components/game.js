@@ -261,6 +261,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                         onClick={() => {
                                             // Reset to options menu without clearing chat history
                                             setCurrResponses([...options]);
+                                            setMessageArr(["Hi, nice to meet you! Your profile looked interesting; I want to get to know you better!"]);
                                             setResInd(0);
                                             setDialInd(0);
                                             setIndex(-1);
