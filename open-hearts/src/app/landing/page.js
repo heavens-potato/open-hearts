@@ -7,7 +7,7 @@ import Logo from "../../components/images/logo.svg";
 import landingGraphic from "../../components/images/landing-graphic.svg"
 import ScrollableCards from "../../components/scrollableCards.js";
 import { motion } from "framer-motion";
-export default function landing() {
+export default function Landing() {
     const theme = useTheme();
 
     return (

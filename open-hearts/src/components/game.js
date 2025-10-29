@@ -159,7 +159,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                     style={{ pointerEvents: "none", bottom: "-1.2rem", width: "100%" }}
                                 />
                             </>
-                            : <Typography>Press 'PLAY' To Begin</Typography>
+                            : <Typography>Press PLAY To Begin</Typography>
                     }
                 </div>
             </div>
@@ -277,7 +277,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                         onClick={() => setPage(3)}
                                     >
                                         <Typography sx={{ padding: "0.35rem", fontSize: '0.75rem', color: 'black' }}>
-                                            I'm Ready to Vote!
+                                            I&apos;m Ready to Vote!
                                         </Typography>
                                     </div>
                                 </>
@@ -343,7 +343,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
                                 fontWeight: 'bold'
                             }}
                         >
-                            So what's your verdict:
+                            So what&apos;s your verdict:
                         </Typography>
                         <Typography
                             sx={{

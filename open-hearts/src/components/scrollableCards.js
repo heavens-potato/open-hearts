@@ -8,7 +8,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
-export default function scrollableCards() {
+export default function ScrollableCards() {
     const theme = useTheme();
 
     const scrollContainerRef = useRef(null);

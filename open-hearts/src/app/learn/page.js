@@ -13,7 +13,7 @@ import EmotionalToll from '../../components/emotionalToll.js';
 import { motion } from "framer-motion";
 import Link from 'next/link';
 
-export default function learn() {
+export default function Learn() {
     const theme = useTheme();
 
     const [openIndex, setOpenIndex] = useState(null);
@@ -93,7 +93,7 @@ export default function learn() {
                             <span className="font-bold underline">
                                 exploiting them for personal gain
                             </span>{" "}
-                            (Cross & Holt, 2023). It's a{" "}
+                            (Cross & Holt, 2023). It&apos;s a{" "}
                             <span className="font-bold underline">calculated deception</span>{" "}
                             that preys on <span className="font-bold underline">emotions and connection</span> to extract resources such as
                             money, credit card information, personal documents, and more.
@@ -153,7 +153,7 @@ export default function learn() {
                                 color: "black",
                             }}
                         >
-                            Romance fraud isn't just about financial loss. It's a devastating
+                            Romance fraud isn&apos;t just about financial loss. It&apos;s a devastating
                             crime with far-reaching impacts on individuals worldwide.
                         </Typography>
                     </motion.div>

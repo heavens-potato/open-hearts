@@ -105,7 +105,7 @@ export default function EmotionalToll() {
                 textAlign: "left",
               }}
             >
-              Romance fraud takes advantage of the victim’s{" "}
+              Romance fraud takes advantage of the victim&apos;s{" "}
               <strong>belief of being in a genuine relationship</strong> to
               enable the offender to benefit. These offenders are known to use a
               variety of “<strong>persuasion tactics</strong>”, including{" "}

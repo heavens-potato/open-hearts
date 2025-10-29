@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-export default function typicalCase() {
+export default function TypicalCase() {
     const theme = useTheme();
     const [openIndex, setOpenIndex] = useState(0);
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -42,7 +42,7 @@ export default function typicalCase() {
             title: "Leaving the Victim",
             icon: PersonOutlineIcon
         }
-    ]);
+    ], []);
 
     let contentToDisplay;
 

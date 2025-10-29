@@ -11,7 +11,7 @@ import { Typography } from '@mui/material';
 import HeaderLogo from "../components/images/header-logo.svg";
 import { motion } from "framer-motion";
 
-export default function header() {
+export default function Header() {
     const theme = useTheme();
 
     const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
