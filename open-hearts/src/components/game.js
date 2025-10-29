@@ -168,9 +168,9 @@ export default function Game({ gameStarted, currProfile, responses, options, end
     // Page 1: Profile page
     if (page === 1) {
         return (
-            <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl">
-                <div className="h-[37rem] bg-gray-400 border-black border-8 rounded-3xl flex justify-center items-center text-center">
-                    <section className="relative w-full h-[32.5em] mt-14 rounded-2xl bg-white flex flex-col px-2 overflow-auto">
+            <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl overflow-hidden">
+                <div className="relative h-full w-full border-black border-8 rounded-3xl flex flex-col justify-center items-center text-center overflow-hidden">                    
+                    <section className="relative w-full h-[35rem] rounded-2xl bg-white flex flex-col justify-start px-2 overflow-auto scrollbar-hide">
                         <Image
                             src={blankProfilePic}
                             alt="Blank Profile Picture"
@@ -230,7 +230,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
     if (page == 2) {
         return (
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl">
-                <div className="h-[37rem] bg-white border-black border-8 rounded-3xl flex flex-col">
+                <div className="relative h-full w-full border-black border-8 rounded-3xl flex flex-col">
                     <div className="flex flex-row justify-center items-center mt-4 gap-4"> {/* Header */}
                         <Image
                             src={blankProfilePic}
