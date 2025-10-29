@@ -231,7 +231,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
         return (
             <div className="h-[37rem] w-[19rem] border-gray-500 border-4 rounded-4xl">
                 <div className="relative h-full w-full border-black border-8 rounded-3xl flex flex-col">
-                    <div className="flex flex-row justify-center items-center mt-4 gap-4"> {/* Header */}
+                    <div className="flex flex-row justify-center items-center mt-4"> {/* Header */}
                         <Image
                             src={blankProfilePic}
                             alt="Blank Profile Picture"
