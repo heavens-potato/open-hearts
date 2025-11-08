@@ -30,7 +30,7 @@ export default function Doreen() {
                 }}
             >
                 Adam manipulated her by <span className="font-bold">praising her appearance repeatedly</span> and promising the <span className="font-bold">chance to enter a raffle and win £100,000</span>.
-                He then convinced her to download a remote control app, which he then used to secretly transfer nearly £30,000 from Doreen’s accounts.
+                He then convinced her to download a remote control app, which he then used to secretly transfer nearly £30,000 from Doreen&apos;s accounts.
                 Doreen <span className="font-bold">never notified her family</span> of her communications with Adam, and they only found out after her credit card was declined at a supermarket.
             </Typography>
         </>,
@@ -56,7 +56,7 @@ export default function Doreen() {
                 }}
             >
                 <span className="font-bold">Online-Only Relationship and Avoidance of Meetings: </span>
-                Like Lyn’s relationship, Doreen’s relationship with Adam was fully online.
+                Like Lyn&apos;s relationship, Doreen&apos;s relationship with Adam was fully online.
                 His claim to be living abroad meant Doreen had no chance of meeting him to verify his identity or supposedly impressive career.
             </Typography>
         </>,
@@ -80,7 +80,7 @@ export default function Doreen() {
                 }}
             >
                 <span className="font-bold">Suspicious and Unusual Requests: </span>
-                It is extremely unusual and a major red flag for any financial advisor to request direct remote control over a client’s bank accounts.
+                It is extremely unusual and a major red flag for any financial advisor to request direct remote control over a client&apos;s bank accounts.
                 This bypasses established normal procedures and is a huge sign something is wrong.
             </Typography>
         </>

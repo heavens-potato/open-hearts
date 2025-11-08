@@ -10,7 +10,7 @@ import Image from "next/image";
 import RedFlagIcon from "../../components/images/flag-icon.svg";
 import GreenCheckIcon from "../../components/images/check-icon.svg";
 
-export default function stories() {
+export default function RedFlags() {
     const theme = useTheme();
 
     const flagContent = [

@@ -56,7 +56,7 @@ export default function Doreen() {
                 }}
             >
                <span className="font-bold">Quick Attempt to Move Off-Platform:  </span>
-               The scammer's immediate request to shift conversations from a public social media platform to a private, encrypted messaging app is a significant red flag. 
+               The scammer&apos;s immediate request to shift conversations from a public social media platform to a private, encrypted messaging app is a significant red flag. 
                This tactic enables the scammer to isolate the victim and hide activities from law enforcement. 
             </Typography>
         </>,
@@ -68,7 +68,7 @@ export default function Doreen() {
                 }}
             >
                 <span className="font-bold">Emotionally Intense Origin Story: </span>
-                By utilizing a tragic, but common, backstory of going through a divorce, the scammer was able to gain Rita’s trust early on and make it impossible for Rita to leave their side. 
+                By utilizing a tragic, but common, backstory of going through a divorce, the scammer was able to gain Rita&apos;s trust early on and make it impossible for Rita to leave their side. 
             </Typography>
         </>,
         <>

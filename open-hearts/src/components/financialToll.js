@@ -17,7 +17,7 @@ import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from '@mui/system';
 
-export default function financialToll() {
+export default function FinancialToll() {
     const theme = useTheme();
 
     const [infoPopIndex, setInfoPopIndex] = useState(null);

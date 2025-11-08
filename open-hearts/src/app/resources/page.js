@@ -10,7 +10,7 @@ import SupportIcon from '@mui/icons-material/Support';
 import ReportIcon from '@mui/icons-material/Report';
 import LinkIcon from '@mui/icons-material/Link';
 
-export default function stories() {
+export default function Resources() {
     const theme = useTheme();
 
     const reportItems = [

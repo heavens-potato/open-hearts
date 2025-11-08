@@ -31,7 +31,7 @@ export default function Learn() {
             title: "Beyond the Statistics: The Emotional Toll",
             content: <EmotionalToll />
         },
-    ]);
+    ], []);
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center justify-between">

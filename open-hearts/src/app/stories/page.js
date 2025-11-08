@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useTheme, darken } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 
-export default function stories() {
+export default function Stories() {
     const theme = useTheme();
 
     return (

@@ -79,7 +79,7 @@ export default function Lyn() {
                 }}
             >
                 <span className="font-bold">Pressure to use Cryptocurrency Accounts: </span>
-                Encouraging Lyn to open multiple cryptocurrency accounts and send money to various "associates" is a major red flag. Scammers often prefer cryptocurrencies as well as having multiple receiving accounts as they are more difficult to track.
+                Encouraging Lyn to open multiple cryptocurrency accounts and send money to various &quot;associates&quot; is a major red flag. Scammers often prefer cryptocurrencies as well as having multiple receiving accounts as they are more difficult to track.
             </Typography>
         </>
     ]
@@ -109,7 +109,7 @@ export default function Lyn() {
                             color: "white"
                         }}
                     >
-                        Lyn's Story
+                        Lyn&apos;s Story
                     </Typography>
                     <Typography
                         sx={{
@@ -123,7 +123,7 @@ export default function Lyn() {
                             color: "white",
                         }}
                     >
-                        Lyn, a woman in her 60s from Warrington, England, became a victim of romance fraud, losing over £50,000 to a scammer named "Derek."
+                        Lyn, a woman in her 60s from Warrington, England, became a victim of romance fraud, losing over £50,000 to a scammer named &quot;Derek.&quot;
                     </Typography>
                 </motion.div>
                 <motion.div

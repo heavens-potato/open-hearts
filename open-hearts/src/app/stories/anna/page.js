@@ -17,8 +17,8 @@ export default function Lyn() {
                     color: "black",
                 }}
             >
-                On Zoosk, Anna met “Andrew”, a Bulgarian food importer living in London. 
-                The pair spoke for hours on the phone everyday, with Andrew <span className="font-bold">showering Anna with “love and affection”</span>.
+                On Zoosk, Anna met &quot;Andrew&quot;, a Bulgarian food importer living in London. 
+                The pair spoke for hours on the phone everyday, with Andrew <span className="font-bold">showering Anna with &quot;love and affection&quot;</span>.
             </Typography>
         </>,
         <>
@@ -50,7 +50,7 @@ export default function Lyn() {
                     color: "black",
                 }}
             >
-                All in all, Anna sent “Andrew” nearly <span className="font-bold">£350,000</span> over the <span className="font-bold">course of a year</span>, enduring significant emotional distress.
+                All in all, Anna sent &quot;Andrew&quot; nearly <span className="font-bold">£350,000</span> over the <span className="font-bold">course of a year</span>, enduring significant emotional distress.
             </Typography>
         </>
     ]
@@ -77,9 +77,9 @@ export default function Lyn() {
                 }}
             >
                 <span className="font-bold">Rapid and Intense Declarations of Love: </span>
-                Andrew quickly overwhelmed Anna with "love and affection," a manipulative technique known as love bombing. 
+                Andrew quickly overwhelmed Anna with &quot;love and affection,&quot; a manipulative technique known as love bombing. 
                 The goal behind love bombing is to strategically disarm the victim and establish trust early. 
-                Anna herself felt "strategically wrapped around his will."
+                Anna herself felt &quot;strategically wrapped around his will.&quot;
             </Typography>
         </>,
         <>
@@ -121,7 +121,7 @@ export default function Lyn() {
                             color: "white"
                         }}
                     >
-                        Anna's Story
+                        Anna&apos;s Story
                     </Typography>
                     <Typography
                         sx={{
