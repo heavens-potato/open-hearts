@@ -48,14 +48,14 @@ export default function Minigame() {
 
     const getRandomProfile = async () => {
         // Get a random profile
-        const res = await fetch(`${CLOUD_RUN_URL}/profile`);
+        const res = await fetch(`${CLOUD_RUN_URL}`);
         const profile = await res.json(); // contains full profile (id, name, dialogue map, etc)
         //console.log("Profile: " + JSON.stringify(profile));
         return profile;
     }
 
     const getDialogue = async (profile) => {
-        const response = await fetch(`${CLOUD_RUN_URL}/dialogue?profileId=${profile.profileId}&option=${"option" + option}`);
+        const response = await fetch(`${CLOUD_RUN_URL}/api/dialogue?profileId=${profile.profileId}&option=${"option" + option}`);
         //console.log("Profile ID: " + profile.profileId + " Option: " + randomOption);
         const nextDialogue = await response.json();
         return nextDialogue;
@@ -74,7 +74,7 @@ export default function Minigame() {
     }
 
     const getEndingText = async (profile) => {
-        const response = await fetch(`${CLOUD_RUN_URL}/ending?profileId=${profile.profileId}`);
+        const response = await fetch(`${CLOUD_RUN_URL}/api/ending?profileId=${profile.profileId}`);
         const ending = await response.text();
         console.log("Ending text: " + ending);
         setEnding(ending);
@@ -93,14 +93,14 @@ export default function Minigame() {
     }
 
     const generateOptions = async (profile) => {
-        const response = await fetch(`${CLOUD_RUN_URL}/userOptions?profileId=${profile.profileId}`);
+        const response = await fetch(`${CLOUD_RUN_URL}/api/userOptions?profileId=${profile.profileId}`);
         const optionsData = await response.json();
         console.log("Options Data: " + JSON.stringify(optionsData));
         setOptions(optionsData);
     }
 
     const getUserResponses = async (profile) => {
-        const response = await fetch(`${CLOUD_RUN_URL}/userResponses?profileId=${profile.profileId}`);
+        const response = await fetch(`${CLOUD_RUN_URL}/api/userResponses?profileId=${profile.profileId}`);
         const userResponses = await response.json();
         console.log("User Responses: " + JSON.stringify(userResponses));
         setResponses(userResponses);
