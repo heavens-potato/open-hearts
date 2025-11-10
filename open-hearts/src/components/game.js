@@ -21,6 +21,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
     const [scammerFound, setFound] = useState(false);
     const [index, setIndex] = useState(-1);
     const messageDivRef = useRef(null);
+    const CLOUD_RUN_URL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
     let count = 0;
     let messageInd = 0;
@@ -63,7 +64,7 @@ export default function Game({ gameStarted, currProfile, responses, options, end
     const getDialogueArr = async () => {
         // if (!currProfile || !currProfile.profileId) return; // Prevent fetch if not ready
         if (!currProfile) return;
-        const response = await fetch(`http://localhost:8080/api/dialogue?profileId=${currProfile.profileId}&option=${"option" + index}`);
+        const response = await fetch(`${CLOUD_RUN_URL}/api/dialogue?profileId=${currProfile.profileId}&option=${"option" + index}`);
         if (!response.ok) {
             // Optionally handle error
             return;
