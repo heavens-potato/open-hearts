@@ -48,7 +48,7 @@ export default function Minigame() {
 
     const getRandomProfile = async () => {
         // Get a random profile
-        const res = await fetch(`${CLOUD_RUN_URL}`);
+        const res = await fetch(`${CLOUD_RUN_URL}/api/profile`);
         const profile = await res.json(); // contains full profile (id, name, dialogue map, etc)
         //console.log("Profile: " + JSON.stringify(profile));
         return profile;
