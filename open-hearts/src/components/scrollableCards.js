@@ -61,11 +61,11 @@ export default function ScrollableCards() {
             description: "Where to get help.",
             link: "/resources",
         },
-        {
-            title: "About",
-            description: "Learn about our team and mission.",
-            link: "/about",
-        }
+        // {
+        //     title: "About",
+        //     description: "Learn about our team and mission.",
+        //     link: "/about",
+        // }
     ]
 
     return (
