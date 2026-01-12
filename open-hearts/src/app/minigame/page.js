@@ -270,7 +270,7 @@ export default function Minigame() {
                             color: "black",
                         }}
                     >
-                        ← Back
+                        ← Back to Red Flags
                     </Typography>
                 </Link>
                 <Link href="/resources" passHref >
@@ -286,7 +286,7 @@ export default function Minigame() {
                             color: "black",
                         }}
                     >
-                        Next →
+                        Next to Resources →
                     </Typography>
                 </Link>
             </motion.div>

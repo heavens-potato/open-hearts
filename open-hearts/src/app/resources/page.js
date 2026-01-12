@@ -368,10 +368,11 @@ export default function Resources() {
                             color: "black",
                         }}
                     >
-                        ← Back
+                        ← Back to Game
                     </Typography>
                 </Link>
-                {/* <Link href="/minigame" passHref >
+
+                 <Link href="/about" passHref >
                     <Typography
                         sx={{
                             fontSize: {
@@ -384,9 +385,9 @@ export default function Resources() {
                             color: "black",
                         }}
                     >
-                        Next [no link yet, maybe change this text]→
+                        Next to About →
                     </Typography>
-                </Link> */}
+                </Link>
             </motion.div>
         </div>
     )

@@ -186,7 +186,7 @@ export default function RedFlags() {
                             color: "black",
                         }}
                     >
-                        ← Back
+                        ← Back to Stories
                     </Typography>
                 </Link>
                 <Link href="/minigame" passHref >
@@ -202,7 +202,7 @@ export default function RedFlags() {
                             color: "black",
                         }}
                     >
-                        Next →
+                        Next to Game →
                     </Typography>
                 </Link>
             </motion.div>

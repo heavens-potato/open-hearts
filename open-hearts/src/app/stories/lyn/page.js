@@ -155,7 +155,7 @@ export default function Lyn() {
                             color: "black",
                         }}
                     >
-                        ← Back
+                        ← Back to Stories
                     </Typography>
                 </Link>
                 <Link href="/stories/doreen" passHref >
@@ -171,7 +171,7 @@ export default function Lyn() {
                             color: "black",
                         }}
                     >
-                        Next →
+                        Next to Doreen&apos;s Story →
                     </Typography>
                 </Link>
             </motion.div>

@@ -690,7 +690,7 @@ export default function TypicalCase() {
                             color: "black",
                         }}
                     >
-                        ← Back
+                        ← Back to Learn
                     </Typography>
                 </Link>
                 <Link href="/stories" passHref >
@@ -706,7 +706,7 @@ export default function TypicalCase() {
                             color: "black",
                         }}
                     >
-                        Next →
+                        Next to Stories →
                     </Typography>
                 </Link>
             </motion.div>

@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { useState, useMemo } from "react";
 import { useTheme } from "@mui/material/styles";
@@ -244,7 +243,7 @@ export default function Learn() {
                             color: "black",
                         }}
                     >
-                        Next →
+                        Next to Typical Case →
                     </Typography>
                 </Link>
             </motion.div>

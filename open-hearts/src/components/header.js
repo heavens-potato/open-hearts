@@ -113,7 +113,7 @@ export default function Header() {
                                 >
                                     Resources
                                 </Typography>
-                                {/* <Typography
+                                <Typography
                                     variant="h6"
                                     sx={{
                                         cursor: 'pointer'
@@ -122,7 +122,7 @@ export default function Header() {
                                     href="/about"
                                 >
                                     About
-                                </Typography> */}
+                                </Typography>
                             </div>
                         </motion.div>
                     )}
@@ -190,7 +190,7 @@ export default function Header() {
                         >
                             Resources
                         </Typography>
-                        {/* <Typography
+                        <Typography
                             variant="h6"
                             sx={{
                                 cursor: 'pointer'
@@ -199,7 +199,7 @@ export default function Header() {
                             href="/about"
                         >
                             About
-                        </Typography> */}
+                        </Typography>
                     </div>
                 </motion.div>
             )}

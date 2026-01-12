@@ -210,7 +210,7 @@ export default function Doreen() {
                             color: "black",
                         }}
                     >
-                        ← Back
+                        ← Back to Lyn&apos;s Story
                     </Typography>
                 </Link>
                 <Link href="/stories/anna" passHref >
@@ -226,7 +226,7 @@ export default function Doreen() {
                             color: "black",
                         }}
                     >
-                        Next →
+                        Next to Anna&apos;s Story →
                     </Typography>
                 </Link>
             </motion.div>

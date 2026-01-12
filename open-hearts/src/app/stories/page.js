@@ -115,7 +115,7 @@ export default function Stories() {
                             color: "black",
                         }}
                     >
-                        ← Back
+                        ← Back to Typical Case
                     </Typography>
                 </Link>
             </motion.div>

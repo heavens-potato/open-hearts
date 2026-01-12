@@ -221,7 +221,7 @@ export default function Doreen() {
                             color: "black",
                         }}
                     >
-                        ← Back
+                        ← Back to Anna&apos;s Story
                     </Typography>
                 </Link>
                 <Link href="/red-flags" passHref >
@@ -237,7 +237,7 @@ export default function Doreen() {
                             color: "black",
                         }}
                     >
-                        Next →
+                        Next to Red Flags →
                     </Typography>
                 </Link>
             </motion.div>
